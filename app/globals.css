@@ -29,10 +29,22 @@ a:hover { color: var(--red); }
   z-index: 20;
   background: rgba(251,250,248,.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 5px solid var(--red);
 }
-.header-inner { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-.brand img { width: 170px; height: auto; display: block; }
+
+.header-inner {
+  min-height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.brand img {
+  width: 230px;
+  height: auto;
+  display: block;
+}
 nav { display: flex; gap: 26px; align-items: center; font-size: 14px; font-weight: 700; }
 nav a { padding: 10px 0; }
 
