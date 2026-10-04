@@ -14,7 +14,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="China79 home">
-          <Image src="/china79-logo.png" alt="China79" width={252} height={92} priority />
+          <Image src="/china79-logo.png" alt="China79 Initiative" width={340} height={124} priority />
         </Link>
         <nav aria-label="Primary navigation">
           {nav.map(([label, href]) => (
