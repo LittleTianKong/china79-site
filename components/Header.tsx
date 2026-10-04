@@ -1,26 +1,64 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/components/LanguageProvider";
 
-const nav = [
-  ["Analysis", "/analysis"],
-  ["Policy & Outreach", "/policy-outreach"],
-  ["Interviews", "/interviews"],
-  ["About", "/about"],
-  ["Contact", "/contact"],
-];
+const nav = {
+  en: [
+    ["Analysis", "/analysis"],
+    ["Policy & Outreach", "/policy-outreach"],
+    ["Interviews", "/interviews"],
+    ["About", "/about"],
+    ["Contact", "/contact"],
+  ],
+  zh: [
+    ["分析", "/analysis"],
+    ["政策与交流", "/policy-outreach"],
+    ["访谈", "/interviews"],
+    ["关于", "/about"],
+    ["联系", "/contact"],
+  ],
+};
 
 export default function Header() {
+  const { language, toggleLanguage } = useLanguage();
+
   return (
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="China79 home">
-          <Image src="/china79-logo.png" alt="China79 Initiative" width={340} height={124} priority />
+          <Image
+            src="/china79-logo.png"
+            alt="China79 Initiative"
+            width={340}
+            height={124}
+            priority
+          />
         </Link>
-        <nav aria-label="Primary navigation">
-          {nav.map(([label, href]) => (
-            <Link key={href} href={href}>{label}</Link>
-          ))}
-        </nav>
+
+        <div className="header-actions">
+          <nav aria-label="Primary navigation">
+            {nav[language].map(([label, href]) => (
+              <Link key={href} href={href}>
+                {label}
+              </Link>
+            ))}
+          </nav>
+
+          <button
+            className="language-toggle"
+            onClick={toggleLanguage}
+            type="button"
+            aria-label={
+              language === "en"
+                ? "Switch site to Chinese"
+                : "Switch site to English"
+            }
+          >
+            {language === "en" ? "中文" : "EN"}
+          </button>
+        </div>
       </div>
     </header>
   );
