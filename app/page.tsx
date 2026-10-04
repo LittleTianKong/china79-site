@@ -82,6 +82,34 @@ export default function HomePage() {
   const t = copy[language];
 
   const [featured, ...latest] = articles;
+  const policyItem = policyItems[0];
+
+  const featuredTitle =
+    language === "zh" ? featured.titleZh : featured.title;
+
+  const featuredDek =
+    language === "zh" ? featured.dekZh : featured.dek;
+
+  const featuredSection =
+    language === "zh" ? featured.sectionZh : featured.section;
+
+  const featuredDate =
+    language === "zh" ? featured.dateZh : featured.date;
+
+  const featuredReadTime =
+    language === "zh" ? featured.readTimeZh : featured.readTime;
+
+  const policyType =
+    language === "zh" ? policyItem.typeZh : policyItem.type;
+
+  const policyStatus =
+    language === "zh" ? policyItem.statusZh : policyItem.status;
+
+  const policyItemTitle =
+    language === "zh" ? policyItem.titleZh : policyItem.title;
+
+  const policySummary =
+    language === "zh" ? policyItem.summaryZh : policyItem.summary;
 
   return (
     <>
@@ -91,9 +119,7 @@ export default function HomePage() {
 
           <h1>{t.heroTitle}</h1>
 
-          <p className="hero-dek">
-            {t.heroDek}
-          </p>
+          <p className="hero-dek">{t.heroDek}</p>
         </div>
       </section>
 
@@ -103,14 +129,14 @@ export default function HomePage() {
 
           <h2>
             <Link href={`/analysis/${featured.slug}`}>
-              {featured.title}
+              {featuredTitle}
             </Link>
           </h2>
 
-          <p>{featured.dek}</p>
+          <p>{featuredDek}</p>
 
           <div className="story-meta">
-            {featured.section} · {featured.date} · {featured.readTime}
+            {featuredSection} · {featuredDate} · {featuredReadTime}
           </div>
 
           <Link
@@ -139,17 +165,12 @@ export default function HomePage() {
         <div className="section-heading">
           <h2>{t.latestAnalysis}</h2>
 
-          <Link href="/analysis">
-            {t.viewAll}
-          </Link>
+          <Link href="/analysis">{t.viewAll}</Link>
         </div>
 
         <div className="card-grid">
           {latest.map((article) => (
-            <ArticleCard
-              article={article}
-              key={article.slug}
-            />
+            <ArticleCard article={article} key={article.slug} />
           ))}
 
           <ArticleCard article={featured} />
@@ -170,12 +191,12 @@ export default function HomePage() {
 
           <div className="policy-card">
             <div className="policy-type">
-              {policyItems[0].type} · {policyItems[0].status}
+              {policyType} · {policyStatus}
             </div>
 
-            <h3>{policyItems[0].title}</h3>
+            <h3>{policyItemTitle}</h3>
 
-            <p>{policyItems[0].summary}</p>
+            <p>{policySummary}</p>
 
             <Link href="/policy-outreach">
               {t.viewPolicy}
