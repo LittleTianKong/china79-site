@@ -37,21 +37,21 @@ const copy = {
 
     policyLabel: "Policy & Outreach",
     policyTitle: "Research beyond publication.",
-policyDek:
-  "China79 translates research into actionable policy recommendations and brings those ideas directly into policy discussions through congressional outreach and engagement.",
+    policyDek:
+      "China79 translates research into actionable policy recommendations and brings those ideas directly into policy discussions through congressional outreach and engagement.",
     viewPolicy: "View policy work →",
 
     perspectives: "Interviews & Perspectives",
-interviewsTitle:
-  "Conversations with people shaping U.S.-China understanding.",
-interviewsDek:
-  "China79 speaks with scholars, diplomats, researchers, journalists, business leaders, educators, and practitioners to bring firsthand expertise and diverse perspectives into discussions of China and the U.S.-China relationship.",
-exploreInterviews: "View interviews →",
+    interviewsTitle:
+      "Conversations with people shaping U.S.-China understanding.",
+    interviewsDek:
+      "China79 speaks with scholars, diplomats, researchers, journalists, business leaders, educators, and practitioners to bring firsthand expertise and diverse perspectives into discussions of China and the U.S.-China relationship.",
+    exploreInterviews: "View interviews →",
 
-    aboutLabel: "About China79",
+    aboutLabel: "Join the Conversation",
     aboutDek:
-      "China79 is an independent initiative focused on advancing deeper analysis and informed dialogue on China and the U.S.-China relationship.",
-    learnMore: "Learn more →",
+      "China79 welcomes perspectives from scholars, practitioners, researchers, and others with firsthand experience relevant to China and U.S.-China relations.",
+    learnMore: "Share your perspective →",
   },
 
   zh: {
@@ -85,20 +85,20 @@ exploreInterviews: "View interviews →",
     policyLabel: "政策与交流",
     policyTitle: "让研究走出出版物。",
     policyDek:
-  "China79 将研究转化为可落实的政策建议，并通过国会交流与政策参与，将这些观点直接带入政策讨论。",
+      "China79 将研究转化为可落实的政策建议，并通过国会交流与政策参与，将这些观点直接带入政策讨论。",
     viewPolicy: "查看政策工作 →",
 
     perspectives: "访谈与观点",
-interviewsTitle:
-  "与塑造美中理解的人士对话。",
-interviewsDek:
-  "China79 与学者、外交人士、研究人员、记者、企业领袖、教育工作者和政策实践者展开对话，将第一手专业经验和多元观点带入有关中国及美中关系的讨论。",
-exploreInterviews: "查看访谈 →",
+    interviewsTitle:
+      "与塑造美中理解的人士对话。",
+    interviewsDek:
+      "China79 与学者、外交人士、研究人员、记者、企业领袖、教育工作者和政策实践者展开对话，将第一手专业经验和多元观点带入有关中国及美中关系的讨论。",
+    exploreInterviews: "查看访谈 →",
 
-    aboutLabel: "关于 China79",
+    aboutLabel: "加入对话",
     aboutDek:
-      "China79 是一个独立倡议，致力于推动有关中国及美中关系的深入分析与理性对话。",
-    learnMore: "了解更多 →",
+      "China79 欢迎学者、政策实践者、研究人员以及其他对中国和美中关系具有第一手经验的人士分享观点。",
+    learnMore: "分享您的观点 →",
   },
 };
 
@@ -107,22 +107,22 @@ export default function HomePage() {
   const t = copy[language];
 
   const featured = articles.find(
-  (article) => article.slug === "competition-and-cooperation"
-)!;
+    (article) => article.slug === "competition-and-cooperation"
+  )!;
 
-const latest = [
-  articles.find(
-    (article) => article.slug === "cooperation-beyond-competition"
-  )!,
-  articles.find(
-    (article) => article.slug === "mandarin-pipeline"
-  )!,
-  articles.find(
-    (article) => article.slug === "video-games-soft-power"
-  )!,
-];
+  const latest = [
+    articles.find(
+      (article) => article.slug === "cooperation-beyond-competition"
+    )!,
+    articles.find(
+      (article) => article.slug === "mandarin-pipeline"
+    )!,
+    articles.find(
+      (article) => article.slug === "video-games-soft-power"
+    )!,
+  ];
 
-const policyItem = policyItems[0];
+  const policyItem = policyItems[0];
 
   const featuredTitle =
     language === "zh" ? featured.titleZh : featured.title;
@@ -234,11 +234,11 @@ const policyItem = policyItems[0];
         </div>
 
         <div className="card-grid">
-  {latest.map((article) => (
-    <ArticleCard article={article} key={article.slug} />
-  ))}
-</div>
-</section>
+          {latest.map((article) => (
+            <ArticleCard article={article} key={article.slug} />
+          ))}
+        </div>
+      </section>
 
       <section className="policy-band">
         <div className="container policy-layout">
@@ -295,7 +295,7 @@ const policyItem = policyItems[0];
 
           <Link
             className="text-link"
-            href="/about"
+            href="/contact"
           >
             {t.learnMore}
           </Link>
