@@ -41,11 +41,12 @@ policyDek:
   "China79 translates research into actionable policy recommendations and brings those ideas directly into policy discussions through congressional outreach and engagement.",
     viewPolicy: "View policy work →",
 
-    perspectives: "Perspectives & Interviews",
-    interviewsTitle: "Conversations with people who work on China.",
-    interviewsDek:
-      "China79 will feature interviews with scholars, practitioners, business leaders, students, and others whose experience offers insight into China and the U.S.-China relationship.",
-    exploreInterviews: "Explore interviews →",
+    perspectives: "Interviews & Perspectives",
+interviewsTitle:
+  "Conversations with people shaping U.S.-China understanding.",
+interviewsDek:
+  "China79 speaks with scholars, diplomats, researchers, journalists, business leaders, educators, and practitioners to bring firsthand expertise and diverse perspectives into discussions of China and the U.S.-China relationship.",
+exploreInterviews: "View interviews →",
 
     aboutLabel: "About China79",
     aboutDek:
@@ -87,11 +88,12 @@ policyDek:
   "China79 将研究转化为可落实的政策建议，并通过国会交流与政策参与，将这些观点直接带入政策讨论。",
     viewPolicy: "查看政策工作 →",
 
-    perspectives: "观点与访谈",
-    interviewsTitle: "与长期关注中国的人对话。",
-    interviewsDek:
-      "China79 将采访学者、政策实践者、企业人士、学生及其他具有相关经验的人士，从不同角度理解中国及美中关系。",
-    exploreInterviews: "浏览访谈 →",
+    perspectives: "访谈与观点",
+interviewsTitle:
+  "与塑造美中理解的人士对话。",
+interviewsDek:
+  "China79 与学者、外交人士、研究人员、记者、企业领袖、教育工作者和政策实践者展开对话，将第一手专业经验和多元观点带入有关中国及美中关系的讨论。",
+exploreInterviews: "查看访谈 →",
 
     aboutLabel: "关于 China79",
     aboutDek:
