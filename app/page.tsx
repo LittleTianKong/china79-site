@@ -217,13 +217,11 @@ export default function HomePage() {
         </div>
 
         <div className="card-grid">
-          {latest.map((article) => (
-            <ArticleCard article={article} key={article.slug} />
-          ))}
-
-          <ArticleCard article={featured} />
-        </div>
-      </section>
+  {latest.map((article) => (
+    <ArticleCard article={article} key={article.slug} />
+  ))}
+</div>
+</section>
 
       <section className="policy-band">
         <div className="container policy-layout">
