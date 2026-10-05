@@ -37,8 +37,8 @@ const copy = {
 
     policyLabel: "Policy & Outreach",
     policyTitle: "Research beyond publication.",
-    policyDek:
-      "China79 develops concise, research-based recommendations for policymakers and engages congressional offices on issues shaping the bilateral relationship.",
+policyDek:
+  "China79 translates research into actionable policy recommendations and brings those ideas directly into policy discussions through congressional outreach and engagement.",
     viewPolicy: "View policy work →",
 
     perspectives: "Perspectives & Interviews",
@@ -84,7 +84,7 @@ const copy = {
     policyLabel: "政策与交流",
     policyTitle: "让研究走出出版物。",
     policyDek:
-      "China79 为政策制定者提出简明、以研究为基础的政策建议，并就影响美中双边关系的重要议题与美国国会办公室进行交流。",
+  "China79 将研究转化为可落实的政策建议，并通过国会交流与政策参与，将这些观点直接带入政策讨论。",
     viewPolicy: "查看政策工作 →",
 
     perspectives: "观点与访谈",
