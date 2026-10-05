@@ -30,7 +30,7 @@ const copy = {
     dataText:
       "Accessible datasets and tools that support better research and policymaking.",
 
-    exploreWork: "About the Initiative →",,
+    exploreWork: "About the Initiative →",
 
     latestAnalysis: "Latest Publications",
     viewAll: "View all →",
