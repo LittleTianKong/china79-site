@@ -808,3 +808,61 @@ h1 {
 .site-footer .footer-links a {
   display: block;
 }
+
+.data-section {
+  padding-top: 52px;
+  padding-bottom: 100px;
+}
+
+.database-preview {
+  max-width: 840px;
+}
+
+.database-preview h2 {
+  margin: 14px 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1.02;
+  font-weight: 500;
+}
+
+.database-preview > p {
+  max-width: 740px;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.database-features {
+  margin-top: 42px;
+  padding-top: 24px;
+  border-top: 1px solid #111;
+}
+
+.database-features h3 {
+  margin: 0 0 18px;
+  color: var(--red);
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.database-features ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.database-features li {
+  margin-bottom: 12px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.database-note {
+  margin-top: 38px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 15px !important;
+  line-height: 1.6;
+}
