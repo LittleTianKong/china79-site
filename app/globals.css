@@ -67,13 +67,13 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr 58px;
   align-items: center;
-  column-gap: 26px;
+  column-gap: 28px;
 }
 
 nav {
   display: grid;
-  grid-template-columns: 96px 170px 105px 85px 90px;
-  gap: 18px;
+  grid-template-columns: 90px 110px 175px 95px;
+  gap: 24px;
   align-items: center;
   justify-content: end;
   font-size: 15.5px;
