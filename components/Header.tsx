@@ -10,6 +10,7 @@ const nav = {
     ["Research", "/analysis"],
     ["Data", "/data"],
     ["Policy & Outreach", "/policy-outreach"],
+    ["Interviews", "/interviews"],
     ["Contact", "/contact"],
   ],
   zh: [
@@ -17,6 +18,7 @@ const nav = {
     ["研究", "/analysis"],
     ["数据", "/data"],
     ["政策与交流", "/policy-outreach"],
+    ["访谈", "/interviews"],
     ["联系", "/contact"],
   ],
 };
