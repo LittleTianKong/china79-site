@@ -104,8 +104,23 @@ export default function HomePage() {
   const { language } = useLanguage();
   const t = copy[language];
 
-  const [featured, ...latest] = articles;
-  const policyItem = policyItems[0];
+  const featured = articles.find(
+  (article) => article.slug === "competition-and-cooperation"
+)!;
+
+const latest = [
+  articles.find(
+    (article) => article.slug === "cooperation-beyond-competition"
+  )!,
+  articles.find(
+    (article) => article.slug === "mandarin-pipeline"
+  )!,
+  articles.find(
+    (article) => article.slug === "video-games-soft-power"
+  )!,
+];
+
+const policyItem = policyItems[0];
 
   const featuredTitle =
     language === "zh" ? featured.titleZh : featured.title;
