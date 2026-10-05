@@ -4,6 +4,8 @@ import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
 import { articles, policyItems } from "@/lib/content";
 import { useLanguage } from "@/components/LanguageProvider";
+import Image from "next/image";
+
 
 const copy = {
   en: {
@@ -114,14 +116,29 @@ export default function HomePage() {
   return (
     <>
       <section className="hero container">
-        <div className="hero-copy">
-          <div className="eyebrow">{t.eyebrow}</div>
+  <div className="hero-copy">
+    <div className="eyebrow">{t.eyebrow}</div>
 
-          <h1>{t.heroTitle}</h1>
+    <h1>{t.heroTitle}</h1>
 
-          <p className="hero-dek">{t.heroDek}</p>
-        </div>
-      </section>
+    <p className="hero-dek">{t.heroDek}</p>
+  </div>
+
+  <div className="hero-image-wrap">
+    <Image
+      src="/beijing-skyline.jpg"
+      alt="Beijing skyline"
+      width={1536}
+      height={1024}
+      className="hero-image"
+      priority
+    />
+  </div>
+
+  <div className="image-credit">
+    Photo: zhang kaiyv / Unsplash
+  </div>
+</section>
 
       <section className="container featured-grid section-rule">
         <div className="featured-story">
