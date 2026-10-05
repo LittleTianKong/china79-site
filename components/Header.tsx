@@ -8,12 +8,14 @@ const nav = {
   en: [
     ["About", "/about"],
     ["Research", "/analysis"],
+    ["Data", "/data"],
     ["Policy & Outreach", "/policy-outreach"],
     ["Contact", "/contact"],
   ],
   zh: [
     ["关于", "/about"],
     ["研究", "/analysis"],
+    ["数据", "/data"],
     ["政策与交流", "/policy-outreach"],
     ["联系", "/contact"],
   ],
