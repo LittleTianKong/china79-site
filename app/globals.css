@@ -72,8 +72,8 @@ a:hover {
 
 nav {
   display: grid;
-  grid-template-columns: 90px 110px 175px 95px;
-  gap: 24px;
+  grid-template-columns: 80px 95px 70px 165px 85px;
+  gap: 22px;
   align-items: center;
   justify-content: end;
   font-size: 15.5px;
