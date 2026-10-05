@@ -6,17 +6,15 @@ import { useLanguage } from "@/components/LanguageProvider";
 
 const nav = {
   en: [
-    ["Analysis", "/analysis"],
-    ["Policy & Outreach", "/policy-outreach"],
-    ["Interviews", "/interviews"],
     ["About", "/about"],
+    ["Research", "/analysis"],
+    ["Policy & Outreach", "/policy-outreach"],
     ["Contact", "/contact"],
   ],
   zh: [
-    ["分析", "/analysis"],
-    ["政策与交流", "/policy-outreach"],
-    ["访谈", "/interviews"],
     ["关于", "/about"],
+    ["研究", "/analysis"],
+    ["政策与交流", "/policy-outreach"],
     ["联系", "/contact"],
   ],
 };
