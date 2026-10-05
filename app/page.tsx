@@ -13,15 +13,15 @@ const copy = {
     heroDek:
       "The China79 Initiative advocates for U.S.-China policy that extends beyond a binary view of the relationship centered on competition to one that also recognizes opportunities for partnership and mutual benefit, supported by independent research and accessible data.",
 
-    featuredAnalysis: "Featured Analysis",
-    readAnalysis: "Read analysis →",
+    featuredAnalysis: "Featured Research",
+    readAnalysis: "Read research →",
 
     whatChina79Does: "What China79 does",
     mission:
       "Research and analysis are only part of the project. China79 also develops research-based policy recommendations and brings them into broader conversations through congressional outreach.",
     policyOutreach: "Policy & Outreach →",
 
-    latestAnalysis: "Latest Analysis",
+    latestAnalysis: "Latest Publications",
     viewAll: "View all →",
 
     policyLabel: "Policy & Outreach",
@@ -48,15 +48,15 @@ const copy = {
     heroDek:
       "China79倡议主张，美中政策应超越以竞争为中心的二元关系观，同时认识到伙伴关系与互利所带来的机遇，并以独立研究和可获取的数据为支撑。",
 
-    featuredAnalysis: "重点分析",
-    readAnalysis: "阅读分析 →",
+    featuredAnalysis: "重点研究",
+    readAnalysis: "阅读研究 →",
 
     whatChina79Does: "China79 的工作",
     mission:
       "研究与分析只是 China79 工作的一部分。我们也提出以研究为基础的政策建议，并通过与美国国会办公室的沟通，将这些观点带入更广泛的政策讨论。",
     policyOutreach: "政策与交流 →",
 
-    latestAnalysis: "最新分析",
+    latestAnalysis: "最新出版物",
     viewAll: "查看全部 →",
 
     policyLabel: "政策与交流",
