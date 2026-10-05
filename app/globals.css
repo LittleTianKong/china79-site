@@ -67,16 +67,16 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr 58px;
   align-items: center;
-  column-gap: 28px;
+  column-gap: 18px;
 }
 
 nav {
   display: grid;
-  grid-template-columns: 80px 95px 70px 165px 85px;
-  gap: 22px;
+  grid-template-columns: 72px 92px 58px 150px 95px 78px;
+  gap: 16px;
   align-items: center;
   justify-content: end;
-  font-size: 15.5px;
+  font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
 }
