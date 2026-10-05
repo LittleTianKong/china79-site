@@ -866,3 +866,43 @@ h1 {
   font-size: 15px !important;
   line-height: 1.6;
 }
+
+/* Bilateral flags */
+
+.bilateral-flags {
+  padding: 58px 0 64px;
+  border-top: 1px solid var(--line);
+}
+
+.flag-pair {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+}
+
+.country-flag {
+  width: 220px;
+  height: auto;
+  display: block;
+}
+
+.flag-divider {
+  width: 1px;
+  height: 90px;
+  background: var(--line);
+}
+
+@media (max-width: 560px) {
+  .flag-pair {
+    gap: 22px;
+  }
+
+  .country-flag {
+    width: 135px;
+  }
+
+  .flag-divider {
+    height: 58px;
+  }
+}
