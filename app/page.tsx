@@ -12,7 +12,7 @@ const copy = {
     eyebrow: "Policy Advocacy · Research · Data",
     heroTitle: "Understanding U.S.-China relations beyond competition.",
     heroDek:
-  "China79 advocates for a broader approach to U.S.-China policy, supported by independent research, accessible data, and analysis of areas of competition, cooperation, and shared interest.",
+  "The China79 Initiative advocates for U.S.-China policy that extends beyond a binary view of the relationship centered on competition to one that also recognizes opportunities for partnership and mutual benefit, supported by independent research and accessible data.",
 
     featuredAnalysis: "Featured Analysis",
     readAnalysis: "Read analysis →",
@@ -38,8 +38,8 @@ const copy = {
     exploreInterviews: "Explore interviews →",
 
     aboutLabel: "About China79",
-    aboutDek:
-      "China79 is an independent initiative dedicated to informed analysis and dialogue on China and U.S.-China relations.",
+    heroDek:
+  "China79倡议主张，美中政策应超越以竞争为中心的二元关系观，同时认识到双方在伙伴关系与互利方面的机会，并以独立研究和可获取的数据为支撑。",
     learnMore: "Learn more →",
   },
 
