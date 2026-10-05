@@ -122,10 +122,10 @@ export const articles: Article[] = [
       "为什么美国的普通话人才培养体系关系到美中政策",
 
     dek:
-      "This policy recommendation examines declining access to Mandarin education in the United States and proposes expanding sustained K–12 language programs to strengthen long-term American China expertise.",
+      "Limited access to sustained Mandarin education is narrowing the pipeline of Americans able to develop advanced language proficiency and deep China expertise, with consequences for research, diplomacy, and policymaking.",
 
     dekZh:
-      "本政策建议分析美国普通话教育机会减少的问题，并提出扩大持续性的 K–12 中文教育项目，以加强美国长期的中国专业人才储备。",
+      "持续接受普通话教育的机会有限，正在缩小能够培养高级语言能力和深入中国专业知识的美国人才储备，并对研究、外交和政策制定产生影响。",
 
     date: "October 2026",
     dateZh: "2026年10月",
@@ -218,16 +218,16 @@ export const policyItems: PolicyItem[] = [
     typeZh: "政策简报",
 
     title:
-      "Expanding Mandarin Education as an Investment in American China Expertise",
+      "Expanding K–12 Mandarin Access to Strengthen American China Expertise",
 
     titleZh:
-      "扩大普通话教育：投资美国的中国专业能力",
+      "扩大 K–12 普通话教育机会，加强美国的中国专业能力",
 
     summary:
-      "A forthcoming brief on strengthening the U.S. pipeline for advanced Mandarin proficiency and China expertise.",
+      "A policy proposal to expand sustained Mandarin education through targeted federal support for K–12 language programs and long-term proficiency development.",
 
     summaryZh:
-      "即将发布的一份政策简报，探讨如何加强美国高级普通话人才和中国问题专业人才的培养体系。",
+      "一项政策建议，主张通过有针对性的联邦支持扩大 K–12 普通话教育项目，并促进长期语言能力培养。",
 
     status: "In development",
     statusZh: "编写中"
