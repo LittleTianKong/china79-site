@@ -1,18 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
 import { articles, policyItems } from "@/lib/content";
 import { useLanguage } from "@/components/LanguageProvider";
-import Image from "next/image";
-
 
 const copy = {
   en: {
     eyebrow: "Policy Advocacy · Research · Data",
     heroTitle: "Understanding U.S.-China relations beyond competition.",
     heroDek:
-  "The China79 Initiative advocates for U.S.-China policy that extends beyond a binary view of the relationship centered on competition to one that also recognizes opportunities for partnership and mutual benefit, supported by independent research and accessible data.",
+      "The China79 Initiative advocates for U.S.-China policy that extends beyond a binary view of the relationship centered on competition to one that also recognizes opportunities for partnership and mutual benefit, supported by independent research and accessible data.",
 
     featuredAnalysis: "Featured Analysis",
     readAnalysis: "Read analysis →",
@@ -38,8 +37,8 @@ const copy = {
     exploreInterviews: "Explore interviews →",
 
     aboutLabel: "About China79",
-    heroDek:
-  "China79倡议主张，美中政策应超越以竞争为中心的二元关系观，同时认识到双方在伙伴关系与互利方面的机会，并以独立研究和可获取的数据为支撑。",
+    aboutDek:
+      "China79 is an independent initiative focused on advancing deeper analysis and informed dialogue on China and the U.S.-China relationship.",
     learnMore: "Learn more →",
   },
 
@@ -47,7 +46,7 @@ const copy = {
     eyebrow: "政策倡议 · 研究 · 数据",
     heroTitle: "超越竞争，理解美中关系。",
     heroDek:
-  "China79 致力于推动更全面的美中政策思路，并通过独立研究、开放数据以及对竞争、合作与共同利益领域的分析为政策倡议提供支持。",
+      "China79倡议主张，美中政策应超越以竞争为中心的二元关系观，同时认识到伙伴关系与互利所带来的机遇，并以独立研究和可获取的数据为支撑。",
 
     featuredAnalysis: "重点分析",
     readAnalysis: "阅读分析 →",
@@ -116,29 +115,29 @@ export default function HomePage() {
   return (
     <>
       <section className="hero container">
-  <div className="hero-copy">
-    <div className="eyebrow">{t.eyebrow}</div>
+        <div className="hero-copy">
+          <div className="eyebrow">{t.eyebrow}</div>
 
-    <h1>{t.heroTitle}</h1>
+          <h1>{t.heroTitle}</h1>
 
-    <p className="hero-dek">{t.heroDek}</p>
-  </div>
+          <p className="hero-dek">{t.heroDek}</p>
+        </div>
 
-  <div className="hero-image-wrap">
-    <Image
-      src="/beijing-skyline.jpg"
-      alt="Beijing skyline"
-      width={1536}
-      height={1024}
-      className="hero-image"
-      priority
-    />
-  </div>
+        <div className="hero-image-wrap">
+          <Image
+            src="/beijing-skyline.jpg"
+            alt="Beijing skyline"
+            width={1536}
+            height={1024}
+            className="hero-image"
+            priority
+          />
+        </div>
 
-  <div className="image-credit">
-    Photo: zhang kaiyv / Unsplash
-  </div>
-</section>
+        <div className="image-credit">
+          Photo: zhang kaiyv / Unsplash
+        </div>
+      </section>
 
       <section className="container featured-grid section-rule">
         <div className="featured-story">
