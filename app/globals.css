@@ -718,3 +718,36 @@ h1 {
   width: 100%;
   box-sizing: border-box;
 }
+
+.footer-logo {
+  width: 190px;
+  height: auto;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.footer-brand p {
+  max-width: 480px;
+}
+
+.footer-contact-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 22px;
+}
+
+.footer-contact-group strong,
+.footer-links strong {
+  font-weight: 800;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.footer-links strong {
+  margin-bottom: 5px;
+}
