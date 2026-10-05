@@ -300,6 +300,28 @@ export default function HomePage() {
             {t.learnMore}
           </Link>
         </div>
+            </section>
+
+      <section className="bilateral-flags">
+        <div className="container flag-pair">
+          <Image
+            src="/us-flag.svg"
+            alt="Flag of the United States"
+            width={120}
+            height={80}
+            className="country-flag"
+          />
+
+          <div className="flag-divider" />
+
+          <Image
+            src="/china-flag.svg"
+            alt="Flag of China"
+            width={120}
+            height={80}
+            className="country-flag"
+          />
+        </div>
       </section>
     </>
   );
