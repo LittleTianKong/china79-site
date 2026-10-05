@@ -9,8 +9,8 @@ import Image from "next/image";
 
 const copy = {
   en: {
-    eyebrow: "Independent U.S.-China Affairs Initiative",
-    heroTitle: "Understanding the relationship beyond a single frame.",
+    eyebrow: "Research · Data · Advocacy",
+    heroTitle: "Understanding U.S.-China relations beyond competition.",
     heroDek:
       "China79 publishes analysis, interviews, and policy commentary on the forces shaping U.S.-China relations — including areas of competition, cooperation, and mutual interest.",
 
@@ -44,8 +44,8 @@ const copy = {
   },
 
   zh: {
-    eyebrow: "独立美中关系研究倡议",
-    heroTitle: "超越单一视角，理解美中关系。",
+    eyebrow: "研究 · 数据 · 政策倡议",
+    heroTitle: "超越竞争，理解美中关系。",
     heroDek:
       "China79 发布有关塑造美中关系的分析、访谈和政策评论，探讨竞争、合作以及双方共同利益等议题。",
 
