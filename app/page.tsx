@@ -30,7 +30,7 @@ const copy = {
     dataText:
       "Accessible datasets and tools that support better research and policymaking.",
 
-    exploreWork: "Explore our work →",
+    exploreWork: "About the Initiative →",,
 
     latestAnalysis: "Latest Publications",
     viewAll: "View all →",
@@ -76,7 +76,7 @@ const copy = {
     dataText:
       "提供可获取的数据集与研究工具，为深入研究和政策制定提供支持。",
 
-    exploreWork: "了解我们的工作 →",
+    exploreWork: "关于本倡议 →",
 
     latestAnalysis: "最新出版物",
     viewAll: "查看全部 →",
