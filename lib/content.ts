@@ -34,10 +34,10 @@ export const articles: Article[] = [
     titleZh: "竞争与合作能否在美中关系中共存？",
 
     dek:
-      "Strategic competition now defines much of Washington's approach to China. That does not eliminate the value of identifying areas where cooperation remains possible.",
+  "Strategic competition now defines much of Washington’s approach to China and increasingly shapes how the country is understood across American society. Yet competition alone does not capture the full relationship, nor does it eliminate the value of identifying areas where cooperation remains possible.",
 
     dekZh:
-      "战略竞争如今在很大程度上塑造了华盛顿的对华政策，但这并不意味着寻找双方仍可合作的领域失去了价值。",
+  "战略竞争如今在很大程度上塑造了华盛顿对华政策，也日益影响美国社会理解中国的方式。然而，竞争并不能涵盖美中关系的全部，也不应排除寻找双方仍可开展合作领域的价值。",
 
     date: "October 2026",
     dateZh: "2026年10月",
