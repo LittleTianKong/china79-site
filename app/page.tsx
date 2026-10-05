@@ -16,10 +16,21 @@ const copy = {
     featuredAnalysis: "Featured Research",
     readAnalysis: "Read research →",
 
-    whatChina79Does: "What China79 does",
-    mission:
-      "Research and analysis are only part of the project. China79 also develops research-based policy recommendations and brings them into broader conversations through congressional outreach.",
-    policyOutreach: "Policy & Outreach →",
+    howChina79Works: "How China79 works",
+
+    advocacyTitle: "Policy Advocacy",
+    advocacyText:
+      "Turning research into practical policy recommendations and congressional outreach.",
+
+    researchTitle: "Research",
+    researchText:
+      "Independent analysis of the forces shaping U.S.-China relations.",
+
+    dataTitle: "Data",
+    dataText:
+      "Accessible datasets and tools that support better research and policymaking.",
+
+    exploreWork: "Explore our work →",
 
     latestAnalysis: "Latest Publications",
     viewAll: "View all →",
@@ -51,10 +62,21 @@ const copy = {
     featuredAnalysis: "重点研究",
     readAnalysis: "阅读研究 →",
 
-    whatChina79Does: "China79 的工作",
-    mission:
-      "研究与分析只是 China79 工作的一部分。我们也提出以研究为基础的政策建议，并通过与美国国会办公室的沟通，将这些观点带入更广泛的政策讨论。",
-    policyOutreach: "政策与交流 →",
+    howChina79Works: "China79 的工作方式",
+
+    advocacyTitle: "政策倡议",
+    advocacyText:
+      "将研究转化为切实可行的政策建议，并通过与国会办公室的交流推动政策讨论。",
+
+    researchTitle: "研究",
+    researchText:
+      "独立分析塑造美中关系的政治、经济与社会力量。",
+
+    dataTitle: "数据",
+    dataText:
+      "提供可获取的数据集与研究工具，为深入研究和政策制定提供支持。",
+
+    exploreWork: "了解我们的工作 →",
 
     latestAnalysis: "最新出版物",
     viewAll: "查看全部 →",
@@ -164,15 +186,25 @@ export default function HomePage() {
         </div>
 
         <aside className="mission-panel">
-          <div className="kicker">{t.whatChina79Does}</div>
+          <div className="kicker">{t.howChina79Works}</div>
 
-          <p>{t.mission}</p>
+          <div className="mission-pillar">
+            <h3>{t.advocacyTitle}</h3>
+            <p>{t.advocacyText}</p>
+          </div>
 
-          <Link
-            className="text-link"
-            href="/policy-outreach"
-          >
-            {t.policyOutreach}
+          <div className="mission-pillar">
+            <h3>{t.researchTitle}</h3>
+            <p>{t.researchText}</p>
+          </div>
+
+          <div className="mission-pillar">
+            <h3>{t.dataTitle}</h3>
+            <p>{t.dataText}</p>
+          </div>
+
+          <Link className="text-link" href="/about">
+            {t.exploreWork}
           </Link>
         </aside>
       </section>
