@@ -9,10 +9,10 @@ import Image from "next/image";
 
 const copy = {
   en: {
-    eyebrow: "Research · Data · Advocacy",
+    eyebrow: "Policy Advocacy · Research · Data",
     heroTitle: "Understanding U.S.-China relations beyond competition.",
     heroDek:
-      "China79 publishes analysis, interviews, and policy commentary on the forces shaping U.S.-China relations — including areas of competition, cooperation, and mutual interest.",
+  "China79 advocates for a broader approach to U.S.-China policy, supported by independent research, accessible data, and analysis of areas of competition, cooperation, and shared interest.",
 
     featuredAnalysis: "Featured Analysis",
     readAnalysis: "Read analysis →",
@@ -44,10 +44,10 @@ const copy = {
   },
 
   zh: {
-    eyebrow: "研究 · 数据 · 政策倡议",
+    eyebrow: "政策倡议 · 研究 · 数据",
     heroTitle: "超越竞争，理解美中关系。",
     heroDek:
-      "China79 发布有关塑造美中关系的分析、访谈和政策评论，探讨竞争、合作以及双方共同利益等议题。",
+  "China79 致力于推动更全面的美中政策思路，并通过独立研究、开放数据以及对竞争、合作与共同利益领域的分析为政策倡议提供支持。",
 
     featuredAnalysis: "重点分析",
     readAnalysis: "阅读分析 →",
