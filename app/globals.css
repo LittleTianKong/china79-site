@@ -677,3 +677,25 @@ h1 {
     font-size: 46px;
   }
 }
+
+.mission-pillar {
+  margin-top: 22px;
+}
+
+.mission-pillar h3 {
+  margin: 0 0 5px;
+  color: var(--red);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.mission-pillar p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.mission-panel .text-link {
+  display: inline-block;
+  margin-top: 24px;
+}
