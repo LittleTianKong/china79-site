@@ -699,3 +699,10 @@ h1 {
   display: inline-block;
   margin-top: 24px;
 }
+
+.mission-panel > .kicker {
+  font-size: 16px;
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+  border-bottom: 2px solid #111;
+}
