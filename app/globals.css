@@ -706,3 +706,15 @@ h1 {
   margin-bottom: 4px;
   border-bottom: 1px solid #111;
 }
+
+.policy-layout,
+.split-section {
+  grid-template-columns: minmax(0, 1.35fr) minmax(380px, 0.9fr);
+  gap: 72px;
+  align-items: start;
+}
+
+.about-callout {
+  width: 100%;
+  box-sizing: border-box;
+}
