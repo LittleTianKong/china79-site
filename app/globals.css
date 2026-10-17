@@ -968,12 +968,15 @@ section[id] { scroll-margin-top: 140px; }
 
 .initiative-hero { padding: 76px 0 62px; }
 
-.initiative-hero-copy { max-width: 1000px; }
+.initiative-hero-copy { max-width: 100%; }
 
 .initiative-hero h1 {
+  display: flex;
+  gap: .2em;
   margin-top: 22px;
-  font-size: clamp(48px, 5.5vw, 80px);
+  font-size: clamp(64px, 7.5vw, 96px);
   line-height: 1.08;
+  white-space: nowrap;
 }
 
 .initiative-hero h1 span { display: block; }
@@ -1162,7 +1165,7 @@ section[id] { scroll-margin-top: 140px; }
   .data-gateway,
   .evidence-layout,
   .research-questions { grid-template-columns: 1fr; gap: 32px; }
-  .initiative-hero h1 { font-size: 68px; }
+  .initiative-hero h1 { flex-direction: column; gap: 0; font-size: 68px; white-space: normal; }
   .origin-section { gap: 28px; }
   .origin-year { font-size: clamp(112px, 22vw, 160px); }
   .collection-feature { row-gap: 0; }
