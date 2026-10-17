@@ -69,6 +69,50 @@ const copy = {
   },
 };
 
+function PillarIllustration({ index }: { index: number }) {
+  return (
+    <div className="pillar-illustration" aria-hidden="true">
+      <svg viewBox="0 0 320 160" fill="none" focusable="false">
+        <circle className="pillar-art-surface" cx="160" cy="79" r="62" />
+        <path className="pillar-art-guide" d="M34 142H286" />
+        {index === 0 && (
+          <g>
+            <path className="pillar-art-guide" d="M110 23H208V119M98 35H196V131" />
+            <rect className="pillar-art-paper" x="84" y="47" width="98" height="88" rx="3" />
+            <path className="pillar-art-accent" d="M100 65H145" />
+            <path d="M100 84H106M118 84H165M100 101H106M118 101H156M100 118H106M118 118H147" />
+            <circle className="pillar-art-seal" cx="212" cy="108" r="26" />
+            <path className="pillar-art-accent" d="M200 108L208 116L225 98" />
+          </g>
+        )}
+        {index === 1 && (
+          <g>
+            <path className="pillar-art-guide" d="M48 112H272M64 106V118M112 106V118M160 106V118M208 106V118M256 106V118" />
+            <path d="M58 91L103 62L145 84L187 46L242 68" />
+            <circle className="pillar-art-paper" cx="58" cy="91" r="5" />
+            <circle className="pillar-art-paper" cx="103" cy="62" r="5" />
+            <circle className="pillar-art-paper" cx="242" cy="68" r="5" />
+            <circle className="pillar-art-lens" cx="168" cy="68" r="42" />
+            <path className="pillar-art-accent" d="M145 84L168 63L187 46M199 99L234 134" />
+            <circle className="pillar-art-point" cx="168" cy="63" r="4" />
+          </g>
+        )}
+        {index === 2 && (
+          <g>
+            <path className="pillar-art-seal" d="M142 69H242A12 12 0 0 1 254 81V115A12 12 0 0 1 242 127H226V141L206 127H142A12 12 0 0 1 130 115V81A12 12 0 0 1 142 69Z" />
+            <path className="pillar-art-paper" d="M76 28H176A12 12 0 0 1 188 40V78A12 12 0 0 1 176 90H113L91 106V90H76A12 12 0 0 1 64 78V40A12 12 0 0 1 76 28Z" />
+            <path d="M85 49H164M85 66H142" />
+            <path className="pillar-art-accent" d="M154 108H229" />
+            <circle className="pillar-art-point" cx="207" cy="89" r="3" />
+            <circle className="pillar-art-point" cx="220" cy="89" r="3" />
+            <circle className="pillar-art-point" cx="233" cy="89" r="3" />
+          </g>
+        )}
+      </svg>
+    </div>
+  );
+}
+
 export default function HomePage() {
   const { language } = useLanguage();
   const identity = initiative[language];
@@ -165,6 +209,7 @@ export default function HomePage() {
               </span>
               <h3>{pillar.title}</h3>
               <p>{pillar.text}</p>
+              <PillarIllustration index={index} />
             </article>
           ))}
         </div>
