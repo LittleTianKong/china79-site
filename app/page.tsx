@@ -17,7 +17,7 @@ const copy = {
     collectionLabel: "Flagship dataset",
     collectionAction: "View collection details",
     collectionSummary:
-      "A forthcoming dataset of diplomatic engagement and bilateral dialogue, designed for comparison across historical periods and U.S. administrations.",
+      "Our forthcoming dataset aims to provide the most comprehensive freely accessible record of publicly documented official U.S.–China engagements since 1979. It will support comparisons across historical periods and U.S. administrations.",
     collectionQuestions: "Questions behind the dataset",
     collectionRelease:
       "The dataset will be published with source notes and methodology when it is ready.",
@@ -45,7 +45,7 @@ const copy = {
     collectionLabel: "旗舰数据集",
     collectionAction: "查看数据集详情",
     collectionSummary:
-      "本数据集正在开发中，聚焦外交接触与双边对话，旨在支持跨历史时期、跨美国政府的比较研究。",
+      "本数据集正在开发中，旨在为1979年以来有公开记录的美中官方接触建立最全面、可免费获取的资料库，支持跨历史时期、跨美国政府的比较研究。",
     collectionQuestions: "本数据集关注的问题",
     collectionRelease:
       "数据集完成后，我们将一并发布数据文件、来源说明和研究方法。",
