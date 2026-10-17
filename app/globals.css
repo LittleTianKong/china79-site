@@ -1101,7 +1101,8 @@ section[id] { scroll-margin-top: 140px; }
 }
 .origin-year {
   color: var(--red);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Times New Roman", Times, serif;
+  font-variant-numeric: lining-nums;
   font-size: clamp(112px, 15vw, 192px);
   line-height: .9;
   letter-spacing: -.065em;
