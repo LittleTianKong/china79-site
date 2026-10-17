@@ -51,10 +51,10 @@ export default function Footer() {
         <div className="footer-brand">
           <Link href="/" aria-label="China79 home">
             <Image
-              src="/china79-logo.png"
+              src="/china79-logo.svg"
               alt="China79 Initiative"
-              width={600}
-              height={400}
+              width={1338}
+              height={328}
               className="footer-logo"
             />
           </Link>

@@ -33,10 +33,10 @@ export default function Header() {
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="China79 home">
           <Image
-            src="/china79-logo.png"
+            src="/china79-logo.svg"
             alt="China79 Initiative"
-            width={340}
-            height={124}
+            width={1338}
+            height={328}
             priority
           />
         </Link>
