@@ -6,10 +6,11 @@ import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   title: {
-    default: "China79 | U.S.-China Affairs Initiative",
-    template: "%s | China79",
+    default: "China79 Initiative | Better Data. Better Dialogue.",
+    template: "%s | China79 Initiative",
   },
-  description: "Analysis, dialogue, and perspectives on U.S.-China relations.",
+  description:
+    "Independent data and analysis on U.S.–China relations. China79 Initiative advances public understanding and pragmatic cooperation through historical evidence.",
 };
 
 export default function RootLayout({
@@ -21,8 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <LanguageProvider>
+          <a className="skip-link" href="#main-content">
+            Skip to content
+          </a>
           <Header />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
         </LanguageProvider>
       </body>

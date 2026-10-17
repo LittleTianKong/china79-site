@@ -7,9 +7,9 @@ const copy = {
     eyebrow: "Contact",
     title: "Get in touch with China79.",
     description:
-      "For general inquiries, policy correspondence, interview ideas, and potential contributions, use the addresses below.",
-    general: "General inquiries",
-    policy: "Policy & congressional outreach",
+      "For dataset questions, source suggestions, corrections, research contributions, and opportunities for dialogue, use the addresses below.",
+    general: "Data & general inquiries",
+    policy: "Policy & dialogue",
     direct: "Direct contact",
   },
 
@@ -17,9 +17,9 @@ const copy = {
     eyebrow: "联系",
     title: "联系 China79。",
     description:
-      "如有一般咨询、政策交流、访谈建议或潜在投稿，请通过以下邮箱联系我们。",
-    general: "一般咨询",
-    policy: "政策与国会交流",
+      "如有数据集问题、来源建议、资料更正、研究贡献或对话合作意向，请通过以下邮箱联系我们。",
+    general: "数据与一般咨询",
+    policy: "政策与对话",
     direct: "直接联系",
   },
 };
@@ -37,26 +37,17 @@ export default function ContactPageClient() {
       </div>
 
       <div className="contact-grid">
-        <a
-          className="contact-card"
-          href="mailto:contact@china79.org"
-        >
+        <a className="contact-card" href="mailto:contact@china79.org">
           <span>{t.general}</span>
           <strong>contact@china79.org</strong>
         </a>
 
-        <a
-          className="contact-card"
-          href="mailto:policy@china79.org"
-        >
+        <a className="contact-card" href="mailto:policy@china79.org">
           <span>{t.policy}</span>
           <strong>policy@china79.org</strong>
         </a>
 
-        <a
-          className="contact-card"
-          href="mailto:mrhindtutt@china79.org"
-        >
+        <a className="contact-card" href="mailto:mrhindtutt@china79.org">
           <span>{t.direct}</span>
           <strong>mrhindtutt@china79.org</strong>
         </a>

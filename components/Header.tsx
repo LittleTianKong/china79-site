@@ -2,29 +2,31 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 
 const nav = {
   en: [
-    ["About", "/about"],
-    ["Research", "/analysis"],
     ["Data", "/data"],
-    ["Policy & Outreach", "/policy-outreach"],
-    ["Interviews", "/interviews"],
+    ["Research", "/analysis"],
+    ["About", "/about"],
+    ["Dialogue", "/policy-outreach"],
     ["Contact", "/contact"],
   ],
   zh: [
-    ["关于", "/about"],
-    ["研究", "/analysis"],
     ["数据", "/data"],
-    ["政策与交流", "/policy-outreach"],
-    ["访谈", "/interviews"],
+    ["研究", "/analysis"],
+    ["关于", "/about"],
+    ["对话", "/policy-outreach"],
     ["联系", "/contact"],
   ],
 };
 
 export default function Header() {
   const { language, toggleLanguage } = useLanguage();
+  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="site-header">
@@ -40,9 +42,24 @@ export default function Header() {
         </Link>
 
         <div className="header-actions">
-          <nav aria-label="Primary navigation">
+          <nav
+            id="primary-navigation"
+            className={
+              menuOpen ? "primary-navigation is-open" : "primary-navigation"
+            }
+            aria-label={language === "zh" ? "主导航" : "Primary navigation"}
+          >
             {nav[language].map(([label, href]) => (
-              <Link key={href} href={href}>
+              <Link
+                key={href}
+                href={href}
+                aria-current={
+                  pathname === href || pathname.startsWith(`${href}/`)
+                    ? "page"
+                    : undefined
+                }
+                onClick={() => setMenuOpen(false)}
+              >
                 {label}
               </Link>
             ))}
@@ -59,6 +76,21 @@ export default function Header() {
             }
           >
             {language === "en" ? "中文" : "EN"}
+          </button>
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-controls="primary-navigation"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {language === "zh"
+              ? menuOpen
+                ? "关闭"
+                : "菜单"
+              : menuOpen
+                ? "Close"
+                : "Menu"}
           </button>
         </div>
       </div>

@@ -6,17 +6,17 @@ import { useLanguage } from "@/components/LanguageProvider";
 
 const copy = {
   en: {
-    eyebrow: "Analysis",
-    title: "Research, commentary, and perspectives.",
+    eyebrow: "Research & understanding",
+    title: "Understanding the relationship through evidence.",
     description:
-      "China79 covers Chinese politics, economics, security, culture, foreign policy, and the evolving U.S.-China relationship.",
+      "Our research uses historical evidence to examine patterns of cooperation, competition, and diplomatic engagement. Data informs our questions; findings follow the evidence.",
   },
 
   zh: {
-    eyebrow: "分析",
-    title: "研究、评论与观点。",
+    eyebrow: "研究与理解",
+    title: "以证据理解双边关系。",
     description:
-      "China79 关注中国政治、经济、安全、文化、外交政策以及不断演变的美中关系。",
+      "我们的研究运用历史证据考察合作、竞争与外交接触的规律。数据帮助我们提出问题，研究结论以证据为依据。",
   },
 };
 
@@ -34,10 +34,7 @@ export default function AnalysisPageClient() {
 
       <div className="card-grid wide-cards">
         {articles.map((article) => (
-          <ArticleCard
-            key={article.slug}
-            article={article}
-          />
+          <ArticleCard key={article.slug} article={article} />
         ))}
       </div>
     </section>

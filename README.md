@@ -1,20 +1,25 @@
 # China79 website
 
-A custom Next.js starter site for **China79 — Analysis, dialogue, and perspectives on U.S.-China relations**.
+A Next.js website for **China79 Initiative — Better Data. Better Dialogue.**
+
+Independent data and analysis on U.S.–China relations, with a commitment to pragmatic cooperation and findings grounded in historical evidence.
 
 ## Pages included
 
 - Home
+- Data & Transparency
 - Analysis
 - Individual analysis articles
-- Policy & Outreach
+- Cooperation & Dialogue (retains the `/policy-outreach` URL)
 - Interviews
 - About
 - Contact
 
 ## Important launch note
 
-The three sample article bodies and the policy brief are **placeholder content for layout purposes**. Replace them with fully sourced final work before publishing the site publicly.
+The historical engagement collection is **in development**. No dataset files have been supplied or made available for download. The site describes the intended collection and publishing commitments without presenting sample records as verified data.
+
+Existing article bodies in `lib/content.ts` include **placeholder content for layout purposes**. Replace them with fully sourced final work before treating them as published research. The homepage directs visitors to the data collection instead of featuring those drafts.
 
 ## Run locally
 
@@ -37,7 +42,13 @@ Do not change your Namecheap email MX records when connecting the website. Only 
 
 ## Editing content
 
-Initial content lives in `lib/content.ts`.
+Shared English and Chinese identity, mission, vision, pillars, collection descriptions, research questions, and publishing commitments live in `lib/initiative.ts`.
+
+Page-specific copy lives in `app/page.tsx` and the corresponding client components in `components/`. The English/Chinese switch applies to all updated pages, and the language preference is retained between visits.
+
+When datasets are ready, replace the in-development notice with the actual release information, source documentation, methodology, and download links. Update both languages together.
+
+Existing research content lives in `lib/content.ts`.
 
 Each article has:
 

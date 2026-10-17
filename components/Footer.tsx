@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageProvider";
+import { initiative } from "@/lib/initiative";
 
 const footerCopy = {
   en: {
-    description:
-      "Policy advocacy, independent research, accessible data, and perspectives on U.S.-China relations.",
+    description: "Independent data and analysis on U.S.–China relations.",
 
     general: "General",
     policy: "Policy",
@@ -15,18 +15,16 @@ const footerCopy = {
     explore: "Explore",
     research: "Research",
     data: "Data",
-    policyOutreach: "Policy & Outreach",
+    policyOutreach: "Cooperation & Dialogue",
     interviews: "Interviews",
     about: "About",
     contact: "Contact",
 
-    copyright:
-      "© 2026 China79 Initiative. Independent U.S.-China policy initiative.",
+    copyright: "China79 Initiative. Independent data, research, and dialogue.",
   },
 
   zh: {
-    description:
-      "聚焦美中关系的政策倡议、独立研究、开放数据与多元观点。",
+    description: "关于美中关系的独立数据与分析。",
 
     general: "一般联系",
     policy: "政策",
@@ -34,13 +32,12 @@ const footerCopy = {
     explore: "浏览",
     research: "研究",
     data: "数据",
-    policyOutreach: "政策与交流",
+    policyOutreach: "合作与对话",
     interviews: "访谈",
     about: "关于",
     contact: "联系",
 
-    copyright:
-      "© 2026 China79倡议。独立美中政策倡议。",
+    copyright: "China79 倡议。独立的数据、研究与对话。",
   },
 };
 
@@ -54,38 +51,35 @@ export default function Footer() {
         <div className="footer-brand">
           <Link href="/" aria-label="China79 home">
             <Image
-  src="/china79-logo.png"
-  alt="China79 Initiative"
-  width={600}
-  height={400}
-  className="footer-logo"
-/>
+              src="/china79-logo.png"
+              alt="China79 Initiative"
+              width={600}
+              height={400}
+              className="footer-logo"
+            />
           </Link>
 
+          <p className="footer-tagline">{initiative[language].tagline}</p>
           <p>{t.description}</p>
         </div>
 
         <div className="footer-contact">
           <div className="footer-contact-group">
             <strong>{t.general}</strong>
-            <a href="mailto:contact@china79.org">
-              contact@china79.org
-            </a>
+            <a href="mailto:contact@china79.org">contact@china79.org</a>
           </div>
 
           <div className="footer-contact-group">
             <strong>{t.policy}</strong>
-            <a href="mailto:policy@china79.org">
-              policy@china79.org
-            </a>
+            <a href="mailto:policy@china79.org">policy@china79.org</a>
           </div>
         </div>
 
         <div className="footer-links">
           <strong>{t.explore}</strong>
 
-          <Link href="/analysis">{t.research}</Link>
           <Link href="/data">{t.data}</Link>
+          <Link href="/analysis">{t.research}</Link>
           <Link href="/policy-outreach">{t.policyOutreach}</Link>
           <Link href="/interviews">{t.interviews}</Link>
           <Link href="/about">{t.about}</Link>
@@ -94,7 +88,9 @@ export default function Footer() {
       </div>
 
       <div className="container footer-bottom">
-        <p>{t.copyright}</p>
+        <p>
+          © {new Date().getFullYear()} {t.copyright}
+        </p>
       </div>
     </footer>
   );
