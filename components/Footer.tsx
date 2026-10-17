@@ -15,12 +15,11 @@ const footerCopy = {
     explore: "Explore",
     research: "Research",
     data: "Data",
-    policyOutreach: "Cooperation & Dialogue",
     interviews: "Interviews",
     about: "About",
     contact: "Contact",
 
-    copyright: "China79 Initiative. Independent data, research, and dialogue.",
+    copyright: "China79 Initiative. Independent data, research, and interviews.",
   },
 
   zh: {
@@ -32,12 +31,11 @@ const footerCopy = {
     explore: "浏览",
     research: "研究",
     data: "数据",
-    policyOutreach: "合作与对话",
     interviews: "访谈",
     about: "关于",
     contact: "联系",
 
-    copyright: "China79 倡议。独立的数据、研究与对话。",
+    copyright: "China79 倡议。独立的数据、研究与访谈。",
   },
 };
 
@@ -80,7 +78,6 @@ export default function Footer() {
 
           <Link href="/data">{t.data}</Link>
           <Link href="/analysis">{t.research}</Link>
-          <Link href="/policy-outreach">{t.policyOutreach}</Link>
           <Link href="/interviews">{t.interviews}</Link>
           <Link href="/about">{t.about}</Link>
           <Link href="/contact">{t.contact}</Link>

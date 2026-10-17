@@ -11,14 +11,14 @@ const nav = {
     ["Data", "/data"],
     ["Research", "/analysis"],
     ["About", "/about"],
-    ["Dialogue", "/policy-outreach"],
+    ["Interviews", "/interviews"],
     ["Contact", "/contact"],
   ],
   zh: [
     ["数据", "/data"],
     ["研究", "/analysis"],
     ["关于", "/about"],
-    ["对话", "/policy-outreach"],
+    ["访谈", "/interviews"],
     ["联系", "/contact"],
   ],
 };
