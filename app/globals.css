@@ -1015,6 +1015,7 @@ section[id] { scroll-margin-top: 140px; }
 
 .primary-link:hover { background: var(--red-dark); color: var(--white); }
 .initiative-image { height: 230px; margin-top: 50px; }
+.initiative-image .hero-image { object-position: center 45%; }
 
 .data-gateway {
   display: grid;
@@ -1041,7 +1042,7 @@ section[id] { scroll-margin-top: 140px; }
   line-height: 1.15;
 }
 
-.data-gateway h2 { max-width: 900px; margin-top: 15px; font-size: 42px; }
+.data-gateway h2 { max-width: 900px; margin-top: 15px; font-size: 42px; font-weight: 700; }
 .data-gateway h2 span { white-space: nowrap; }
 .data-gateway-header > p,
 .collection-feature-main > p,
