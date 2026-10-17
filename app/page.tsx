@@ -25,15 +25,15 @@ const copy = {
     originDescription:
       "In 1979, the United States and the People’s Republic of China established diplomatic relations. Our flagship dataset begins with that milestone, documenting official engagements across the decades that followed.",
     approach: "Read about our approach",
-    researchLabel: "Research & understanding",
-    researchTitle: "From historical records to better questions.",
+    researchLabel: "Analysis",
+    researchTitle: "Research grounded in evidence.",
     researchText:
-      "Data gives analysis a foundation. Our research examines patterns of engagement, competition, and cooperation—and what the evidence can and cannot tell us.",
-    researchAction: "Explore research",
-    dialogueLabel: "Cooperation & dialogue",
-    dialogueTitle: "Understanding through conversation.",
+      "Explore how U.S.–China engagement, competition, and cooperation have evolved through analysis grounded in the historical record.",
+    researchAction: "Read our analysis",
+    dialogueLabel: "Interviews",
+    dialogueTitle: "Perspectives shaped by experience.",
     dialogueText:
-      "Conversations with scholars, practitioners, and people with firsthand experience offer new perspectives on China and the bilateral relationship.",
+      "Our interview series will bring together scholars, practitioners, and people with firsthand experience of China and the bilateral relationship.",
     dialogueAction: "Explore interviews",
   },
   zh: {
@@ -56,15 +56,15 @@ const copy = {
     originDescription:
       "1979年，美国与中华人民共和国正式建立外交关系。我们的旗舰数据集以这一里程碑为起点，记录此后数十年间的两国官方接触。",
     approach: "了解我们的研究原则",
-    researchLabel: "研究与理解",
-    researchTitle: "从历史记录中，提出更好的问题。",
+    researchLabel: "分析",
+    researchTitle: "以证据为基础，理解关系变化。",
     researchText:
-      "数据为分析奠定基础。我们的研究考察接触、竞争与合作的规律，并探讨证据能够以及不能说明什么。",
-    researchAction: "浏览研究",
-    dialogueLabel: "合作与对话",
-    dialogueTitle: "通过访谈，增进理解。",
+      "通过基于历史记录的分析，考察美中接触、竞争与合作如何随时间演变。",
+    researchAction: "阅读分析",
+    dialogueLabel: "访谈",
+    dialogueTitle: "从亲身经历中，理解不同视角。",
     dialogueText:
-      "访谈学者、实践者及拥有亲身经历的人士，为理解中国及美中关系带来不同的视角。",
+      "我们的访谈系列将邀请学者、实践者及亲历者，分享他们对中国及美中关系的观察与经验。",
     dialogueAction: "浏览访谈",
   },
 };
@@ -233,7 +233,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="container supporting-work">
+      <section
+        className="container supporting-work home-supporting-work"
+        id="analysis-and-interviews"
+      >
         <article>
           <div className="kicker">{t.researchLabel}</div>
           <h2>{t.researchTitle}</h2>
