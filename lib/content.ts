@@ -1,5 +1,6 @@
 export type Article = {
   slug: string;
+  status?: "in-development" | "published";
 
   section: string;
   sectionZh: string;
@@ -26,6 +27,7 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: "competition-and-cooperation",
+    status: "in-development",
 
     section: "U.S.-China Relations",
     sectionZh: "美中关系",
@@ -34,10 +36,10 @@ export const articles: Article[] = [
     titleZh: "竞争与合作能否在美中关系中共存？",
 
     dek:
-      "Strategic competition now defines much of Washington’s approach to China and increasingly shapes how the country is understood across American society. Yet competition alone does not capture the full relationship, nor does it eliminate the value of identifying areas where cooperation remains possible.",
+      "An examination of how strategic competition and practical cooperation interact, and what the historical record can tell us about the space for both.",
 
     dekZh:
-      "战略竞争如今在很大程度上塑造了华盛顿对华政策，也日益影响美国社会理解中国的方式。然而，竞争并不能涵盖美中关系的全部，也不应排除寻找双方仍可开展合作领域的价值。",
+      "探讨战略竞争与务实合作如何相互影响，以及历史记录能够如何帮助我们理解两者共存的空间。",
 
     date: "October 2026",
     dateZh: "2026年10月",
@@ -67,6 +69,7 @@ export const articles: Article[] = [
 
   {
     slug: "cooperation-beyond-competition",
+    status: "in-development",
 
     section: "Cooperation",
     sectionZh: "合作",
@@ -78,10 +81,10 @@ export const articles: Article[] = [
       "超越竞争：美中合作仍有意义的领域",
 
     dek:
-      "Even amid strategic rivalry, the United States and China retain areas where cooperation can advance shared interests, reduce risk, and produce practical benefits for both countries.",
+      "Exploring where shared interests may sustain practical cooperation, how those opportunities change, and what limits them.",
 
     dekZh:
-      "即使在战略竞争持续的背景下，美国和中国仍存在可以通过合作推进共同利益、降低风险并为双方带来实际利益的领域。",
+      "探索共同利益可能在哪些领域支持务实合作，这些机会如何变化，以及合作面临哪些限制。",
 
     date: "October 2026",
     dateZh: "2026年10月",
@@ -111,6 +114,7 @@ export const articles: Article[] = [
 
   {
     slug: "mandarin-pipeline",
+    status: "in-development",
 
     section: "Education & Policy",
     sectionZh: "教育与政策",
@@ -122,10 +126,10 @@ export const articles: Article[] = [
       "为什么美国的普通话人才培养体系关系到美中政策",
 
     dek:
-      "Limited access to sustained Mandarin education is narrowing the pipeline of Americans able to develop advanced language proficiency and deep China expertise, with consequences for research, diplomacy, and policymaking.",
+      "Examining the connection between Mandarin education, long-term China expertise, and the capacity to understand and conduct foreign policy.",
 
     dekZh:
-      "持续接受普通话教育的机会有限，正在缩小能够培养高级语言能力和深入中国专业知识的美国人才储备，并对研究、外交和政策制定产生影响。",
+      "考察普通话教育、长期中国研究能力与理解和开展外交政策之间的联系。",
 
     date: "October 2026",
     dateZh: "2026年10月",
@@ -155,6 +159,7 @@ export const articles: Article[] = [
 
   {
     slug: "video-games-soft-power",
+    status: "in-development",
 
     section: "Soft Power",
     sectionZh: "软实力",
@@ -166,10 +171,10 @@ export const articles: Article[] = [
       "中国电子游戏产业正在成为软实力的新来源",
 
     dek:
-      "Commercial success can carry political meaning when it signals technological capacity, cultural reach, and confidence in a country's development model.",
+      "Investigating the relationship between commercial success, cultural influence, and national image through China’s video game industry.",
 
     dekZh:
-      "当商业成功体现一个国家的技术能力、文化影响力以及对自身发展模式的信心时，它也可能具有更广泛的政治意义。",
+      "以中国电子游戏产业为切入点，研究商业成功、文化影响力与国家形象之间的关系。",
 
     date: "October 2026",
     dateZh: "2026年10月",
