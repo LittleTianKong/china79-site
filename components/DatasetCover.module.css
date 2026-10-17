@@ -1,0 +1,137 @@
+.cover {
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #17324d;
+  color: #fbfaf8;
+  border-left: 7px solid #c5161d;
+  box-shadow: 0 14px 30px rgba(23, 50, 77, .1);
+}
+
+.sheet {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 7.5cqw 8cqw 7.5cqw;
+}
+
+.masthead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1cqw;
+  line-height: 1;
+}
+
+.brand {
+  font-size: 6cqw;
+  font-weight: 850;
+  letter-spacing: -.045em;
+}
+
+.initiative {
+  padding-left: .15em;
+  font-size: 2.35cqw;
+  font-weight: 600;
+  letter-spacing: .3em;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  margin-top: 8cqw;
+}
+
+.series {
+  display: flex;
+  align-items: center;
+  gap: 3cqw;
+  font-size: 2.65cqw;
+  font-weight: 700;
+  letter-spacing: .14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.series::before {
+  content: "";
+  width: 7cqw;
+  height: 2px;
+  flex: 0 0 auto;
+  background: #e34b4f;
+}
+
+.title {
+  max-width: 100%;
+  margin-top: 4cqw;
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", "Songti SC", serif;
+  font-size: 10cqw;
+  font-weight: 400;
+  letter-spacing: -.035em;
+  line-height: 1.12;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.period {
+  margin-top: 5cqw;
+  color: #cfdae5;
+  font-size: 2.9cqw;
+  font-weight: 550;
+  letter-spacing: .11em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.archive {
+  position: absolute;
+  right: -5cqw;
+  bottom: 22cqw;
+  width: 62cqw;
+  height: auto;
+  pointer-events: none;
+}
+
+.archiveRules {
+  stroke: #cfdae5;
+  stroke-opacity: .11;
+  stroke-width: 1;
+}
+
+.redBracket {
+  stroke: #e34b4f;
+  stroke-opacity: .56;
+  stroke-width: 2;
+}
+
+.paleBracket {
+  stroke: #cfdae5;
+  stroke-opacity: .32;
+  stroke-width: 2;
+}
+
+.credit {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .7cqw;
+  margin-top: auto;
+  padding-top: 4cqw;
+  border-top: 1px solid rgba(207, 218, 229, .3);
+  font-size: 3.2cqw;
+  line-height: 1.5;
+}
+
+.author {
+  font-weight: 650;
+  letter-spacing: .01em;
+}
+
+.publisher {
+  color: #cfdae5;
+  font-size: 2.8cqw;
+}
