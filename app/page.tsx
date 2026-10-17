@@ -7,6 +7,7 @@ import { dataCopy, initiative } from "@/lib/initiative";
 const copy = {
   en: {
     browse: "Explore our data",
+    analysisAction: "Read our analysis",
     dataTitleLead: "Documenting ",
     dataTitleSubject: "U.S.–China",
     dataTitleEnd: " engagement.",
@@ -37,6 +38,7 @@ const copy = {
   },
   zh: {
     browse: "探索数据",
+    analysisAction: "阅读分析",
     dataTitleLead: "记录",
     dataTitleSubject: "美中交往",
     dataTitleEnd: "的历史。",
@@ -90,6 +92,9 @@ export default function HomePage() {
               <Link className="primary-link" href="/data">
                 {t.browse}
                 <span aria-hidden="true">→</span>
+              </Link>
+              <Link className="text-link" href="/analysis">
+                {t.analysisAction} <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
