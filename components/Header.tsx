@@ -53,6 +53,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
+                className={href === "/data" ? "data-nav-link" : undefined}
                 aria-current={
                   pathname === href || pathname.startsWith(`${href}/`)
                     ? "page"
@@ -60,7 +61,7 @@ export default function Header() {
                 }
                 onClick={() => setMenuOpen(false)}
               >
-                {label}
+                <span>{label}</span>
               </Link>
             ))}
           </nav>
