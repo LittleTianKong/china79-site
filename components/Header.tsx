@@ -53,7 +53,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className={href === "/data" ? "data-nav-link" : undefined}
+                className="nav-jump-link"
                 aria-current={
                   pathname === href || pathname.startsWith(`${href}/`)
                     ? "page"

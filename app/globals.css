@@ -932,13 +932,13 @@ section[id] { scroll-margin-top: 140px; }
 .menu-toggle { display: none; }
 
 /* Animate the label so the clickable area stays still during the hop. */
-.data-nav-link > span {
+.nav-jump-link > span {
   display: inline-block;
   transform-origin: center bottom;
   transition: transform 100ms ease-out;
 }
 
-@keyframes data-nav-hop {
+@keyframes nav-link-hop {
   0%, 100% { transform: translateY(0) rotate(0); }
   35% { transform: translateY(-6px) rotate(-4deg); }
   65% { transform: translateY(1px) rotate(2deg); }
@@ -946,24 +946,24 @@ section[id] { scroll-margin-top: 140px; }
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .data-nav-link:hover > span {
-    animation: data-nav-hop 480ms ease-out;
+  .nav-jump-link:hover > span {
+    animation: nav-link-hop 480ms ease-out;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .data-nav-link:focus-visible > span {
-    animation: data-nav-hop 480ms ease-out;
+  .nav-jump-link:focus-visible > span {
+    animation: nav-link-hop 480ms ease-out;
   }
 
-  .data-nav-link:active > span {
+  .nav-jump-link:active > span {
     animation: none;
     transform: translateY(2px) scale(.94);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .data-nav-link > span { transition: none; }
+  .nav-jump-link > span { transition: none; }
 }
 
 .initiative-hero { padding: 76px 0 62px; }
