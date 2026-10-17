@@ -20,23 +20,13 @@
 
 .masthead {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  gap: 1.1cqw;
-  line-height: 1;
 }
 
-.brand {
-  font-size: 6cqw;
-  font-weight: 850;
-  letter-spacing: -.045em;
-}
-
-.initiative {
-  padding-left: .15em;
-  font-size: 2.35cqw;
-  font-weight: 600;
-  letter-spacing: .3em;
+.logo {
+  display: block;
+  width: 57cqw;
+  height: auto;
 }
 
 .content {

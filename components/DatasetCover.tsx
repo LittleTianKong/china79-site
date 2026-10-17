@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./DatasetCover.module.css";
 
 type DatasetCoverProps = {
@@ -15,8 +16,13 @@ export default function DatasetCover({
     <div className={styles.cover} aria-hidden="true">
       <div className={styles.sheet}>
         <div className={styles.masthead}>
-          <span className={styles.brand}>CHINA79</span>
-          <span className={styles.initiative}>INITIATIVE</span>
+          <Image
+            className={styles.logo}
+            src="/china79-logo-light.svg"
+            alt=""
+            width={1338}
+            height={328}
+          />
         </div>
 
         <div className={styles.content}>
