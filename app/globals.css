@@ -1013,8 +1013,6 @@ section[id] { scroll-margin-top: 140px; }
 }
 
 .primary-link:hover { background: var(--red-dark); color: var(--white); }
-.initiative-image { height: clamp(240px, 34vw, 420px); margin-top: 50px; }
-.initiative-image .hero-image { object-position: center 50%; }
 
 .data-gateway {
   display: grid;
@@ -1191,7 +1189,6 @@ section[id] { scroll-margin-top: 140px; }
   .initiative-hero-intro .initiative-description { font-size: 21px; }
   .initiative-hero-intro .initiative-actions { gap: 16px 20px; }
   .initiative-hero-intro .primary-link { gap: 18px; padding-inline: 16px; }
-  .initiative-image { height: 185px; margin-top: 34px; }
   .collection-heading { flex-wrap: wrap; }
   .collection-feature { padding: 22px 20px 0; }
   .data-gateway h2 { font-size: 30px; }

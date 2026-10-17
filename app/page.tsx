@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageProvider";
 import { dataCopy, initiative } from "@/lib/initiative";
@@ -38,7 +37,6 @@ const copy = {
     dialogueText:
       "Reliable evidence can help people understand legitimate disagreements, recognize security concerns, and identify opportunities for mutually beneficial cooperation.",
     dialogueAction: "Our approach to dialogue",
-    credit: "Photo: zhang kaiyv / Unsplash",
   },
   zh: {
     browse: "探索数据",
@@ -72,7 +70,6 @@ const copy = {
     dialogueText:
       "可靠的证据有助于理解合理分歧、认识安全关切，并发现互利合作的机会。",
     dialogueAction: "了解我们的对话理念",
-    credit: "摄影：zhang kaiyv / Unsplash",
   },
 };
 
@@ -106,17 +103,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="hero-image-wrap initiative-image">
-          <Image
-            src="/beijing-skyline.jpg"
-            alt={language === "zh" ? "北京城市天际线" : "Beijing skyline"}
-            width={1536}
-            height={1024}
-            className="hero-image"
-            priority
-          />
-        </div>
-        <div className="image-credit">{t.credit}</div>
       </section>
       <section
         className="container data-gateway section-rule"
