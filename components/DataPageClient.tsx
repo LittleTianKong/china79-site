@@ -1,62 +1,115 @@
 "use client";
 
 import Link from "next/link";
+import DatasetCover from "@/components/DatasetCover";
 import { useLanguage } from "@/components/LanguageProvider";
+import { datasetCatalog } from "@/lib/datasets";
 import { dataCopy } from "@/lib/initiative";
+
+const copy = {
+  en: {
+    titleLead: "U.S.–China relations,", titleEnd: "in data.",
+    intro: "Historical evidence, organized for discovery. Explore the datasets we’re building to document official engagement and support a better understanding of the relationship.",
+    navigation: "Explore our data", collection: "Dataset collection", principles: "Publishing principles", citation: "Cite a dataset",
+    flagship: "Flagship dataset", period: "Since 1979",
+    author: "Created by", publisher: "Published by",
+    coverage: "Historical scope", coverageValue: "From 1979",
+    records: "Record type", recordsValue: "Official engagements",
+    access: "Planned access", accessValue: "Freely accessible",
+    view: "View dataset", cite: "Cite this dataset",
+    release: "Data files, source documentation, and release details will be added when the dataset is ready.",
+    principlesTitle: "Built to be used. Documented to be checked.",
+    contactTitle: "Help build a better record.",
+    contactText: "For dataset requests, source suggestions, or questions about access, contact China79.",
+    contactAction: "Get in touch",
+  },
+  zh: {
+    titleLead: "用数据，", titleEnd: "理解美中关系。",
+    intro: "让历史证据更便于发现和使用。了解我们正在开发的数据集，记录两国官方接触，为理解双边关系提供研究基础。",
+    navigation: "探索数据", collection: "数据集系列", principles: "发布原则", citation: "引用数据集",
+    flagship: "旗舰数据集", period: "1979年以来",
+    author: "作者", publisher: "发布机构",
+    coverage: "历史范围", coverageValue: "始于1979年",
+    records: "记录类型", recordsValue: "官方接触",
+    access: "计划获取方式", accessValue: "免费获取",
+    view: "查看数据集", cite: "引用此数据集",
+    release: "数据集准备就绪后，我们将发布数据文件、来源文档及具体获取方式。",
+    principlesTitle: "便于使用，也经得起检验。",
+    contactTitle: "共同完善历史记录。",
+    contactText: "如需申请数据集、推荐来源或咨询获取方式，欢迎联系 China79。",
+    contactAction: "联系我们",
+  },
+};
 
 export default function DataPageClient() {
   const { language } = useLanguage();
-  const t = dataCopy[language];
+  const t = copy[language];
+  const data = dataCopy[language];
   return (
-    <div className="page-shell">
-      <section className="container page-header">
-        <div className="eyebrow">{t.label}</div>
-        <h1>{t.title}</h1>
-        <p>{t.description}</p>
-      </section>
-      <section
-        className="container collection-section section-rule"
-        aria-labelledby="collection-title"
-      >
-        <div className="collection-heading">
-          <span className="kicker">{t.collectionLabel}</span>
-          <span className="release-status">{t.status}</span>
+    <div className="data-catalog-page">
+      <header className="container data-catalog-header">
+        <div>
+          <div className="eyebrow">{data.label}</div>
+          <h1>{t.titleLead}<br />{t.titleEnd}</h1>
         </div>
-        <h2 id="collection-title">{t.collectionTitle}</h2>
-        <p className="collection-description">{t.collectionDescription}</p>
-        <p className="collection-availability">{t.availability}</p>
-        <div className="research-questions">
-          <h3>{t.questionsLabel}</h3>
-          <ol>
-            {t.questions.map((question) => (
-              <li key={question}>{question}</li>
-            ))}
-          </ol>
-        </div>
+        <p>{t.intro}</p>
+      </header>
+
+      <nav className="container data-catalog-navigation" aria-label={t.navigation}>
+        <a href="#dataset-collection">{t.collection}</a>
+        <a href="#publishing-principles">{t.principles}</a>
+        <Link href={datasetCatalog[0].path + "#citation"}>{t.citation}<span aria-hidden="true">↗</span></Link>
+      </nav>
+
+      <section className="container dataset-catalog" id="dataset-collection" aria-label={t.collection}>
+        {datasetCatalog.map((dataset) => (
+          <article className="dataset-feature" key={dataset.slug}>
+            <Link className="dataset-feature-cover" href={dataset.path} aria-label={t.view + ": " + dataset.title[language]}>
+              <DatasetCover title={dataset.title[language]} seriesLabel={t.flagship} periodLabel={t.period} />
+            </Link>
+            <div className="dataset-feature-body">
+              <div className="dataset-feature-labels">
+                <span className="kicker">{t.flagship}</span>
+                <span className="release-status">{data.status}</span>
+              </div>
+              <h2><Link href={dataset.path}>{dataset.title[language]}</Link></h2>
+              <p className="dataset-summary">{dataset.summary[language]}</p>
+              <div className="dataset-attribution">
+                <div><span>{t.author}</span><strong>{dataset.author}</strong></div>
+                <div><span>{t.publisher}</span><strong>{dataset.publisher}</strong></div>
+              </div>
+              <dl className="dataset-facts">
+                <div><dt>{t.coverage}</dt><dd>{t.coverageValue}</dd></div>
+                <div><dt>{t.records}</dt><dd>{t.recordsValue}</dd></div>
+                <div><dt>{t.access}</dt><dd>{t.accessValue}</dd></div>
+              </dl>
+              <div className="dataset-feature-actions">
+                <Link className="primary-link" href={dataset.path}>{t.view}<span aria-hidden="true">→</span></Link>
+                <Link className="text-link" href={dataset.path + "#citation"}>{t.cite}<span aria-hidden="true">↗</span></Link>
+              </div>
+              <p className="dataset-release-note">{t.release}</p>
+            </div>
+          </article>
+        ))}
       </section>
-      <section
-        className="container publishing-section section-rule"
-        aria-labelledby="standards-title"
-      >
-        <div className="kicker">{t.standardsLabel}</div>
-        <h2 id="standards-title">{t.standardsTitle}</h2>
-        <div className="publishing-standards">
-          {t.standards.map((standard) => (
+
+      <section className="container dataset-principles" id="publishing-principles" aria-labelledby="dataset-principles-title">
+        <div className="kicker">{data.standardsLabel}</div>
+        <h2 id="dataset-principles-title">{t.principlesTitle}</h2>
+        <div className="dataset-principles-grid">
+          {data.standards.map((standard, index) => (
             <article key={standard.title}>
+              <span className="dataset-principle-number" aria-hidden="true">0{index + 1}</span>
               <h3>{standard.title}</h3>
               <p>{standard.text}</p>
             </article>
           ))}
         </div>
       </section>
-      <section className="container data-contact section-rule">
-        <div>
-          <h2>{t.contactLabel}</h2>
-          <p>{t.contactText}</p>
-        </div>
-        <Link className="primary-link" href="/contact">
-          {t.contactAction} <span aria-hidden="true">→</span>
-        </Link>
+
+      <section className="container dataset-contact-banner">
+        <div><h2>{t.contactTitle}</h2><p>{t.contactText}</p></div>
+        <a className="text-link" href="mailto:contact@china79.org">{t.contactAction}<span aria-hidden="true">↗</span></a>
       </section>
     </div>
   );
