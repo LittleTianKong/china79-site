@@ -1616,3 +1616,65 @@ section[id] { scroll-margin-top: 140px; }
   .about-contact h2 { font-size: 30px; }
   .about-contact > a { font-size: 16px; }
 }
+
+/* Interviews: forthcoming video conversations. */
+.interviews-page { padding-top: 56px; }
+.interviews-header { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: end; gap: 70px; }
+.interviews-header h1 { max-width: 20ch; margin-top: 18px; font-size: clamp(46px, 4.8vw, 66px); line-height: 1.08; }
+.interviews-header > p { max-width: 420px; margin: 0 0 5px; color: var(--muted); font-size: 18px; line-height: 1.75; }
+.interviews-navigation { display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 8px 34px; margin-top: 30px; padding: 10px 0; border-bottom: 1px solid var(--line); white-space: normal; }
+.interviews-navigation a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 8px 0; font-size: 13px; }
+.interviews-series { padding-top: 38px; }
+.interviews-feature { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 44px; align-items: center; }
+.interviews-feature-copy { min-width: 0; padding: 10px 0; }
+.interviews-feature-labels { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.interviews-feature h2 { max-width: 20ch; margin-top: 20px; font-family: Georgia, "Times New Roman", serif; font-size: 38px; font-weight: 500; line-height: 1.15; }
+.interviews-feature-copy > p { margin: 20px 0 0; color: var(--muted); font-size: 17px; line-height: 1.75; }
+.interviews-feature-copy > .interviews-feature-note { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.7; }
+.interviews-feature .text-link { display: inline-flex; align-items: center; gap: 20px; min-height: 44px; margin-top: 18px; font-size: 14px; }
+.interviews-future { padding-top: 64px; }
+.interviews-future-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 30px; }
+.interviews-future-heading h2 { margin-top: 14px; font-family: Georgia, "Times New Roman", serif; font-size: 38px; font-weight: 500; line-height: 1.15; }
+.interviews-future-heading > p { max-width: 350px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
+.interviews-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.interviews-future-card { min-width: 0; border: 1px solid var(--line); background: var(--white); }
+.interviews-future-card-copy { padding: 24px; }
+.interviews-future-card h3 { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 500; line-height: 1.2; }
+.interviews-future-card p { margin: 12px 0 22px; color: var(--muted); font-size: 15px; line-height: 1.65; }
+.interviews-future-card-copy > span { display: block; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; font-weight: 650; }
+.interviews-contact { display: flex; align-items: center; justify-content: space-between; gap: 52px; margin-top: 58px; margin-bottom: 74px; padding: 32px; border: 1px solid var(--line); border-left: 4px solid var(--red); background: var(--white); }
+.interviews-contact h2 { max-width: 24ch; margin-top: 14px; font-family: Georgia, "Times New Roman", serif; font-size: 34px; font-weight: 500; line-height: 1.2; }
+.interviews-contact p { max-width: 630px; margin: 14px 0 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
+.interviews-contact > a { display: inline-flex; align-items: center; flex: 0 0 auto; gap: 18px; min-height: 44px; color: var(--navy); font-size: 17px; font-weight: 700; }
+.interviews-contact > a:hover { color: var(--red); }
+
+@media (max-width: 1000px) {
+  .interviews-header { gap: 40px; }
+  .interviews-feature { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 30px; }
+  .interviews-feature h2 { font-size: 32px; }
+  .interviews-grid { gap: 20px; }
+  .interviews-future-card-copy { padding: 22px; }
+  .interviews-contact { gap: 30px; padding: 28px; }
+}
+
+@media (max-width: 760px) {
+  .interviews-page { padding-top: 40px; }
+  .interviews-header { grid-template-columns: 1fr; gap: 24px; }
+  .interviews-header h1 { max-width: 21ch; font-size: clamp(38px, 7.5vw, 54px); }
+  .interviews-header > p { max-width: 580px; font-size: 17px; }
+  .interviews-navigation { gap: 4px 24px; margin-top: 24px; }
+  .interviews-series { padding-top: 28px; }
+  .interviews-feature { grid-template-columns: 1fr; gap: 28px; }
+  .interviews-feature-copy { padding: 0; }
+  .interviews-feature h2 { max-width: 24ch; font-size: 34px; }
+  .interviews-feature-copy > p { font-size: 16px; }
+  .interviews-future { padding-top: 42px; }
+  .interviews-future-heading { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 24px; }
+  .interviews-future-heading h2 { font-size: 32px; }
+  .interviews-future-heading > p { max-width: 580px; }
+  .interviews-grid { grid-template-columns: 1fr; gap: 26px; }
+  .interviews-future-card-copy { padding: 24px; }
+  .interviews-contact { align-items: flex-start; flex-direction: column; gap: 22px; margin-top: 40px; margin-bottom: 52px; padding: 24px; }
+  .interviews-contact h2 { font-size: 30px; }
+  .interviews-contact > a { font-size: 16px; }
+}
