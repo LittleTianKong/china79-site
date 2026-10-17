@@ -968,12 +968,7 @@ section[id] { scroll-margin-top: 140px; }
 
 .initiative-hero { padding: 76px 0 62px; }
 
-.initiative-hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
-  align-items: center;
-  gap: 64px;
-}
+.initiative-hero-copy { max-width: 1000px; }
 
 .initiative-hero h1 {
   margin-top: 22px;
@@ -983,13 +978,14 @@ section[id] { scroll-margin-top: 140px; }
 
 .initiative-hero h1 span { display: block; }
 .initiative-hero h1 span:last-child { color: var(--red); }
-.initiative-hero-intro > p { color: var(--muted); font-size: 16px; }
+.initiative-hero-intro { max-width: 800px; margin-top: 26px; }
 
 .initiative-hero-intro .initiative-description {
-  margin-top: 0;
+  margin: 0;
   color: var(--ink);
   font-size: 23px;
   line-height: 1.45;
+  text-wrap: balance;
 }
 
 .initiative-actions {
@@ -1161,7 +1157,6 @@ section[id] { scroll-margin-top: 140px; }
   .primary-navigation { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 16px 24px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 12px 20px rgba(0, 0, 0, .06); }
   .primary-navigation.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
   .primary-navigation a { text-align: left; padding: 12px 0; }
-  .initiative-hero-grid,
   .origin-section,
   .collection-feature,
   .data-gateway,
@@ -1172,8 +1167,6 @@ section[id] { scroll-margin-top: 140px; }
   .origin-year { font-size: clamp(112px, 22vw, 160px); }
   .collection-feature { row-gap: 0; }
   .collection-question-preview { padding: 0 0 22px; border-left: 0; }
-  .initiative-hero-intro { max-width: 650px; }
-  .initiative-hero-intro .initiative-description { max-width: 600px; }
   .initiative-pillars { grid-template-columns: 1fr; gap: 24px; }
   .pillar-number { margin-bottom: 12px; }
   .mission-vision,
@@ -1193,6 +1186,8 @@ section[id] { scroll-margin-top: 140px; }
   .initiative-hero { padding: 48px 0 40px; }
   .initiative-hero h1 { font-size: clamp(38px, 10.5vw, 58px); }
   .initiative-hero-intro .initiative-description { font-size: 21px; }
+  .initiative-hero-intro .initiative-actions { gap: 16px 20px; }
+  .initiative-hero-intro .primary-link { gap: 18px; padding-inline: 16px; }
   .initiative-image { height: 185px; margin-top: 34px; }
   .collection-heading { flex-wrap: wrap; }
   .collection-feature { padding: 22px 20px 0; }

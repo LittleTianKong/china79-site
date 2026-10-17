@@ -9,6 +9,8 @@ const copy = {
   en: {
     browse: "Explore our data",
     about: "About the initiative",
+    heroDescription:
+      "Independent data and analysis on U.S.–China relations, grounded in the historical record.",
     dataTitleLead: "Documenting ",
     dataTitleSubject: "U.S.–China",
     dataTitleEnd: " engagement.",
@@ -41,6 +43,8 @@ const copy = {
   zh: {
     browse: "探索数据",
     about: "关于本倡议",
+    heroDescription:
+      "关于美中关系的独立数据与分析，以历史记录为依据。",
     dataTitleLead: "记录",
     dataTitleSubject: "美中交往",
     dataTitleEnd: "的历史。",
@@ -80,7 +84,7 @@ export default function HomePage() {
   return (
     <>
       <section className="container initiative-hero">
-        <div className="initiative-hero-grid">
+        <div className="initiative-hero-copy">
           <div>
             <div className="eyebrow">{identity.name}</div>
             <h1>
@@ -90,8 +94,7 @@ export default function HomePage() {
             </h1>
           </div>
           <div className="initiative-hero-intro">
-            <p className="initiative-description">{identity.description}</p>
-            <p>{identity.introduction}</p>
+            <p className="initiative-description">{t.heroDescription}</p>
             <div className="initiative-actions">
               <Link className="primary-link" href="/data">
                 {t.browse}
