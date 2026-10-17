@@ -31,10 +31,10 @@ const copy = {
       "Data gives analysis a foundation. Our research examines patterns of engagement, competition, and cooperation—and what the evidence can and cannot tell us.",
     researchAction: "Explore research",
     dialogueLabel: "Cooperation & dialogue",
-    dialogueTitle: "A shared starting point for informed discussion.",
+    dialogueTitle: "Understanding through conversation.",
     dialogueText:
-      "Reliable evidence can help people understand legitimate disagreements, recognize security concerns, and identify opportunities for mutually beneficial cooperation.",
-    dialogueAction: "Our approach to dialogue",
+      "Conversations with scholars, practitioners, and people with firsthand experience offer new perspectives on China and the bilateral relationship.",
+    dialogueAction: "Explore interviews",
   },
   zh: {
     browse: "探索数据",
@@ -62,10 +62,10 @@ const copy = {
       "数据为分析奠定基础。我们的研究考察接触、竞争与合作的规律，并探讨证据能够以及不能说明什么。",
     researchAction: "浏览研究",
     dialogueLabel: "合作与对话",
-    dialogueTitle: "为知情讨论建立共同起点。",
+    dialogueTitle: "通过访谈，增进理解。",
     dialogueText:
-      "可靠的证据有助于理解合理分歧、认识安全关切，并发现互利合作的机会。",
-    dialogueAction: "了解我们的对话理念",
+      "访谈学者、实践者及拥有亲身经历的人士，为理解中国及美中关系带来不同的视角。",
+    dialogueAction: "浏览访谈",
   },
 };
 
@@ -210,6 +210,10 @@ export default function HomePage() {
               <h3>{pillar.title}</h3>
               <p>{pillar.text}</p>
               <PillarIllustration index={index} />
+              <div className="pillar-contact">
+                <p>{pillar.contactPrompt}</p>
+                <a href="mailto:contact@china79.org">contact@china79.org</a>
+              </div>
             </article>
           ))}
         </div>
@@ -242,7 +246,7 @@ export default function HomePage() {
           <div className="kicker">{t.dialogueLabel}</div>
           <h2>{t.dialogueTitle}</h2>
           <p>{t.dialogueText}</p>
-          <Link className="text-link" href="/policy-outreach">
+          <Link className="text-link" href="/interviews">
             {t.dialogueAction} <span aria-hidden="true">→</span>
           </Link>
         </article>

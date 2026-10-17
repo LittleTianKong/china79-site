@@ -1128,6 +1128,10 @@ section[id] { scroll-margin-top: 140px; }
 .pillar-art-seal { fill: var(--paper); stroke: var(--red); stroke-width: 2; }
 .pillar-art-lens { fill: none; stroke: var(--red); stroke-width: 2; }
 .pillar-art-point { fill: var(--red); stroke: none; }
+.pillar-contact { margin-top: 14px; min-height: 78px; }
+.initiative-pillars .pillar-contact p { margin: 0; font-size: 14px; line-height: 1.6; }
+.pillar-contact a { display: inline-block; margin-top: 5px; color: var(--red); font-size: 14px; font-weight: 700; overflow-wrap: anywhere; text-underline-offset: 3px; }
+.pillar-contact a:hover { text-decoration: underline; }
 .evidence-band { padding: 68px 0; background: var(--ink); color: var(--white); }
 .evidence-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px; }
 .evidence-layout h2 { max-width: 490px; margin-top: 20px; font-size: clamp(34px, 3.5vw, 46px); }
@@ -1179,6 +1183,7 @@ section[id] { scroll-margin-top: 140px; }
   .collection-question-preview { padding: 0 0 22px; border-left: 0; }
   .initiative-pillars { grid-template-columns: 1fr; gap: 24px; }
   .pillar-number { margin-bottom: 12px; }
+  .pillar-contact { min-height: 0; }
   .mission-vision,
   .supporting-work,
   .publishing-standards { gap: 40px; }
