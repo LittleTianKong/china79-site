@@ -1015,7 +1015,7 @@ section[id] { scroll-margin-top: 140px; }
 
 .primary-link:hover { background: var(--red-dark); color: var(--white); }
 .initiative-image { height: 230px; margin-top: 50px; }
-.initiative-image .hero-image { object-position: center 45%; }
+.initiative-image .hero-image { object-position: center 50%; }
 
 .data-gateway {
   display: grid;
