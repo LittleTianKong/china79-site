@@ -21,6 +21,10 @@ const copy = {
     collectionQuestions: "Questions behind the dataset",
     collectionRelease:
       "The dataset will be published with source notes and methodology when it is ready.",
+    originTitle: "Why 1979?",
+    originSubtitle: "The starting point of a changing relationship.",
+    originDescription:
+      "In 1979, the United States and the People’s Republic of China established diplomatic relations. Our flagship dataset begins with that milestone, documenting official engagements across the decades that followed.",
     approach: "Read about our approach",
     researchLabel: "Research & understanding",
     researchTitle: "From historical records to better questions.",
@@ -49,6 +53,10 @@ const copy = {
     collectionQuestions: "本数据集关注的问题",
     collectionRelease:
       "数据集完成后，我们将一并发布数据文件、来源说明和研究方法。",
+    originTitle: "为什么从1979年开始？",
+    originSubtitle: "一段不断演变的关系，由此展开。",
+    originDescription:
+      "1979年，美国与中华人民共和国正式建立外交关系。我们的旗舰数据集以这一里程碑为起点，记录此后数十年间的两国官方接触。",
     approach: "了解我们的研究原则",
     researchLabel: "研究与理解",
     researchTitle: "从历史记录中，提出更好的问题。",
@@ -145,14 +153,16 @@ export default function HomePage() {
           <p className="collection-release-note">{t.collectionRelease}</p>
         </article>
       </section>
-      <section className="container mission-vision section-rule">
-        <div>
-          <h2>{identity.missionLabel}</h2>
-          <p>{identity.mission}</p>
-        </div>
-        <div>
-          <h2>{identity.visionLabel}</h2>
-          <p>{identity.vision}</p>
+      <section
+        className="container origin-section section-rule"
+        id="why-1979"
+        aria-labelledby="origin-title"
+      >
+        <div className="origin-year" aria-hidden="true">1979</div>
+        <div className="origin-copy">
+          <h2 id="origin-title">{t.originTitle}</h2>
+          <p className="origin-subtitle">{t.originSubtitle}</p>
+          <p className="origin-description">{t.originDescription}</p>
         </div>
       </section>
       <section
