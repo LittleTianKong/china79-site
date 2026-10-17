@@ -1014,7 +1014,7 @@ section[id] { scroll-margin-top: 140px; }
 }
 
 .primary-link:hover { background: var(--red-dark); color: var(--white); }
-.initiative-image { height: 230px; margin-top: 50px; }
+.initiative-image { height: clamp(240px, 34vw, 420px); margin-top: 50px; }
 .initiative-image .hero-image { object-position: center 50%; }
 
 .data-gateway {
