@@ -943,8 +943,8 @@ section[id] { scroll-margin-top: 140px; }
 }
 
 .skip-link:focus { top: 12px; }
-.primary-navigation a[aria-current="page"] { color: var(--red); }
-.primary-navigation a:first-child { color: var(--red); }
+.primary-navigation a { color: var(--navy); }
+.primary-navigation a:is(:hover, :focus-visible, :active) { color: var(--red); }
 .menu-toggle { display: none; }
 
 /* Animate the label so the clickable area stays still during the hop. */
