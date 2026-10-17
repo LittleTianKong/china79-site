@@ -17,14 +17,17 @@ export const initiative = {
       {
         title: "Data & Transparency",
         text: "Collect and publish independently verified historical records of U.S.–China relations, freely available to everyone.",
+        contactPrompt: "For dataset requests or access questions, contact:",
       },
       {
         title: "Research & Understanding",
         text: "Use historical evidence to identify patterns of cooperation, competition, and diplomatic engagement.",
+        contactPrompt: "To submit research for consideration, contact:",
       },
       {
         title: "Cooperation & Dialogue",
-        text: "Promote informed discussion about opportunities for mutually beneficial cooperation, while recognizing legitimate disagreements and security concerns.",
+        text: "Publish interviews with scholars, practitioners, and people whose firsthand experiences offer insight into U.S.–China relations.",
+        contactPrompt: "To suggest a guest or discuss an interview, contact:",
       },
     ],
     evidenceLabel: "Our approach",
@@ -52,14 +55,17 @@ export const initiative = {
       {
         title: "数据与透明",
         text: "收集并发布经过独立核实的美中关系历史记录，供所有人免费获取和使用。",
+        contactPrompt: "如需申请数据集或咨询获取方式，请联系：",
       },
       {
         title: "研究与理解",
         text: "运用历史证据，识别合作、竞争和外交接触的规律。",
+        contactPrompt: "如需提交研究稿件，请联系：",
       },
       {
         title: "合作与对话",
-        text: "在承认合理分歧和安全关切的同时，推动对互利合作机会的知情讨论。",
+        text: "通过访谈学者、实践者和亲历者，为理解美中关系呈现不同的观点与经验。",
+        contactPrompt: "如需推荐访谈嘉宾或参与访谈，请联系：",
       },
     ],
     evidenceLabel: "我们的立场",
