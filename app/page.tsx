@@ -9,10 +9,18 @@ const copy = {
   en: {
     browse: "Explore our data",
     about: "About the initiative",
-    dataTitle: "Evidence comes first.",
+    dataTitleLead: "Documenting ",
+    dataTitleSubject: "U.S.–China",
+    dataTitleEnd: " engagement.",
     dataIntro:
-      "Our work starts with the historical record. We are building accessible datasets to help researchers, policymakers, and the public examine how the relationship evolves.",
-    collectionAction: "Explore the collection",
+      "We’re building a public record of diplomatic engagement between the United States and China, covering periods of cooperation, competition, and crisis.",
+    collectionLabel: "Flagship dataset",
+    collectionAction: "View collection details",
+    collectionSummary:
+      "A forthcoming dataset of diplomatic engagement and bilateral dialogue, designed for comparison across historical periods and U.S. administrations.",
+    collectionQuestions: "Questions behind the dataset",
+    collectionRelease:
+      "The dataset will be published with source notes and methodology when it is ready.",
     approach: "Read about our approach",
     researchLabel: "Research & understanding",
     researchTitle: "From historical records to better questions.",
@@ -29,10 +37,18 @@ const copy = {
   zh: {
     browse: "探索数据",
     about: "关于本倡议",
-    dataTitle: "从证据出发。",
+    dataTitleLead: "记录",
+    dataTitleSubject: "美中交往",
+    dataTitleEnd: "的历史。",
     dataIntro:
-      "我们的工作始于历史记录。我们正在构建易于获取的数据集，帮助研究人员、政策制定者和公众考察双边关系的演变。",
-    collectionAction: "探索数据集系列",
+      "我们正在构建一份公开的美中外交接触记录，涵盖合作、竞争与危机等不同时期。",
+    collectionLabel: "旗舰数据集",
+    collectionAction: "查看数据集详情",
+    collectionSummary:
+      "本数据集正在开发中，聚焦外交接触与双边对话，旨在支持跨历史时期、跨美国政府的比较研究。",
+    collectionQuestions: "本数据集关注的问题",
+    collectionRelease:
+      "数据集完成后，我们将一并发布数据文件、来源说明和研究方法。",
     approach: "了解我们的研究原则",
     researchLabel: "研究与理解",
     researchTitle: "从历史记录中，提出更好的问题。",
@@ -95,24 +111,38 @@ export default function HomePage() {
         className="container data-gateway section-rule"
         aria-labelledby="home-data-title"
       >
-        <div className="data-gateway-intro">
-          <div className="kicker">{data.label}</div>
-          <h2 id="home-data-title">{t.dataTitle}</h2>
+        <div className="data-gateway-header">
+          <div>
+            <div className="kicker">{data.label}</div>
+            <h2 id="home-data-title">
+              {t.dataTitleLead}<span>{t.dataTitleSubject}</span>{t.dataTitleEnd}
+            </h2>
+          </div>
           <p>{t.dataIntro}</p>
         </div>
         <article className="collection-feature">
-          <div className="collection-heading">
-            <span className="collection-label">{data.collectionLabel}</span>
-            <span className="release-status">{data.status}</span>
+          <div className="collection-feature-main">
+            <div className="collection-heading">
+              <span className="collection-label">{t.collectionLabel}</span>
+              <span className="release-status">{data.status}</span>
+            </div>
+            <h3>
+              <Link href="/data">{data.collectionTitle}</Link>
+            </h3>
+            <p>{t.collectionSummary}</p>
+            <Link className="text-link collection-action" href="/data">
+              {t.collectionAction} <span aria-hidden="true">→</span>
+            </Link>
           </div>
-          <h3>
-            <Link href="/data">{data.collectionTitle}</Link>
-          </h3>
-          <p>{data.collectionDescription}</p>
-          <p className="collection-availability">{data.availability}</p>
-          <Link className="text-link" href="/data">
-            {t.collectionAction} <span aria-hidden="true">→</span>
-          </Link>
+          <div className="collection-question-preview">
+            <h4>{t.collectionQuestions}</h4>
+            <ol>
+              {data.questions.map((question) => (
+                <li key={question}>{question}</li>
+              ))}
+            </ol>
+          </div>
+          <p className="collection-release-note">{t.collectionRelease}</p>
         </article>
       </section>
       <section className="container mission-vision section-rule">

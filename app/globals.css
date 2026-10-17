@@ -1018,9 +1018,12 @@ section[id] { scroll-margin-top: 140px; }
 
 .data-gateway {
   display: grid;
-  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-  gap: 80px;
+  gap: 32px;
   padding: 56px 0 68px;
+}
+
+.data-gateway-header {
+  max-width: 900px;
 }
 
 .data-gateway h2,
@@ -1037,9 +1040,10 @@ section[id] { scroll-margin-top: 140px; }
   line-height: 1.15;
 }
 
-.data-gateway h2 { margin-top: 15px; font-size: 40px; }
-.data-gateway-intro p,
-.collection-feature > p,
+.data-gateway h2 { max-width: 900px; margin-top: 15px; font-size: 42px; }
+.data-gateway h2 span { white-space: nowrap; }
+.data-gateway-header > p,
+.collection-feature-main > p,
 .mission-vision p,
 .initiative-pillars p,
 .supporting-work p,
@@ -1047,7 +1051,18 @@ section[id] { scroll-margin-top: 140px; }
 .publishing-standards p,
 .data-contact p { color: var(--muted); font-size: 17px; line-height: 1.7; }
 
-.collection-feature { border-left: 3px solid var(--red); padding-left: 30px; }
+.data-gateway-header > p { max-width: 800px; margin: 18px 0 0; }
+.collection-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  column-gap: 48px;
+  padding: 30px 34px 0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--red);
+  background: var(--white);
+}
+.collection-feature-main { padding-bottom: 28px; }
+.collection-feature-main > p { margin: 16px 0 22px; }
 .collection-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .collection-label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
 
@@ -1063,10 +1078,17 @@ section[id] { scroll-margin-top: 140px; }
   letter-spacing: .05em;
 }
 
-.collection-feature h3 { margin-top: 22px; font-size: 34px; }
-.collection-feature .collection-availability,
+.collection-feature h3 { max-width: 530px; margin-top: 22px; font-size: 34px; }
 .collection-availability { font-size: 14px; color: var(--muted); line-height: 1.65; }
-.collection-feature .text-link { display: inline-block; margin-top: 12px; }
+.collection-action { display: inline-flex; align-items: center; gap: 18px; font-size: 14px; }
+.collection-action span { transition: transform 150ms ease-out; }
+.collection-action:hover span { transform: translateX(4px); }
+.collection-question-preview { padding-left: 30px; border-left: 1px solid var(--line); }
+.collection-question-preview h4 { margin: 1px 0 14px; font-size: 12px; text-transform: uppercase; letter-spacing: .07em; line-height: 1.6; }
+.collection-question-preview ol { margin: 0; padding: 0; list-style: none; counter-reset: collection-question; }
+.collection-question-preview li { counter-increment: collection-question; display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; line-height: 1.6; }
+.collection-question-preview li::before { content: counter(collection-question, decimal-leading-zero); color: var(--red); font-size: 11px; font-weight: 750; padding-top: 3px; }
+.collection-feature .collection-release-note { grid-column: 1 / -1; margin: 0; padding: 16px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.65; }
 
 .mission-vision,
 .supporting-work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px; padding: 62px 0 72px; }
@@ -1118,10 +1140,13 @@ section[id] { scroll-margin-top: 140px; }
   .primary-navigation.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
   .primary-navigation a { text-align: left; padding: 12px 0; }
   .initiative-hero-grid,
+  .collection-feature,
   .data-gateway,
   .evidence-layout,
   .research-questions { grid-template-columns: 1fr; gap: 32px; }
   .initiative-hero h1 { font-size: 68px; }
+  .collection-feature { row-gap: 0; }
+  .collection-question-preview { padding: 0 0 22px; border-left: 0; }
   .initiative-hero-intro { max-width: 650px; }
   .initiative-hero-intro .initiative-description { max-width: 600px; }
   .initiative-pillars { grid-template-columns: 1fr; gap: 24px; }
@@ -1145,7 +1170,9 @@ section[id] { scroll-margin-top: 140px; }
   .initiative-hero-intro .initiative-description { font-size: 21px; }
   .initiative-image { height: 185px; margin-top: 34px; }
   .collection-heading { flex-wrap: wrap; }
-  .collection-feature { padding-left: 20px; }
+  .collection-feature { padding: 22px 20px 0; }
+  .data-gateway h2 { font-size: 30px; }
+  .collection-feature h3 { font-size: 30px; }
   .mission-vision,
   .supporting-work,
   .publishing-standards { grid-template-columns: 1fr; gap: 32px; }
@@ -1166,4 +1193,6 @@ section[id] { scroll-margin-top: 140px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .collection-action span { transition: none; }
+  .collection-action:hover span { transform: none; }
 }
