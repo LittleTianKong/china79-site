@@ -17,7 +17,7 @@ Independent data and analysis on U.S.–China relations, with a commitment to pr
 
 ## Important launch note
 
-The historical engagement project is a **Flagship Series of eight planned datasets**. The first is **U.S.–China Official Contacts: Trump’s First Administration (2017–2021)**. Its source workbook contains 745 retained records, with 719 included in the default count and 26 excluded records retained for transparency. The first public release is forthcoming; no data files are available to download on this site yet. Series citations and individual dataset citations are separate.
+The historical engagement project is a **Flagship Series of eight datasets: one released and seven planned**. The first is **U.S.–China Official Contacts: Trump’s First Administration (2017–2021)** by **Michael C. Rhind-Tutt**, published by **China79 Initiative**. Release **1.0.0**, dated **2026-10-17**, provides CSV, Excel workbook, and ZIP package downloads under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Its source workbook contains 745 retained records, with 719 included in the default count and 26 excluded records retained for transparency. [Open the dataset and its citation](https://china79.org/data/us-china-engagement/trump-first-administration). Series citations and individual dataset citations are separate; the seven future datasets are not released.
 
 Existing article bodies in `lib/content.ts` include **placeholder content for layout purposes**. Replace them with fully sourced final work before treating them as published research. The homepage directs visitors to the data collection instead of featuring those drafts.
 
@@ -46,7 +46,7 @@ Shared English and Chinese identity, mission, vision, pillars, collection descri
 
 Page-specific copy lives in `components/HomePageClient.tsx` and the corresponding client components in `components/`. The English/Chinese switch applies to all updated pages, and the language preference is retained between visits.
 
-When datasets are ready, replace the in-development notice with the actual release information, source documentation, methodology, and download links. Update both languages together.
+For each new dataset or release, update its release information, source documentation, methodology, citation, and download links in both languages. Confirm the public files before deploying the corresponding availability copy. The CC BY 4.0 license applies to the released Trump dataset; do not infer a license for future datasets or the entire website.
 
 Existing research content lives in `lib/content.ts`.
 
@@ -73,7 +73,7 @@ Primary colors are defined at the top of `app/globals.css`.
 
 `lib/seo.ts` defines the public base URL, page metadata, indexable paths, and structured data. `/sitemap.xml` lists finalized core pages and only articles explicitly marked `published`. Draft article pages and the retained legacy `/policy-outreach` page use `noindex, follow`. `/robots.txt` permits public search crawling and excludes `/api/`.
 
-The data catalog and flagship series use `DataCatalog` structured data. The full `Dataset` description appears on the Trump dataset’s canonical landing page with its creator, publisher, coverage, and Version 1. Public release is still forthcoming: download distributions, a license, and a publication date must be added only when confirmed and reflected on the page. Social previews use the generated `/opengraph-image` route, without external fonts or services.
+The data catalog and flagship series use `DataCatalog` structured data. The full `Dataset` description appears on the Trump dataset’s canonical landing page with its creator, publisher, coverage, release version, publication date, CC BY 4.0 license, and three `DataDownload` distributions. These values come from `lib/datasets.ts` and match the public release. The series remains in development with one released member and seven planned members. Social previews use the generated `/opengraph-image` route, without external fonts or services.
 
 The canonical public origin is `https://china79.org`. `next.config.mjs` redirects the old `china79-site.vercel.app` hostname to the same path on the custom domain; preview and local hosts are unaffected. If the public domain changes again, update `SITE_URL` in `lib/seo.ts`, the landing-page URLs in `lib/datasets.ts`, and the redirect destination together. Submit the current sitemap in Google Search Console and Bing Webmaster Tools. Search indexing and AI citations depend on each service; metadata does not guarantee inclusion or ranking.
 
