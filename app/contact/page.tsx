@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactPageClient />;
+  return <ContactPageClient deliveryEnabled={Boolean(process.env.RESEND_API_KEY && process.env.CONTACT_FROM_EMAIL)} />;
 }
