@@ -40,18 +40,30 @@ test("structured data cannot close its script and preserves the original content
   assert.deepEqual(JSON.parse(encoded), original);
 });
 
-test("the known dataset has a single canonical identity and honest forthcoming release metadata", () => {
+test("the released dataset has a single canonical identity and verified public release metadata", () => {
   const { trumpDatasetStructuredData: data, seriesStructuredData: series, catalogStructuredData: catalog, siteStructuredData } = load("lib/seo.ts");
   const { trumpFirstAdministrationDataset } = load("lib/datasets.ts");
   assert.equal(data["@type"], "Dataset");
   assert.equal(data.name, trumpFirstAdministrationDataset.title.en);
   assert.equal(data.url, trumpFirstAdministrationDataset.url);
-  assert.equal(data.version, "1");
+  assert.equal(data.version, "1.0.0");
   assert.equal(data.creator.name, "Michael C. Rhind-Tutt");
   assert.equal(data.temporalCoverage, "2017-01-20/2021-01-20");
   assert.ok(data.description.length >= 50 && data.description.length <= 5000);
-  assert.match(data.description, /745 records.*719.*26.*Public release is forthcoming/s);
-  for (const unconfirmed of ["distribution", "license", "datePublished", "citation", "isAccessibleForFree"]) assert.equal(unconfirmed in data, false);
+  assert.match(data.description, /745 records.*719.*26.*published under CC BY 4.0/s);
+  assert.doesNotMatch(data.description, /forthcoming/i);
+  assert.equal(data.datePublished, trumpFirstAdministrationDataset.release.date);
+  assert.equal(data.license, "https://creativecommons.org/licenses/by/4.0/");
+  assert.equal(data.isAccessibleForFree, true);
+  assert.equal(data.citation, trumpFirstAdministrationDataset.citation);
+  assert.equal(data.distribution.length, 3);
+  assert.deepEqual(Array.from(data.distribution, file => file.contentUrl), Array.from(trumpFirstAdministrationDataset.release.files, file => file.url));
+  for (const file of data.distribution) {
+    assert.equal(file["@type"], "DataDownload");
+    assert.equal(file.license, data.license);
+    assert.match(file.contentUrl, /^https:\/\/github\.com\/LittleTianKong\/china79-site\/releases\/download\/us-china-engagement-trump1-v1\.0\.0\/us-china-engagement-data-trump1-v1\.0\.0\.(csv|xlsx|zip)$/);
+    assert.ok(file.encodingFormat);
+  }
   assert.equal(series["@type"], "DataCatalog");
   assert.equal(catalog["@type"], "DataCatalog");
   assert.equal(series.dataset.length, 1);
@@ -82,6 +94,23 @@ test("all sitemap pages exist, have matching canonicals, and are indexable", asy
     assert.equal(metadata.openGraph.url, item.url, file);
     assert.equal(metadata.twitter.card, "summary_large_image", file);
     assert.equal(metadata.description.length > 40, true, file);
+  }
+});
+
+test("published files remain available in initial page HTML before download counters load", () => {
+  const React = require("react");
+  const { renderToStaticMarkup } = require("react-dom/server");
+  const { trumpFirstAdministrationDataset: dataset } = load("lib/datasets.ts");
+  for (const language of ["en", "zh"]) {
+    const { default: DatasetDownloads } = load("components/DatasetDownloads.tsx", {
+      "@/components/LanguageProvider": { useLanguage: () => ({ language }) },
+      "./DatasetDownloads.module.css": { default: new Proxy({}, { get: (_target, key) => String(key) }) },
+    });
+    const html = renderToStaticMarkup(React.createElement(DatasetDownloads, { slug: dataset.slug, release: dataset.release }));
+    for (const file of dataset.release.files) assert.ok(html.includes(`href="${file.url}"`));
+    assert.ok(html.includes(`href="${dataset.release.license}"`));
+    assert.doesNotMatch(html, /Downloads open with the first release|首次发布后开放下载/);
+    assert.doesNotMatch(html, />0<\/strong>/);
   }
 });
 
