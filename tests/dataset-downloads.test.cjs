@@ -81,3 +81,26 @@ test("API rejects unknown datasets without provider access and returns unavailab
   assert.equal(response.status, 503);
   assert.equal(response.headers.get("cache-control"), "no-store");
 });
+
+test("series totals include member files while member totals stay separate", () => {
+  const { summarizeDownloads } = load("lib/dataset-downloads.ts");
+  const series = { ...source, tagPrefix: "us-china-engagement-" };
+  const member = { ...source, tagPrefix: "us-china-engagement-trump1-v", assetPrefix: "us-china-engagement-data-trump1-" };
+  const releases = [
+    release([asset(1, 12, "us-china-engagement-data-trump1-v1.0.0.csv")], { tag_name: "us-china-engagement-trump1-v1.0.0" }),
+    release([asset(2, 8, "us-china-engagement-data-other-v1.0.0.csv")], { tag_name: "us-china-engagement-other-v1.0.0" }),
+  ];
+  assert.equal(summarizeDownloads(releases, series).total, 20);
+  assert.equal(summarizeDownloads(releases, member).total, 12);
+});
+
+test("API resolves registered member slugs to their own download source", async () => {
+  const memberSource = { ...source, assetPrefix: "us-china-engagement-data-trump1-" };
+  const { GET } = load("app/api/downloads/[slug]/route.ts", null, {
+    "@/lib/datasets": { datasetCatalog: [{ slug: "us-china-engagement", downloads: source, members: [{ slug: "us-china-engagement-trump1", downloads: memberSource }] }] },
+    "@/lib/dataset-downloads": { getDatasetDownloads: async (config) => { assert.equal(config, memberSource); return { status: "unreleased", total: null, files: [] }; } },
+  });
+  const response = await GET(new Request("https://china79-site.vercel.app/api/downloads/us-china-engagement-trump1"), { params: Promise.resolve({ slug: "us-china-engagement-trump1" }) });
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).total, null);
+});
