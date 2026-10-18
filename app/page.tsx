@@ -13,17 +13,17 @@ const copy = {
     dataTitleEnd: " engagement.",
     dataIntro:
       "We’re building a public record of diplomatic engagement between the United States and China, covering periods of cooperation, competition, and crisis.",
-    collectionLabel: "Flagship dataset",
-    collectionAction: "View collection details",
+    collectionLabel: "Flagship Series",
+    collectionAction: "Explore the series",
     collectionSummary:
-      "Our forthcoming dataset aims to provide the most comprehensive freely accessible record of publicly documented official U.S.–China engagements since 1979. It will support comparisons across historical periods and U.S. administrations.",
-    collectionQuestions: "Questions behind the dataset",
+      "Our flagship series is planned to include eight datasets and aims to provide the most comprehensive freely accessible record of publicly documented official U.S.–China engagements since 1979. It will support comparisons across historical periods and U.S. administrations.",
+    collectionQuestions: "Questions behind the series",
     collectionRelease:
-      "The dataset will be published with source notes and methodology when it is ready.",
+      "Data files, source notes, and methodology will be published as each dataset is released.",
     originTitle: "Why 1979?",
     originSubtitle: "The starting point of a changing relationship.",
     originDescription:
-      "In 1979, the United States and the People’s Republic of China established diplomatic relations. Our flagship dataset begins with that milestone, documenting official engagements across the decades that followed.",
+      "In 1979, the United States and the People’s Republic of China established diplomatic relations. Our flagship series of eight datasets begins with that milestone, documenting official engagements across the decades that followed.",
     approach: "Read about our approach",
     researchLabel: "Analysis",
     researchTitle: "Research grounded in evidence.",
@@ -44,17 +44,17 @@ const copy = {
     dataTitleEnd: "的历史。",
     dataIntro:
       "我们正在构建一份公开的美中外交接触记录，涵盖合作、竞争与危机等不同时期。",
-    collectionLabel: "旗舰数据集",
-    collectionAction: "查看数据集详情",
+    collectionLabel: "旗舰系列",
+    collectionAction: "探索本系列",
     collectionSummary:
-      "本数据集正在开发中，旨在为1979年以来有公开记录的美中官方接触建立最全面、可免费获取的资料库，支持跨历史时期、跨美国政府的比较研究。",
-    collectionQuestions: "本数据集关注的问题",
+      "我们的旗舰系列计划包含8个数据集，目前正在开发中。该系列旨在为1979年以来有公开记录的美中官方接触建立最全面、可免费获取的资料库，支持跨历史时期、跨美国政府的比较研究。",
+    collectionQuestions: "本系列关注的问题",
     collectionRelease:
-      "数据集完成后，我们将一并发布数据文件、来源说明和研究方法。",
+      "各数据集发布时，我们将一并提供数据文件、来源说明和研究方法。",
     originTitle: "为什么从1979年开始？",
     originSubtitle: "一段不断演变的关系，由此展开。",
     originDescription:
-      "1979年，美国与中华人民共和国正式建立外交关系。我们的旗舰数据集以这一里程碑为起点，记录此后数十年间的两国官方接触。",
+      "1979年，美国与中华人民共和国正式建立外交关系。我们的旗舰系列由8个数据集组成，以这一里程碑为起点，记录此后数十年间的两国官方接触。",
     approach: "了解我们的研究原则",
     researchLabel: "分析",
     researchTitle: "以证据为基础，理解关系变化。",
