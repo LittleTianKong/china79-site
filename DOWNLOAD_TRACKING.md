@@ -32,7 +32,7 @@ For a later release:
 2. Create a [GitHub Release](https://github.com/LittleTianKong/china79-site/releases/new) with the member’s unique tag prefix and its new version; do not reuse or replace the existing `us-china-engagement-trump1-v1.0.0` release.
 3. Attach actual data files using the registered member’s data-file prefix. Include the codebook, license, and counting guidance with the release; methodology files without the data prefix are not counted as dataset downloads.
 4. Publish a stable public release. Drafts and prereleases are excluded.
-5. The files and counters will appear on the dataset page after the cache refresh. Counts update periodically; allow approximately 15–30 minutes.
+5. The files and counters will appear on the dataset page after the cache refresh. The site checks GitHub about every five minutes. GitHub can take additional time to report downloads, so a successful download does not necessarily change the displayed count immediately.
 
 Register only actual confirmed public files in the release metadata. Do not create placeholder releases or fabricated datasets to populate counters.
 
@@ -51,7 +51,7 @@ No releases means **not released**, rather than a fabricated zero. A published f
 
 ## Implementation and checks
 
-The read-only endpoints include `/api/downloads/us-china-engagement` for the series and `/api/downloads/us-china-engagement-trump1` for the first dataset. They validate catalog slugs, paginate release history, cache shared public API responses, and never increment a counter on page view. Download links point directly to GitHub release assets; no file proxy or browser tracking cookie is added.
+The read-only endpoints include `/api/downloads/us-china-engagement` for the series and `/api/downloads/us-china-engagement-trump1` for the first dataset. They validate catalog slugs, paginate release history, and never increment a counter on page view. A single shared provider-fetch cache revalidates after 300 seconds; the API response is dynamic and uses `Cache-Control: no-store` so a second route/CDN cache cannot extend that delay. `checkedAt` comes from GitHub's response date (the oldest page when paginated), or is null if a timestamp is missing. Reading the cache never stamps an old total with the current time. The visible refresh control reads the latest shared snapshot; it does not bypass GitHub reporting or the five-minute shared cache. Download links point directly to GitHub release assets; no file proxy or browser tracking cookie is added.
 
 Run `node --test tests/dataset-downloads.test.cjs`. Tests use fixtures and mock requests only; they do not publish releases or download files.
 
