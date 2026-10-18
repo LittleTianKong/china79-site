@@ -17,7 +17,7 @@ Independent data and analysis on U.S.–China relations, with a commitment to pr
 
 ## Important launch note
 
-The historical engagement collection is **in development**. No dataset files have been supplied or made available for download. The site describes the intended collection and publishing commitments without presenting sample records as verified data.
+The historical engagement project is a **Flagship Series of eight planned datasets**. The first is **U.S.–China Official Contacts: Trump’s First Administration (2017–2021)**. Its source workbook contains 745 retained records, with 719 included in the default count and 26 excluded records retained for transparency. The first public release is forthcoming; no data files are available to download on this site yet. Series citations and individual dataset citations are separate.
 
 Existing article bodies in `lib/content.ts` include **placeholder content for layout purposes**. Replace them with fully sourced final work before treating them as published research. The homepage directs visitors to the data collection instead of featuring those drafts.
 
