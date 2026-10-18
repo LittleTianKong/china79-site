@@ -20,6 +20,7 @@ export type DatasetDownloadStats = {
   total: number | null;
   files: DatasetDownloadFile[];
   releasesUrl: string;
+  checkedAt: string | null;
 };
 
 const formats = new Set(["csv", "tsv", "xlsx", "json", "parquet", "zip", "dta", "sav", "rds"]);
@@ -55,23 +56,33 @@ export function summarizeDownloads(releases: unknown[], source: DownloadSource):
   }
   const total = files.reduce((sum, file) => sum + file.count, 0);
   if (!Number.isSafeInteger(total)) throw new Error("Invalid total");
-  return { status: files.length ? "available" : "unreleased", total: files.length ? total : null, files, releasesUrl: `${base}/releases` };
+  return { status: files.length ? "available" : "unreleased", total: files.length ? total : null, files, releasesUrl: `${base}/releases`, checkedAt: null };
 }
 
 export async function getDatasetDownloads(source: DownloadSource): Promise<DatasetDownloadStats> {
   const releases: unknown[] = [];
+  let checkedAt: number | null = null;
+  let hasEveryTimestamp = true;
   // Public API + shared fetch cache; no credentials or visitor identifiers required.
   // Fail rather than display a partial total if the response is incomplete.
   for (let page = 1; page <= 50; page++) {
     const response = await fetch(`https://api.github.com/repos/${source.owner}/${source.repository}/releases?per_page=100&page=${page}`, {
       headers: { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "China79-download-statistics" },
-      next: { revalidate: 900 }, signal: AbortSignal.timeout(8000),
+      next: { revalidate: 300 }, signal: AbortSignal.timeout(8000),
     });
     if (!response.ok) throw new Error("Download statistics unavailable");
+    // Use the provider response date, so reading a cached response cannot make
+    // an old total look as if it was just checked against GitHub.
+    const responseDate = Date.parse(response.headers.get("date") ?? "");
+    if (Number.isFinite(responseDate)) checkedAt = checkedAt === null ? responseDate : Math.min(checkedAt, responseDate);
+    else hasEveryTimestamp = false;
     const items: unknown = await response.json();
     if (!Array.isArray(items)) throw new Error("Invalid releases");
     releases.push(...items);
-    if (!response.headers.get("link")?.includes('rel="next"')) return summarizeDownloads(releases, source);
+    if (!response.headers.get("link")?.includes('rel="next"')) return {
+      ...summarizeDownloads(releases, source),
+      checkedAt: hasEveryTimestamp && checkedAt !== null ? new Date(checkedAt).toISOString() : null,
+    };
   }
   throw new Error("Incomplete release history");
 }
