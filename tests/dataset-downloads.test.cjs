@@ -56,8 +56,31 @@ test("loads every release page and shares a revalidated fetch cache", async () =
   assert.equal((await getDatasetDownloads(source)).total, 20);
   assert.equal(calls.length, 2);
   assert.match(calls[1].url, /page=2$/);
-  assert.equal(calls[0].options.next.revalidate, 900);
+  assert.equal(calls[0].options.next.revalidate, 300);
   assert.equal(calls[0].options.headers.Authorization, undefined);
+});
+
+test("cached totals retain the provider timestamp rather than appearing freshly checked", async () => {
+  const { getDatasetDownloads } = load("lib/dataset-downloads.ts", async () => Response.json(
+    [release([asset(1, 4)])], { headers: { date: "Sat, 17 Oct 2026 22:00:00 GMT" } },
+  ));
+  const result = await getDatasetDownloads(source);
+  assert.equal(result.total, 4);
+  assert.equal(result.checkedAt, "2026-10-17T22:00:00.000Z");
+  const withoutDate = load("lib/dataset-downloads.ts", async () => Response.json([release([asset(1, 4)])]));
+  assert.equal((await withoutDate.getDatasetDownloads(source)).checkedAt, null);
+});
+
+test("the counts endpoint does not add a second cache over the shared provider cache", async () => {
+  const stats = { status: "available", total: 4, files: [], checkedAt: "2026-10-17T22:00:00.000Z" };
+  const { GET, revalidate } = load("app/api/downloads/[slug]/route.ts", null, {
+    "@/lib/datasets": { datasetCatalog: [{ slug: "us-china-engagement", downloads: source }] },
+    "@/lib/dataset-downloads": { getDatasetDownloads: async () => stats },
+  });
+  const response = await GET(new Request("https://china79.org/api/downloads/us-china-engagement"), { params: Promise.resolve({ slug: "us-china-engagement" }) });
+  assert.equal(revalidate, 0);
+  assert.equal(response.headers.get("cache-control"), "no-store");
+  assert.deepEqual(await response.json(), stats);
 });
 
 test("provider errors do not become zero counts", async () => {
