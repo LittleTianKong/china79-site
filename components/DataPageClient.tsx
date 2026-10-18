@@ -6,39 +6,42 @@ import DatasetDownloads from "@/components/DatasetDownloads";
 import { useLanguage } from "@/components/LanguageProvider";
 import { datasetCatalog } from "@/lib/datasets";
 import { dataCopy } from "@/lib/initiative";
+import seriesStyles from "./DatasetSeries.module.css";
 
 const copy = {
   en: {
     titleLead: "U.S.–China relations,", titleEnd: "in data.",
-    intro: "Historical evidence, organized for discovery. Explore the datasets we’re building to document official engagement and support a better understanding of the relationship.",
-    navigation: "Explore our data", collection: "Dataset collection", principles: "Publishing principles", citation: "Cite a dataset",
-    flagship: "Flagship dataset", period: "Since 1979",
+    intro: "Historical evidence, organized for discovery. Our flagship series is planned to include eight datasets on official U.S.–China engagement, building a shared foundation for research and understanding.",
+    navigation: "Explore our data", collection: "Flagship Series", principles: "Publishing principles", citation: "Cite the series",
+    flagship: "Flagship Series", period: "Since 1979", datasets: "datasets",
     author: "Created by", publisher: "Published by",
     coverage: "Historical scope", coverageValue: "From 1979",
-    records: "Record type", recordsValue: "Official engagements",
+    size: "Series size",
     access: "Planned access", accessValue: "Freely accessible",
-    view: "View dataset", cite: "Cite this dataset",
-    release: "Data files, source documentation, and release details will be added when the dataset is ready.",
+    view: "View series", cite: "Cite this series",
+    release: "Individual dataset scopes, files, source documentation, and release details will be published as the series develops.",
     principlesTitle: "Built to be used. Documented to be checked.",
     contactTitle: "Help build a better record.",
     contactText: "For dataset requests, source suggestions, or questions about access, contact China79.",
     contactAction: "Get in touch",
+    first: "First in the series", forthcoming: "First release forthcoming",
   },
   zh: {
     titleLead: "用数据，", titleEnd: "理解美中关系。",
-    intro: "让历史证据更便于发现和使用。了解我们正在开发的数据集，记录两国官方接触，为理解双边关系提供研究基础。",
-    navigation: "探索数据", collection: "数据集系列", principles: "发布原则", citation: "引用数据集",
-    flagship: "旗舰数据集", period: "1979年以来",
+    intro: "让历史证据更便于发现和使用。我们的旗舰系列计划收录8个记录美中官方接触的数据集，为研究和理解两国关系提供共同基础。",
+    navigation: "探索数据", collection: "旗舰系列", principles: "发布原则", citation: "引用本系列",
+    flagship: "旗舰系列", period: "1979年以来", datasets: "个数据集",
     author: "作者", publisher: "发布机构",
     coverage: "历史范围", coverageValue: "始于1979年",
-    records: "记录类型", recordsValue: "官方接触",
+    size: "系列规模",
     access: "计划获取方式", accessValue: "免费获取",
-    view: "查看数据集", cite: "引用此数据集",
-    release: "数据集准备就绪后，我们将发布数据文件、来源文档及具体获取方式。",
+    view: "查看系列", cite: "引用本系列",
+    release: "随着本系列逐步开发，我们将发布各数据集的覆盖范围、数据文件、来源文档及版本信息。",
     principlesTitle: "便于使用，也经得起检验。",
     contactTitle: "共同完善历史记录。",
     contactText: "如需申请数据集、推荐来源或咨询获取方式，欢迎联系 China79。",
     contactAction: "联系我们",
+    first: "系列首个数据集", forthcoming: "首次发布筹备中",
   },
 };
 
@@ -65,8 +68,8 @@ export default function DataPageClient() {
       <section className="container dataset-catalog" id="dataset-collection" aria-label={t.collection}>
         {datasetCatalog.map((dataset) => (
           <article className="dataset-feature" key={dataset.slug}>
-            <Link className="dataset-feature-cover" href={dataset.path} aria-label={t.view + ": " + dataset.title[language]}>
-              <DatasetCover title={dataset.title[language]} seriesLabel={t.flagship} periodLabel={t.period} />
+            <Link className={`dataset-feature-cover ${seriesStyles.catalogCover}`} href={dataset.path} aria-label={t.view + ": " + dataset.title[language]}>
+              <DatasetCover title={dataset.title[language]} seriesLabel={t.flagship} periodLabel={`${dataset.datasetCount} ${t.datasets} · ${t.period}`} />
             </Link>
             <div className="dataset-feature-body">
               <div className="dataset-feature-labels">
@@ -81,7 +84,7 @@ export default function DataPageClient() {
               </div>
               <dl className="dataset-facts">
                 <div><dt>{t.coverage}</dt><dd>{t.coverageValue}</dd></div>
-                <div><dt>{t.records}</dt><dd>{t.recordsValue}</dd></div>
+                <div><dt>{t.size}</dt><dd>{dataset.datasetCount} {t.datasets}</dd></div>
                 <div><dt>{t.access}</dt><dd>{t.accessValue}</dd></div>
               </dl>
               <div className="dataset-feature-actions">
@@ -89,7 +92,8 @@ export default function DataPageClient() {
                 <Link className="text-link" href={dataset.path + "#citation"}>{t.cite}<span aria-hidden="true">↗</span></Link>
               </div>
               <p className="dataset-release-note">{t.release}</p>
-              <DatasetDownloads slug={dataset.slug} compact />
+              <div className={seriesStyles.teaser}><span>{t.first} · {t.forthcoming}</span><Link href={dataset.members[0].path}>{dataset.members[0].title[language]}<span aria-hidden="true"> ↗</span></Link></div>
+              <DatasetDownloads slug={dataset.slug} compact kind={dataset.kind} />
             </div>
           </article>
         ))}

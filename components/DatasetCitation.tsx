@@ -7,6 +7,8 @@ const copy = {
   en: {
     label: "Citation",
     title: "Cite this dataset",
+    seriesTitle: "Cite this series",
+    seriesDescription: "This citation refers to the series of eight planned datasets. Cite individual datasets separately when using their records; publication years and version details will be added with their releases.",
     description:
       "This is a project citation while the dataset is in development. Publication year, version, and release details will be added when the data is published.",
     formats: "Citation format",
@@ -25,6 +27,8 @@ const copy = {
   zh: {
     label: "引用",
     title: "引用此数据集",
+    seriesTitle: "引用本系列",
+    seriesDescription: "以下引文适用于计划收录8个数据集的系列。使用其中某个数据集的记录时，请单独引用该数据集；正式发布时将补充出版年份及版本信息。",
     description:
       "数据集仍在开发中，以下为项目引用格式。数据发布时将补充出版年份、版本及发布信息。",
     formats: "引用格式",
@@ -48,9 +52,13 @@ type CopyStatus = "idle" | "copying" | "copied" | "manual";
 export default function DatasetCitation({
   citation,
   bibtex,
+  kind = "dataset",
+  description,
 }: {
   citation: string;
   bibtex: string;
+  kind?: "dataset" | "series";
+  description?: string;
 }) {
   const { language } = useLanguage();
   const t = copy[language];
@@ -125,12 +133,12 @@ export default function DatasetCitation({
     >
       <div className="dataset-citation-heading">
         <div className="dataset-citation-label">{t.label}</div>
-        <h2 id="dataset-citation-title">{t.title}</h2>
+        <h2 id="dataset-citation-title">{kind === "series" ? t.seriesTitle : t.title}</h2>
         <p
           id="dataset-citation-description"
           className="dataset-citation-description"
         >
-          {t.description}
+          {description ?? (kind === "series" ? t.seriesDescription : t.description)}
         </p>
       </div>
       <div className="dataset-citation-controls">

@@ -9,6 +9,8 @@ const copy = {
   en: {
     label: "Releases & downloads", title: "Follow the data.", total: "File downloads", loading: "Loading download statistics…",
     forthcoming: "Downloads open with the first release.", forthcomingText: "Data files and their download totals will appear here when the dataset is published.",
+    seriesForthcomingText: "Data files and download totals will appear here as datasets in the series are released.",
+    seriesSummary: "Across all published files in the series", release: "Release",
     unavailable: "Download statistics are temporarily unavailable.", retry: "Try again", releases: "View releases on GitHub",
     method: "How downloads are counted", explanation: "Totals come from GitHub’s counters for the published dataset files listed here. Repeat and automated downloads can be included. These are file-download counts, not unique people or confirmation that a file was saved. Totals refresh periodically.",
     file: "Dataset file", version: "Version", downloads: "Downloads", download: "Download", summary: "Across published dataset files", pending: "Download totals available after release",
@@ -16,13 +18,15 @@ const copy = {
   zh: {
     label: "版本与下载", title: "追踪数据的使用。", total: "文件下载次数", loading: "正在加载下载统计…",
     forthcoming: "首次发布后开放下载。", forthcomingText: "数据集发布后，此处将显示数据文件及其下载次数。",
+    seriesForthcomingText: "随着本系列中的数据集逐步发布，此处将显示数据文件及其下载次数。",
+    seriesSummary: "本系列所有已发布文件的合计", release: "发布版本",
     unavailable: "下载统计暂时无法获取。", retry: "重试", releases: "在 GitHub 查看发布版本",
     method: "下载次数如何统计", explanation: "统计来自 GitHub 对此处列出的已发布数据文件的下载计数，可能包含重复下载及自动化下载。这是文件下载次数，不代表独立用户人数，也不能确认文件已保存。统计会定期更新。",
     file: "数据文件", version: "版本", downloads: "下载次数", download: "下载", summary: "所有已发布数据文件的合计", pending: "发布后将显示下载统计",
   },
 };
 
-export default function DatasetDownloads({ slug, compact = false }: { slug: string; compact?: boolean }) {
+export default function DatasetDownloads({ slug, compact = false, kind = "dataset" }: { slug: string; compact?: boolean; kind?: "dataset" | "series" }) {
   const { language } = useLanguage();
   const [stats, setStats] = useState<DatasetDownloadStats | null>(null);
   const [failed, setFailed] = useState(false);
@@ -54,10 +58,10 @@ export default function DatasetDownloads({ slug, compact = false }: { slug: stri
   return <section className={styles.panel} id="downloads" aria-labelledby={titleId}>
     <div className={styles.heading}><div><div className="kicker">{t.label}</div><h2 id={titleId}>{t.title}</h2></div>{stats?.total !== null && stats?.total !== undefined && <div className={styles.total}><strong>{number.format(stats.total)}</strong><span>{t.total}</span></div>}</div>
     {failed ? <div className={styles.notice} role="status"><p>{t.unavailable}</p><button type="button" onClick={() => setRetry((value) => value + 1)}>{t.retry} →</button></div> : !stats ? <p className={styles.notice} role="status">{t.loading}</p> : stats.status === "unreleased" ? <div className={styles.empty}>
-      <div className={styles.icon} aria-hidden="true"><svg width="28" height="30" viewBox="0 0 20 22" fill="none"><path d="M10 2v11m-4-4 4 4 4-4M3 15v4h14v-4" stroke="currentColor" strokeWidth="1.2" /></svg></div><div><h3>{t.forthcoming}</h3><p>{t.forthcomingText}</p></div>
+      <div className={styles.icon} aria-hidden="true"><svg width="28" height="30" viewBox="0 0 20 22" fill="none"><path d="M10 2v11m-4-4 4 4 4-4M3 15v4h14v-4" stroke="currentColor" strokeWidth="1.2" /></svg></div><div><h3>{t.forthcoming}</h3><p>{kind === "series" ? t.seriesForthcomingText : t.forthcomingText}</p></div>
     </div> : <>
-      <p className={styles.caption}>{t.summary}</p>
-      <div className={styles.tableWrap}><table><caption className={styles.visuallyHidden}>{t.label}</caption><thead><tr><th scope="col">{t.file}</th><th scope="col">{t.version}</th><th scope="col">{t.downloads}</th><th scope="col"><span className={styles.visuallyHidden}>{t.download}</span></th></tr></thead><tbody>{stats.files.map((file) => <tr key={file.id}><th scope="row"><span className={styles.format}>{file.format}</span><span className={styles.filename}>{file.name}</span></th><td>{file.version}</td><td className={styles.count}>{number.format(file.count)}</td><td><a href={file.url} aria-label={`${t.download}: ${file.name}`}>{t.download}<span aria-hidden="true"> ↓</span></a></td></tr>)}</tbody></table></div>
+      <p className={styles.caption}>{kind === "series" ? t.seriesSummary : t.summary}</p>
+      <div className={styles.tableWrap}><table><caption className={styles.visuallyHidden}>{t.label}</caption><thead><tr><th scope="col">{t.file}</th><th scope="col">{kind === "series" ? t.release : t.version}</th><th scope="col">{t.downloads}</th><th scope="col"><span className={styles.visuallyHidden}>{t.download}</span></th></tr></thead><tbody>{stats.files.map((file) => <tr key={file.id}><th scope="row"><span className={styles.format}>{file.format}</span><span className={styles.filename}>{file.name}</span></th><td>{file.version}</td><td className={styles.count}>{number.format(file.count)}</td><td><a href={file.url} aria-label={`${t.download}: ${file.name}`}>{t.download}<span aria-hidden="true"> ↓</span></a></td></tr>)}</tbody></table></div>
       <a className={styles.releaseLink} href={stats.releasesUrl}>{t.releases} ↗</a>
     </>}
     <details className={styles.method}><summary>{t.method}</summary><p>{t.explanation}</p></details>

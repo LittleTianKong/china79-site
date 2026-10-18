@@ -14,9 +14,9 @@ const copy = {
     originLabel: "The year behind our name", originTitle: "A starting point for understanding.",
     originDate: "1 January 1979",
     originText: "The United States and the People’s Republic of China established diplomatic relations on January 1, 1979.",
-    originProject: "That milestone is the starting point for our flagship dataset, which is being developed to document publicly recorded official engagements across the decades that followed.",
+    originProject: "That milestone is the starting point for our flagship series of eight datasets, which is being developed to document publicly recorded official engagements across the decades that followed.",
     originSource: "Historical background", originSourceName: "U.S. Department of State, Office of the Historian",
-    originAction: "Explore the flagship project",
+    originAction: "Explore the flagship series",
     workTitle: "One purpose. Three connected areas of work.",
     workText: "Data provides the foundation. Research asks what it means. Interviews bring experience and perspective into the conversation.",
     areas: [
@@ -36,9 +36,9 @@ const copy = {
     originLabel: "名称背后的年份", originTitle: "理解两国关系的一个起点。",
     originDate: "1979年1月1日",
     originText: "1979年1月1日，美国与中华人民共和国正式建立外交关系。",
-    originProject: "我们的旗舰数据集以这一里程碑为起点，正在整理此后数十年间有公开记录的两国官方接触。",
+    originProject: "我们的旗舰系列由8个数据集组成，以这一里程碑为起点，正在整理此后数十年间有公开记录的两国官方接触。",
     originSource: "了解历史背景", originSourceName: "美国国务院历史学家办公室",
-    originAction: "了解旗舰项目",
+    originAction: "了解旗舰系列",
     workTitle: "一个共同目标，三个相互关联的工作领域。",
     workText: "数据提供基础，研究探讨其意义，访谈为交流带来经验与不同视角。",
     areas: [

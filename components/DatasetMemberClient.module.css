@@ -1,0 +1,85 @@
+.page .title {
+  max-width: 25ch;
+  font-size: clamp(36px, 4vw, 54px);
+  line-height: 1.1;
+}
+
+.page .facts {
+  grid-template-columns: minmax(0, 1.45fr) repeat(2, minmax(0, .8fr));
+}
+
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 6px;
+}
+
+.dates time {
+  white-space: nowrap;
+}
+
+.number {
+  font-size: 25px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.countingNote {
+  display: grid;
+  grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr);
+  gap: 42px;
+  margin-top: 54px;
+  padding: 28px 32px;
+  border-left: 3px solid var(--red);
+  background: var(--navy-soft);
+}
+
+.countingNote h2 {
+  max-width: 18ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.countingNote p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.countingNote p + p {
+  margin-top: 12px;
+}
+
+.countingNote strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .countingNote {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    margin-top: 40px;
+    padding: 24px;
+  }
+
+  .countingNote h2 {
+    max-width: none;
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .facts > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
