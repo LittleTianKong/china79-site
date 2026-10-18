@@ -75,6 +75,16 @@ Primary colors are defined at the top of `app/globals.css`.
 
 The data catalog and flagship series use `DataCatalog` structured data. The full `Dataset` description appears on the Trump dataset’s canonical landing page with its creator, publisher, coverage, and Version 1. Public release is still forthcoming: download distributions, a license, and a publication date must be added only when confirmed and reflected on the page. Social previews use the generated `/opengraph-image` route, without external fonts or services.
 
-Once the custom domain works over HTTPS, update `SITE_URL` in `lib/seo.ts` and the hardcoded landing-page URLs in `lib/datasets.ts` together, configure the old domain to redirect, and resubmit the sitemap in Google Search Console and Bing Webmaster Tools. Search indexing and AI citations depend on each service; metadata does not guarantee inclusion or ranking.
+The canonical public origin is `https://china79.org`. `next.config.mjs` redirects the old `china79-site.vercel.app` hostname to the same path on the custom domain; preview and local hosts are unaffected. If the public domain changes again, update `SITE_URL` in `lib/seo.ts`, the landing-page URLs in `lib/datasets.ts`, and the redirect destination together. Submit the current sitemap in Google Search Console and Bing Webmaster Tools. Search indexing and AI citations depend on each service; metadata does not guarantee inclusion or ranking.
 
 Run discovery checks with `node --test tests/search-discovery.test.cjs`.
+
+## Browser security
+
+Vercel provides HTTPS certificates and HSTS. Keep its automatic certificate handling enabled; the app does not override the platform's HSTS policy.
+
+`next.config.mjs` adds MIME-sniffing and framing protections, a strict cross-origin referrer policy, and disables camera, microphone, and geolocation access. Clipboard access remains available for citations and email drafts. The baseline Content Security Policy restricts document bases, embedded objects, framing, and form destinations; it deliberately does not claim a strict nonce- or hash-based script policy, so static Next.js pages continue to work.
+
+Account security still depends on the owner: use two-factor authentication for the registrar, GitHub, Vercel, and email. Keep service secrets in Vercel's server-side environment variables. Before enabling direct contact delivery, use the setup in `CONTACT_FORM_SETUP.md`; its per-instance abuse limit is not a distributed firewall limit.
+
+Run browser security configuration checks with `node --test tests/site-security.test.cjs`.
