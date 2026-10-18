@@ -44,7 +44,7 @@ Do not change your Namecheap email MX records when connecting the website. Only 
 
 Shared English and Chinese identity, mission, vision, pillars, collection descriptions, research questions, and publishing commitments live in `lib/initiative.ts`.
 
-Page-specific copy lives in `app/page.tsx` and the corresponding client components in `components/`. The English/Chinese switch applies to all updated pages, and the language preference is retained between visits.
+Page-specific copy lives in `components/HomePageClient.tsx` and the corresponding client components in `components/`. The English/Chinese switch applies to all updated pages, and the language preference is retained between visits.
 
 When datasets are ready, replace the in-development notice with the actual release information, source documentation, methodology, and download links. Update both languages together.
 
@@ -68,3 +68,13 @@ For a larger publication, the next upgrade would be Markdown/MDX files or a CMS 
 The selected China79 logo is stored at `public/china79-logo.png`.
 
 Primary colors are defined at the top of `app/globals.css`.
+
+## Search and dataset discovery
+
+`lib/seo.ts` defines the public base URL, page metadata, indexable paths, and structured data. `/sitemap.xml` lists finalized core pages and only articles explicitly marked `published`. Draft article pages and the retained legacy `/policy-outreach` page use `noindex, follow`. `/robots.txt` permits public search crawling and excludes `/api/`.
+
+The data catalog and flagship series use `DataCatalog` structured data. The full `Dataset` description appears on the Trump dataset’s canonical landing page with its creator, publisher, coverage, and Version 1. Public release is still forthcoming: download distributions, a license, and a publication date must be added only when confirmed and reflected on the page. Social previews use the generated `/opengraph-image` route, without external fonts or services.
+
+Once the custom domain works over HTTPS, update `SITE_URL` in `lib/seo.ts` and the hardcoded landing-page URLs in `lib/datasets.ts` together, configure the old domain to redirect, and resubmit the sitemap in Google Search Console and Bing Webmaster Tools. Search indexing and AI citations depend on each service; metadata does not guarantee inclusion or ranking.
+
+Run discovery checks with `node --test tests/search-discovery.test.cjs`.
