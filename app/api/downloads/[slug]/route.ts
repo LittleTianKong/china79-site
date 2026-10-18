@@ -5,7 +5,7 @@ export const revalidate = 900;
 
 export async function GET(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const dataset = datasetCatalog.find((item) => item.slug === slug);
+  const dataset = datasetCatalog.flatMap((item) => [item, ...(item.members ?? [])]).find((item) => item.slug === slug);
   if (!dataset) return Response.json({ error: "Unknown dataset" }, { status: 404 });
   try {
     const stats = await getDatasetDownloads(dataset.downloads);
