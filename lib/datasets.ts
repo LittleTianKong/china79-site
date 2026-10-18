@@ -4,6 +4,12 @@ export const historicalEngagementDataset = {
   url: "https://china79-site.vercel.app/data/us-china-engagement",
   author: "Michael C. Rhind-Tutt",
   publisher: "China79 Initiative",
+  downloads: {
+    owner: "LittleTianKong",
+    repository: "china79-site",
+    tagPrefix: "us-china-engagement-v",
+    assetPrefix: "us-china-engagement-data-",
+  },
   title: { en: "U.S.–China historical engagement", zh: "美中历史接触与对话" },
   summary: {
     en: "Our flagship project aims to build the most comprehensive freely accessible dataset of publicly documented official U.S.–China engagements since 1979.",
