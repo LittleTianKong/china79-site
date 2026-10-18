@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 
 const nav = {
@@ -27,11 +27,26 @@ export default function Header() {
   const { language, toggleLanguage } = useLanguage();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigationRef = useRef<HTMLElement>(null);
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (menuOpen) navigationRef.current?.querySelector("a")?.focus();
+  }, [menuOpen]);
 
   return (
-    <header className="site-header">
+    <header
+      className="site-header"
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && menuOpen) {
+          event.preventDefault();
+          setMenuOpen(false);
+          menuToggleRef.current?.focus();
+        }
+      }}
+    >
       <div className="container header-inner">
-        <Link href="/" className="brand" aria-label="China79 home">
+        <Link href="/" className="brand" aria-label="China79 home" onClick={() => setMenuOpen(false)}>
           <Image
             src="/china79-logo.svg"
             alt="China79 Initiative"
@@ -43,6 +58,7 @@ export default function Header() {
 
         <div className="header-actions">
           <nav
+            ref={navigationRef}
             id="primary-navigation"
             className={
               menuOpen ? "primary-navigation is-open" : "primary-navigation"
@@ -79,6 +95,7 @@ export default function Header() {
             {language === "en" ? "中文" : "EN"}
           </button>
           <button
+            ref={menuToggleRef}
             className="menu-toggle"
             type="button"
             aria-controls="primary-navigation"
