@@ -5,7 +5,7 @@ import { trumpFirstAdministrationDataset } from "@/lib/datasets";
 
 export const metadata = pageMetadata({
   title: trumpFirstAdministrationDataset.title.en,
-  description: "The first dataset in China79’s flagship series: publicly documented official U.S.–China contacts during Trump’s first administration, with 745 retained records and 719 included in the default count. First release forthcoming.",
+  description: `Download China79’s dataset of official U.S.–China contacts during Trump’s first administration: 745 retained records and 719 included in the default count. Version ${trumpFirstAdministrationDataset.release.version} is available under CC BY 4.0.`,
   path: trumpFirstAdministrationDataset.path,
 });
 
