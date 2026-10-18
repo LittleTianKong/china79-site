@@ -1709,6 +1709,11 @@ section[id] { scroll-margin-top: 140px; }
 .contact-guides-grid h3 { margin-top: 16px; font-size: 23px; font-weight: 650; line-height: 1.3; letter-spacing: -.02em; }
 .contact-guides-grid p { max-width: 55ch; margin: 14px 0 22px; color: var(--muted); font-size: 16px; line-height: 1.75; }
 .contact-guides-grid .text-link { display: inline-flex; align-items: center; gap: 18px; min-height: 44px; margin-top: auto; font-size: 14px; }
+.contact-guide-action { padding: 0; border: 0; background: transparent; font-family: inherit; text-align: left; cursor: pointer; }
+.contact-guide-action:hover { color: var(--red-dark); }
+.contact-write-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 22px; min-height: 46px; margin-bottom: 16px; padding: 12px 17px; border: 1px solid var(--red); color: var(--white); background: var(--red); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.contact-write-button:hover { border-color: var(--white); background: var(--red-dark); }
+.contact-write-button:focus-visible { outline-color: var(--white); }
 .contact-other { padding-top: 58px; }
 .contact-other-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 30px; }
 .contact-other-grid article { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 28px; border-top: 3px solid var(--navy); background: var(--navy-soft); }
