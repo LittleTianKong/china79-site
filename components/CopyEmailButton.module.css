@@ -1,0 +1,102 @@
+.copyEmail {
+  --copy-ink: #17324d;
+  --copy-border: #17324d;
+  --copy-field: #ffffff;
+  --copy-focus: #c5161d;
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--copy-ink);
+}
+
+.light {
+  color: var(--copy-ink);
+}
+
+.dark {
+  --copy-ink: #fbfaf8;
+  --copy-border: rgba(251, 250, 248, .64);
+  --copy-field: #10283e;
+  --copy-focus: #ffffff;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid var(--copy-border);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--copy-ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+  border-color: #c5161d;
+  background: #c5161d;
+  color: #ffffff;
+}
+
+.button:focus-visible,
+.input:focus-visible {
+  outline: 3px solid var(--copy-focus);
+  outline-offset: 4px;
+}
+
+.button:disabled {
+  opacity: .7;
+  cursor: wait;
+}
+
+.status {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--copy-ink);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.status:empty {
+  margin-top: -8px;
+}
+
+.fallback {
+  display: grid;
+  gap: 6px;
+  width: min(100%, 360px);
+  min-width: 0;
+}
+
+.fallback label {
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--copy-border);
+  border-radius: 2px;
+  color: var(--copy-ink);
+  background: var(--copy-field);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.input::selection {
+  color: #ffffff;
+  background: #c5161d;
+}
