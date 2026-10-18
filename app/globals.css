@@ -1156,6 +1156,7 @@ section[id] { scroll-margin-top: 140px; }
 .evidence-layout .evidence-note { color: #c8d9e9; font-size: 15px; }
 .evidence-layout a { display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 5px; }
 .evidence-layout a:hover { color: var(--white); }
+.evidence-layout a:focus-visible { outline-color: var(--white); }
 .supporting-work h2 { margin-top: 16px; max-width: 500px; font-size: 34px; }
 .supporting-work p { margin-bottom: 24px; }
 .home-supporting-work { gap: 0; }
