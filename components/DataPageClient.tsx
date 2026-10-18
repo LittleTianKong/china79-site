@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import DatasetCover from "@/components/DatasetCover";
+import DatasetDownloads from "@/components/DatasetDownloads";
 import { useLanguage } from "@/components/LanguageProvider";
 import { datasetCatalog } from "@/lib/datasets";
 import { dataCopy } from "@/lib/initiative";
@@ -88,6 +89,7 @@ export default function DataPageClient() {
                 <Link className="text-link" href={dataset.path + "#citation"}>{t.cite}<span aria-hidden="true">↗</span></Link>
               </div>
               <p className="dataset-release-note">{t.release}</p>
+              <DatasetDownloads slug={dataset.slug} compact />
             </div>
           </article>
         ))}

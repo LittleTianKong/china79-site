@@ -1,0 +1,39 @@
+.panel { margin-top: 48px; padding: 32px; border: 1px solid var(--line); border-top: 3px solid var(--navy); background: var(--white); scroll-margin-top: 140px; }
+.heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.heading h2 { margin-top: 14px; font-family: Georgia, "Times New Roman", serif; font-size: 36px; font-weight: 500; line-height: 1.2; }
+.total { display: flex; flex-shrink: 0; flex-direction: column; align-items: flex-end; min-width: 80px; color: var(--navy); }
+.total strong { font-size: 46px; font-weight: 650; line-height: 1.15; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.total span { margin-top: 4px; color: var(--muted); font-size: 12px; white-space: nowrap; }
+.empty { display: flex; align-items: flex-start; gap: 22px; margin-top: 28px; padding: 24px; background: var(--navy-soft); }
+.icon { display: flex; justify-content: center; align-items: center; flex-shrink: 0; width: 48px; height: 48px; color: var(--navy); background: var(--white); }
+.empty h3 { font-size: 20px; font-weight: 650; line-height: 1.4; letter-spacing: -.02em; }
+.empty p { max-width: 640px; margin: 8px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+.notice { margin: 26px 0 0; color: var(--muted); font-size: 15px; }
+.notice p { margin: 0; }
+.notice button { min-height: 44px; padding: 8px 0; border: 0; color: var(--red); background: transparent; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.caption { margin: 24px 0 16px; color: var(--muted); font-size: 14px; }
+.tableWrap { position: relative; min-width: 0; max-width: 100%; overflow-x: auto; }
+.tableWrap table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+.tableWrap thead th { padding: 12px 10px; border-bottom: 2px solid var(--navy); color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+.tableWrap tbody th, .tableWrap td { padding: 18px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tableWrap tbody th { min-width: 210px; max-width: 500px; font-weight: 500; }
+.format { display: inline-block; margin: 0 0 7px; color: var(--red); font-size: 11px; font-weight: 750; letter-spacing: .05em; }
+.filename { display: block; overflow-wrap: anywhere; }
+.count { font-variant-numeric: tabular-nums; }
+.tableWrap a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; margin-top: -10px; color: var(--red); font-weight: 700; white-space: nowrap; }
+.releaseLink { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; color: var(--navy); font-size: 13px; font-weight: 700; }
+.method { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--line); }
+.method summary { min-height: 44px; padding: 10px 0; color: var(--navy); font-size: 13px; font-weight: 650; cursor: pointer; }
+.method p { max-width: 850px; margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.compact { display: flex; align-items: center; gap: 9px; margin-top: 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.compact svg { flex-shrink: 0; color: var(--navy); }
+.visuallyHidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 760px) {
+  .panel { margin-top: 34px; padding: 24px; }
+  .heading { align-items: flex-start; }
+  .heading h2 { font-size: 30px; }
+  .total strong { font-size: 36px; }
+  .empty { flex-direction: column; gap: 16px; padding: 20px; }
+  .empty h3 { font-size: 19px; }
+  .tableWrap table { min-width: 600px; }
+}

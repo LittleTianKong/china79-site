@@ -3,6 +3,7 @@
 import Link from "next/link";
 import DatasetCover from "@/components/DatasetCover";
 import DatasetCitation from "@/components/DatasetCitation";
+import DatasetDownloads from "@/components/DatasetDownloads";
 import { useLanguage } from "@/components/LanguageProvider";
 import { historicalEngagementDataset as dataset } from "@/lib/datasets";
 import { dataCopy } from "@/lib/initiative";
@@ -14,7 +15,7 @@ const copy = {
     coverage: "Historical scope", coverageValue: "From 1979",
     source: "Source basis", sourceValue: "Publicly documented records",
     access: "Planned access", accessValue: "Freely accessible",
-    cite: "Cite this dataset", request: "Ask about access",
+    cite: "Cite this dataset", request: "Ask about access", downloads: "Downloads",
     availability: "This dataset is in development. Data files and release documentation are not yet available to download.",
     overview: "About the dataset",
     overviewTitle: "A record of engagement across changing times.",
@@ -32,7 +33,7 @@ const copy = {
     coverage: "历史范围", coverageValue: "始于1979年",
     source: "来源基础", sourceValue: "有公开记录的资料",
     access: "计划获取方式", accessValue: "免费获取",
-    cite: "引用此数据集", request: "咨询获取方式",
+    cite: "引用此数据集", request: "咨询获取方式", downloads: "下载",
     availability: "本数据集仍在开发中，数据文件及发布文档尚未开放下载。",
     overview: "关于数据集", overviewTitle: "记录不断变化的两国交往。",
     overviewText: "本项目记录美国与中国的官方接触，涵盖合作、竞争与危机等不同时期，旨在支持跨历史时期、政策领域及美国政府的比较研究。",
@@ -66,6 +67,7 @@ export default function DatasetDetailClient() {
           </dl>
           <div className="dataset-feature-actions">
             <a className="primary-link" href="#citation">{t.cite}<span aria-hidden="true">↓</span></a>
+            <a className="text-link" href="#downloads">{t.downloads}<span aria-hidden="true">↓</span></a>
             <a className="text-link" href="mailto:contact@china79.org">{t.request}<span aria-hidden="true">↗</span></a>
           </div>
           <p className="dataset-release-note">{t.availability}</p>
@@ -80,7 +82,7 @@ export default function DatasetDetailClient() {
         <h2 id="dataset-questions-title">{t.questions}</h2>
         <ol>{data.questions.map((question) => <li key={question}>{question}</li>)}</ol>
       </section>
-      <div className="container"><DatasetCitation citation={dataset.citation} bibtex={dataset.bibtex} /></div>
+      <div className="container"><DatasetDownloads slug={dataset.slug} /><DatasetCitation citation={dataset.citation} bibtex={dataset.bibtex} /></div>
       <section className="container dataset-contact-banner">
         <div><h2>{t.contactTitle}</h2><p>{t.contactText}</p></div>
         <a className="text-link" href="mailto:contact@china79.org">{t.contactAction}<span aria-hidden="true">↗</span></a>
