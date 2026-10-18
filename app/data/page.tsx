@@ -5,7 +5,7 @@ import { catalogStructuredData, pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "U.S.–China Relations Datasets",
   description:
-    "Explore China79’s flagship series of eight planned datasets documenting official U.S.–China engagement, with transparent sources, clear methods, and freely accessible releases.",
+    "Explore China79’s flagship series on official U.S.–China engagement: one released dataset and seven planned datasets, with transparent sources and clear methods.",
   path: "/data",
 });
 
