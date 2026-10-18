@@ -22,12 +22,14 @@ export const trumpFirstAdministrationDataset = {
     tagPrefix: "us-china-engagement-trump1-v",
     assetPrefix: "us-china-engagement-data-trump1-",
   },
-  citation: "Rhind-Tutt, Michael C. (n.d.). U.S.–China Official Contacts: Trump’s First Administration (2017–2021) [Dataset in preparation]. China79 Initiative. https://china79-site.vercel.app/data/us-china-engagement/trump-first-administration",
+  citation: "Rhind-Tutt, Michael C. (2026). U.S.–China Official Contacts: Trump’s First Administration (2017–2021) (Version 1) [Dataset; public release forthcoming]. China79 Initiative. https://china79-site.vercel.app/data/us-china-engagement/trump-first-administration",
   bibtex: `@misc{rhindtutt_china79_trump1,
   author = {Rhind-Tutt, Michael C.},
-  title = {{U.S.–China} Official Contacts: Trump’s First Administration (2017–2021)},
+  title = {{U.S.–China Official Contacts: Trump’s First Administration (2017–2021)}},
+  year = {2026},
+  version = {1},
   howpublished = {China79 Initiative},
-  note = {Dataset in preparation; first release forthcoming},
+  note = {Version 1; dataset; public release forthcoming},
   url = {https://china79-site.vercel.app/data/us-china-engagement/trump-first-administration}
 }`,
 } as const;
