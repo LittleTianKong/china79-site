@@ -68,6 +68,7 @@ const websiteId = absoluteUrl("/#website");
 const catalogId = absoluteUrl("/data#catalog");
 const seriesId = absoluteUrl(`${historicalEngagementDataset.path}#series`);
 const datasetId = absoluteUrl(`${trumpFirstAdministrationDataset.path}#dataset`);
+const trumpRelease = trumpFirstAdministrationDataset.release;
 
 export const siteStructuredData = {
   "@context": "https://schema.org",
@@ -99,7 +100,7 @@ export const catalogStructuredData = {
   "@type": "DataCatalog",
   "@id": catalogId,
   name: "China79 Data Catalog",
-  description: "China79 Initiative’s data catalog, featuring a flagship series of eight planned datasets on publicly documented official U.S.–China engagements since 1979. The first dataset covers Trump’s first administration; public release is forthcoming.",
+  description: "China79 Initiative’s data catalog, featuring a flagship series of eight datasets on publicly documented official U.S.–China engagements since 1979. The first dataset, covering Trump’s first administration, is available under CC BY 4.0. Seven further datasets are planned.",
   url: absoluteUrl("/data"),
   publisher: { "@id": organizationId },
   isPartOf: { "@id": websiteId },
@@ -113,34 +114,45 @@ export const seriesStructuredData = {
   "@id": seriesId,
   name: "U.S.–China Historical Engagement: Flagship Series",
   alternateName: historicalEngagementDataset.title.zh,
-  description: `${historicalEngagementDataset.summary.en} Seven further datasets are planned. The first dataset covers Trump’s first administration, and its public release is forthcoming.`,
+  description: `${historicalEngagementDataset.summary.en} The first dataset covers Trump’s first administration and is available under CC BY 4.0. Seven further datasets are planned.`,
   url: absoluteUrl(historicalEngagementDataset.path),
   publisher: { "@id": organizationId },
   creator: { "@type": "Person", name: historicalEngagementDataset.author },
   isPartOf: { "@id": catalogId },
   dataset: [{ "@id": datasetId }],
-  creativeWorkStatus: "Series in development",
+  creativeWorkStatus: "Series in development: one dataset released, seven planned",
 };
 
 // This full Dataset description belongs only on its canonical landing page.
-// Add distribution, license, and publication date when public files are released.
+// Release metadata and download URLs match the published files in lib/datasets.ts.
 export const trumpDatasetStructuredData = {
   "@context": "https://schema.org",
   "@type": "Dataset",
   "@id": datasetId,
   name: trumpFirstAdministrationDataset.title.en,
   alternateName: trumpFirstAdministrationDataset.title.zh,
-  description: `${trumpFirstAdministrationDataset.summary.en} Version 1 retains 745 records, of which 719 are included in the default count and 26 are retained as excluded records for transparency. This is a curated catalog, not an exhaustive census of every contact. Public release is forthcoming.`,
+  description: `${trumpFirstAdministrationDataset.summary.en} Version ${trumpRelease.version} retains 745 records, of which 719 are included in the default count and 26 are retained as excluded records for transparency. This is a curated catalog, not an exhaustive census of every contact. The dataset is published under CC BY 4.0.`,
   url: absoluteUrl(trumpFirstAdministrationDataset.path),
   identifier: trumpFirstAdministrationDataset.slug,
-  version: "1",
+  version: trumpRelease.version,
+  datePublished: trumpRelease.date,
+  license: trumpRelease.license,
+  isAccessibleForFree: true,
+  citation: trumpFirstAdministrationDataset.citation,
+  distribution: trumpRelease.files.map((file) => ({
+    "@type": "DataDownload",
+    name: file.label,
+    encodingFormat: file.encodingFormat,
+    contentUrl: file.url,
+    license: trumpRelease.license,
+  })),
   creator: { "@type": "Person", name: trumpFirstAdministrationDataset.author },
   publisher: { "@id": organizationId },
   includedInDataCatalog: [{ "@id": seriesId }, { "@id": catalogId }],
   temporalCoverage: "2017-01-20/2021-01-20",
   keywords: ["U.S.–China relations", "Sino-American relations", "official contacts", "diplomatic engagement", "Trump administration", "historical data"],
   inLanguage: "en",
-  creativeWorkStatus: "Public release forthcoming",
+  creativeWorkStatus: "Published",
 };
 
 export function serializeStructuredData(data: unknown) {

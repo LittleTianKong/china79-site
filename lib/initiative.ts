@@ -85,10 +85,10 @@ export const dataCopy = {
     collectionLabel: "Flagship Series",
     collectionTitle: "U.S.–China historical engagement",
     collectionDescription:
-      "A flagship series of eight datasets in development documenting official U.S.–China engagements since 1979, including diplomatic engagement and bilateral dialogue through periods of cooperation, competition, and disruption.",
-    status: "In development",
+      "A flagship series of eight datasets documenting official U.S.–China engagements since 1979. The first dataset is available; seven further datasets are planned.",
+    status: "1 of 8 released",
     availability:
-      "The series is in development. Release details, coverage, sources, and methodology for its datasets will be published here when available.",
+      "The first dataset is available with release files and documentation. Seven further datasets are planned and will be published individually.",
     questionsLabel: "Questions the data can help us ask",
     questions: [
       "How does diplomatic engagement change during periods of tension?",
@@ -128,10 +128,10 @@ export const dataCopy = {
     collectionLabel: "旗舰系列",
     collectionTitle: "美中历史接触与对话",
     collectionDescription:
-      "本旗舰系列由8个数据集组成，目前正在开发中，旨在记录1979年以来的美中官方接触与双边对话，涵盖合作、竞争和交流中断。",
-    status: "开发中",
+      "本旗舰系列由8个数据集组成，记录1979年以来的美中官方接触。首个数据集已发布，另有7个数据集正在规划中。",
+    status: "已发布1/8个",
     availability:
-      "本系列正在开发中。我们将在相关内容准备就绪后，发布各数据集的获取方式、覆盖范围、数据来源和研究方法。",
+      "首个数据集已提供发布文件及说明文档。另有7个数据集正在规划中，将逐一发布。",
     questionsLabel: "数据可以帮助我们提出的问题",
     questions: [
       "紧张时期的外交接触如何变化？",

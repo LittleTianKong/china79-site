@@ -22,14 +22,26 @@ export const trumpFirstAdministrationDataset = {
     tagPrefix: "us-china-engagement-trump1-v",
     assetPrefix: "us-china-engagement-data-trump1-",
   },
-  citation: "Rhind-Tutt, Michael C. (2026). U.S.–China Official Contacts: Trump’s First Administration (2017–2021) (Version 1) [Dataset; public release forthcoming]. China79 Initiative. https://china79.org/data/us-china-engagement/trump-first-administration",
+  release: {
+    version: "1.0.0",
+    date: "2026-10-17",
+    tag: "us-china-engagement-trump1-v1.0.0",
+    url: "https://github.com/LittleTianKong/china79-site/releases/tag/us-china-engagement-trump1-v1.0.0",
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    files: [
+      { name: "us-china-engagement-data-trump1-v1.0.0.csv", label: "CSV", format: "CSV", encodingFormat: "text/csv", url: "https://github.com/LittleTianKong/china79-site/releases/download/us-china-engagement-trump1-v1.0.0/us-china-engagement-data-trump1-v1.0.0.csv" },
+      { name: "us-china-engagement-data-trump1-v1.0.0.xlsx", label: "Excel workbook", format: "XLSX", encodingFormat: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", url: "https://github.com/LittleTianKong/china79-site/releases/download/us-china-engagement-trump1-v1.0.0/us-china-engagement-data-trump1-v1.0.0.xlsx" },
+      { name: "us-china-engagement-data-trump1-v1.0.0.zip", label: "Complete package", format: "ZIP", encodingFormat: "application/zip", url: "https://github.com/LittleTianKong/china79-site/releases/download/us-china-engagement-trump1-v1.0.0/us-china-engagement-data-trump1-v1.0.0.zip" },
+    ],
+  },
+  citation: "Rhind-Tutt, Michael C. (2026). U.S.–China Official Contacts: Trump’s First Administration (2017–2021) (Version 1) [Dataset]. China79 Initiative. https://china79.org/data/us-china-engagement/trump-first-administration",
   bibtex: `@misc{rhindtutt_china79_trump1,
   author = {Rhind-Tutt, Michael C.},
   title = {{U.S.–China Official Contacts: Trump’s First Administration (2017–2021)}},
   year = {2026},
   version = {1},
   howpublished = {China79 Initiative},
-  note = {Version 1; dataset; public release forthcoming},
+  note = {Version 1; dataset; licensed under CC BY 4.0},
   url = {https://china79.org/data/us-china-engagement/trump-first-administration}
 }`,
 } as const;
