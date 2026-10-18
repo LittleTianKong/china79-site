@@ -4,6 +4,12 @@
 .total { display: flex; flex-shrink: 0; flex-direction: column; align-items: flex-end; min-width: 80px; color: var(--navy); }
 .total strong { font-size: 46px; font-weight: 650; line-height: 1.15; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
 .total span { margin-top: 4px; color: var(--muted); font-size: 12px; white-space: nowrap; }
+.freshness { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; line-height: 1.7; }
+.freshness p { margin: 0; }
+.refreshRow { display: flex; align-items: center; flex-wrap: wrap; column-gap: 20px; }
+.refreshRow button { min-height: 44px; padding: 8px 0; border: 0; color: var(--navy); background: transparent; font: inherit; font-weight: 700; cursor: pointer; }
+.refreshRow button:hover { color: var(--red); }
+.refreshRow button:disabled { opacity: .55; cursor: default; }
 .empty { display: flex; align-items: flex-start; gap: 22px; margin-top: 28px; padding: 24px; background: var(--navy-soft); }
 .icon { display: flex; justify-content: center; align-items: center; flex-shrink: 0; width: 48px; height: 48px; color: var(--navy); background: var(--white); }
 .empty h3 { font-size: 20px; font-weight: 650; line-height: 1.4; letter-spacing: -.02em; }
@@ -27,6 +33,7 @@
 .method p { max-width: 850px; margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
 .compact { display: flex; align-items: center; gap: 9px; margin-top: 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .compact svg { flex-shrink: 0; color: var(--navy); }
+.compactNote { display: block; margin-top: 3px; font-size: 11px; }
 .visuallyHidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); }
 @media (max-width: 760px) {
   .panel { margin-top: 34px; padding: 24px; }

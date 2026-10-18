@@ -14,7 +14,9 @@ const copy = {
     currentRelease: "Download release", currentReleaseLink: "View this release on GitHub", refreshing: "Download counts are updating.",
     refreshingText: "The released files are available above. Counts will appear after the next statistics refresh.",
     unavailable: "Download statistics are temporarily unavailable.", retry: "Try again", releases: "View releases on GitHub",
-    method: "How downloads are counted", explanation: "Totals come from GitHub’s counters for the published dataset files listed here. Repeat and automated downloads can be included. These are file-download counts, not unique people or confirmation that a file was saved. Totals refresh periodically.",
+    countDelay: "GitHub-reported counts can lag actual downloads. We check about every 5 minutes; refreshing may reuse a recent check.",
+    compactDelay: "GitHub-reported totals; updates can be delayed.", checked: "Last checked", refreshCounts: "Refresh counts",
+    method: "How downloads are counted", explanation: "Totals come from GitHub’s counters for the published dataset files listed here. Repeat and automated downloads can be included. These are file-download counts, not unique people or confirmation that a file was saved. GitHub can report a download later than it occurs; a zero count does not mean that a download failed. We check about every five minutes while this page is open and visible.",
     file: "Dataset file", version: "Version", downloads: "Downloads", download: "Download", summary: "Across published dataset files", pending: "Download totals available after release",
   },
   zh: {
@@ -25,7 +27,9 @@ const copy = {
     currentRelease: "下载版本", currentReleaseLink: "在 GitHub 查看此版本", refreshing: "下载统计正在更新。",
     refreshingText: "您可以通过上方链接下载已发布文件。统计将在下次刷新后显示。",
     unavailable: "下载统计暂时无法获取。", retry: "重试", releases: "在 GitHub 查看发布版本",
-    method: "下载次数如何统计", explanation: "统计来自 GitHub 对此处列出的已发布数据文件的下载计数，可能包含重复下载及自动化下载。这是文件下载次数，不代表独立用户人数，也不能确认文件已保存。统计会定期更新。",
+    countDelay: "GitHub 提供的计数可能滞后于实际下载。我们约每5分钟检查一次；手动刷新可能仍使用最近一次的检查结果。",
+    compactDelay: "计数由 GitHub 提供，更新可能延迟。", checked: "上次检查", refreshCounts: "刷新统计",
+    method: "下载次数如何统计", explanation: "统计来自 GitHub 对此处列出的已发布数据文件的下载计数，可能包含重复下载及自动化下载。这是文件下载次数，不代表独立用户人数，也不能确认文件已保存。GitHub 可能延迟记录下载；计数为零并不意味着下载失败。页面打开且处于可见状态时，我们约每5分钟检查一次。",
     file: "数据文件", version: "版本", downloads: "下载次数", download: "下载", summary: "所有已发布数据文件的合计", pending: "发布后将显示下载统计",
   },
 };
@@ -53,29 +57,48 @@ export default function DatasetDownloads({ slug, compact = false, kind = "datase
   const t = copy[language];
   const number = new Intl.NumberFormat(language === "zh" ? "zh-CN" : "en-US");
   const hasCurrentFiles = release?.files.every((file) => stats?.files.some((counted) => counted.name === file.name)) ?? false;
+  const checkedAt = typeof stats?.checkedAt === "string" && !Number.isNaN(Date.parse(stats.checkedAt)) ? stats.checkedAt : null;
+  const checkedLabel = checkedAt ? new Intl.DateTimeFormat(language === "zh" ? "zh-CN" : "en-US", { dateStyle: "medium", timeStyle: "short" }).format(new Date(checkedAt)) : null;
 
   useEffect(() => {
     const controller = new AbortController();
+    let active = true;
+    const timeout = setTimeout(() => controller.abort(), 12000);
     setFailed(false);
     setStats(null);
-    fetch(`/api/downloads/${encodeURIComponent(slug)}`, { cache: "no-store", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(12000)]) })
+    fetch(`/api/downloads/${encodeURIComponent(slug)}`, { cache: "no-store", signal: controller.signal })
       .then(async (response) => {
         if (!response.ok) throw new Error("Unavailable");
         const data = await response.json();
         if (!["available", "unreleased"].includes(data.status) || !Array.isArray(data.files)) throw new Error("Invalid statistics");
-        if (!controller.signal.aborted) setStats(data);
+        if (active) setStats(data);
       })
-      .catch(() => { if (!controller.signal.aborted) setFailed(true); });
-    return () => controller.abort();
+      .catch(() => { if (active) setFailed(true); })
+      .finally(() => clearTimeout(timeout));
+    return () => { active = false; clearTimeout(timeout); controller.abort(); };
   }, [slug, retry]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (document.visibilityState === "visible") setRetry((value) => value + 1);
+    }, 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [slug]);
 
   if (compact) return <div className={styles.compact}>
     <svg width="16" height="18" viewBox="0 0 20 22" fill="none" aria-hidden="true"><path d="M10 2v11m-4-4 4 4 4-4M3 15v4h14v-4" stroke="currentColor" strokeWidth="1.5" /></svg>
-    <span>{failed ? t.unavailable : !stats ? t.loading : stats.total === null ? release ? t.refreshing : t.pending : `${number.format(stats.total)} ${t.downloads.toLowerCase()}`}</span>
+    <span><span>{failed ? t.unavailable : !stats ? t.loading : stats.total === null ? release ? t.refreshing : t.pending : `${number.format(stats.total)} ${t.downloads.toLowerCase()}`}</span>{stats?.status === "available" && <span className={styles.compactNote}>{t.compactDelay}</span>}</span>
   </div>;
 
   return <section className={styles.panel} id="downloads" aria-labelledby={titleId}>
     <div className={styles.heading}><div><div className="kicker">{t.label}</div><h2 id={titleId}>{t.title}</h2></div>{stats?.total !== null && stats?.total !== undefined && <div className={styles.total}><strong>{number.format(stats.total)}</strong><span>{t.total}</span></div>}</div>
+    {(release || stats?.status === "available") && <div className={styles.freshness}>
+      <p>{t.countDelay}</p>
+      <div className={styles.refreshRow}>
+        {checkedAt && <p>{t.checked}: <time dateTime={checkedAt}>{checkedLabel}</time></p>}
+        <button type="button" disabled={!stats && !failed} onClick={() => setRetry((value) => value + 1)}>{t.refreshCounts}<span aria-hidden="true"> ↻</span></button>
+      </div>
+    </div>}
     {release && !hasCurrentFiles && <div className={styles.empty}>
       <div>
         <h3>{t.currentRelease} {release.version}</h3>
