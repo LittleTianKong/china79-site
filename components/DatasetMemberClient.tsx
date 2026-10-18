@@ -33,7 +33,7 @@ const copy = {
     evidenceLabel: "Reading the evidence",
     evidenceTitle: "Context matters.",
     evidenceText: "Dates can be uncertain or expressed as bounds. Read date fields alongside status, sources, and notes. Topic & Context Tags describe context; they do not, on their own, prove which subjects were discussed. Consult Topic Evidence and the codebook when assessing those claims.",
-    citationNote: "This citation refers to a forthcoming dataset. The first release has not yet been published. Publication year, version, and release details will be added with the public release.",
+    citationNote: "Suggested citation for the 2026 dataset, Version 1. The downloadable public release is forthcoming.",
   },
   zh: {
     back: "返回旗舰系列",
@@ -59,7 +59,7 @@ const copy = {
     evidenceLabel: "如何阅读证据",
     evidenceTitle: "结合背景理解记录。",
     evidenceText: "日期可能存在不确定性或以范围表示。请结合状态、来源及备注阅读日期字段。“Topic & Context Tags”提供背景，不能单独证明会谈讨论了相关主题；判断时应参照“Topic Evidence”和编码手册。",
-    citationNote: "以下引文适用于一项即将发布的数据集，首次公开版本尚未发布。正式发布时将补充出版年份、版本及发布信息。",
+    citationNote: "以下为2026年数据集（第1版）的建议引文。首次公开下载版本尚未发布。",
   },
 };
 
