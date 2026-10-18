@@ -1,13 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import DatasetCover from "@/components/DatasetCover";
 import { useLanguage } from "@/components/LanguageProvider";
+import { trumpFirstAdministrationDataset as featuredDataset } from "@/lib/datasets";
 import { dataCopy, initiative } from "@/lib/initiative";
+import styles from "./HomeDatasetFeature.module.css";
 
 const copy = {
   en: {
     browse: "Explore our data",
     analysisAction: "Read our analysis",
+    latestRelease: "Latest dataset",
+    available: "Now available",
+    coverSeries: "Dataset 01 · Flagship Series",
+    coverPeriod: "Trump I · 2017–2021",
+    featuredSummary:
+      "Explore the documented official contacts of Trump’s first administration, with source links, counting decisions, and a codebook to guide your analysis.",
+    retained: "Records retained",
+    included: "Included in counts",
+    datasetAction: "View & download dataset",
+    datasetCitation: "Copy a citation",
     dataTitleLead: "Documenting ",
     dataTitleSubject: "U.S.–China",
     dataTitleEnd: " engagement.",
@@ -19,7 +32,7 @@ const copy = {
       "Our flagship series is planned to include eight datasets and aims to provide the most comprehensive freely accessible record of publicly documented official U.S.–China engagements since 1979. It will support comparisons across historical periods and U.S. administrations.",
     collectionQuestions: "Questions behind the series",
     collectionRelease:
-      "Data files, source notes, and methodology will be published as each dataset is released.",
+      "The first dataset is available now. Data files, source notes, and methodology will accompany each additional release.",
     originTitle: "Why 1979?",
     originSubtitle: "The starting point of a changing relationship.",
     originDescription:
@@ -39,6 +52,16 @@ const copy = {
   zh: {
     browse: "探索数据",
     analysisAction: "阅读分析",
+    latestRelease: "最新数据集",
+    available: "已发布",
+    coverSeries: "数据集01 · 旗舰系列",
+    coverPeriod: "特朗普第一届政府 · 2017—2021",
+    featuredSummary:
+      "探索特朗普第一届政府期间有公开记录的官方接触，并通过来源链接、统计处理说明和编码手册开展分析。",
+    retained: "保留记录",
+    included: "计入统计",
+    datasetAction: "查看并下载数据集",
+    datasetCitation: "复制引文",
     dataTitleLead: "记录",
     dataTitleSubject: "美中交往",
     dataTitleEnd: "的历史。",
@@ -50,7 +73,7 @@ const copy = {
       "我们的旗舰系列计划包含8个数据集，目前正在开发中。该系列旨在为1979年以来有公开记录的美中官方接触建立最全面、可免费获取的资料库，支持跨历史时期、跨美国政府的比较研究。",
     collectionQuestions: "本系列关注的问题",
     collectionRelease:
-      "各数据集发布时，我们将一并提供数据文件、来源说明和研究方法。",
+      "首个数据集现已发布。后续各数据集发布时，我们将一并提供数据文件、来源说明和研究方法。",
     originTitle: "为什么从1979年开始？",
     originSubtitle: "一段不断演变的关系，由此展开。",
     originDescription:
@@ -118,6 +141,7 @@ export default function HomePageClient() {
   const identity = initiative[language];
   const data = dataCopy[language];
   const t = copy[language];
+  const number = new Intl.NumberFormat(language === "zh" ? "zh-CN" : "en-US");
   return (
     <>
       <section className="container initiative-hero">
@@ -144,6 +168,43 @@ export default function HomePageClient() {
           </div>
         </div>
       </section>
+      <section className={`container ${styles.section}`} aria-labelledby="home-featured-dataset-title">
+        <div className={styles.feature}>
+          <Link
+            className={styles.cover}
+            href={featuredDataset.path}
+            aria-label={`${t.datasetAction}: ${featuredDataset.title[language]}`}
+          >
+            <DatasetCover
+              title={featuredDataset.shortTitle[language]}
+              seriesLabel={t.coverSeries}
+              periodLabel={t.coverPeriod}
+            />
+          </Link>
+          <div className={styles.copy}>
+            <div className={styles.labels}>
+              <span className="kicker">{t.latestRelease}</span>
+              <span className={styles.status}>{t.available}</span>
+            </div>
+            <h2 id="home-featured-dataset-title">
+              <Link href={featuredDataset.path}>{featuredDataset.title[language]}</Link>
+            </h2>
+            <p className={styles.summary}>{t.featuredSummary}</p>
+            <dl className={styles.facts}>
+              <div><dt>{t.retained}</dt><dd>{number.format(featuredDataset.retainedRecords)}</dd></div>
+              <div><dt>{t.included}</dt><dd>{number.format(featuredDataset.includedRecords)}</dd></div>
+            </dl>
+            <div className={styles.actions}>
+              <Link className="primary-link" href={featuredDataset.path}>
+                {t.datasetAction}<span aria-hidden="true">→</span>
+              </Link>
+              <Link className="text-link" href={`${featuredDataset.path}#citation`}>
+                {t.datasetCitation}<span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
       <section
         className="container data-gateway section-rule"
         aria-labelledby="home-data-title"
@@ -164,10 +225,10 @@ export default function HomePageClient() {
               <span className="release-status">{data.status}</span>
             </div>
             <h3>
-              <Link href="/data">{data.collectionTitle}</Link>
+              <Link href="/data/us-china-engagement">{data.collectionTitle}</Link>
             </h3>
             <p>{t.collectionSummary}</p>
-            <Link className="text-link collection-action" href="/data">
+            <Link className="text-link collection-action" href="/data/us-china-engagement">
               {t.collectionAction} <span aria-hidden="true">→</span>
             </Link>
           </div>

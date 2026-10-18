@@ -15,9 +15,9 @@ const copy = {
     author: "Created by", publisher: "Published by",
     coverage: "Historical scope", coverageValue: "From 1979",
     size: "Series size",
-    access: "Planned access", accessValue: "Freely accessible",
+    access: "Series progress", accessValue: "1 released · 7 planned",
     cite: "Cite this series", request: "Ask about access", downloads: "Downloads",
-    availability: "Eight datasets are planned for this series. Releases will be published individually; data files are not yet available on this site.",
+    availability: "The first dataset is available to download. Seven further datasets are planned and will be published individually.",
     overview: "About the series",
     overviewTitle: "Eight datasets. One historical record.",
     overviewText: "The series documents official engagement between the United States and China, including periods of cooperation, competition, and crisis. Together, the datasets are being developed to support comparisons across historical periods, policy areas, and U.S. administrations.",
@@ -27,8 +27,8 @@ const copy = {
     contactTitle: "Have a source or a question?",
     contactText: "We welcome source suggestions, corrections, and inquiries about the series or its individual datasets.",
     contactAction: "Contact China79",
-    members: "Inside the series", membersTitle: "Eight datasets. Published individually.",
-    first: "Dataset 01 of 08", forthcoming: "First release forthcoming", explore: "Explore dataset", memberCitation: "Cite this dataset",
+    members: "Inside the series", membersTitle: "One released. Seven planned.",
+    first: "Dataset 01 of 08", forthcoming: "Available now", explore: "Explore dataset", memberCitation: "Cite this dataset",
     retained: "Records retained", included: "Default included count", periodLabel: "Coverage period", periodValue: "2017–2021",
     remaining: "Seven further datasets are planned. Their titles, scopes, and release details will be added as they are prepared for publication.",
   },
@@ -37,17 +37,17 @@ const copy = {
     author: "作者", publisher: "发布机构",
     coverage: "历史范围", coverageValue: "始于1979年",
     size: "系列规模",
-    access: "计划获取方式", accessValue: "免费获取",
+    access: "系列进度", accessValue: "已发布1个 · 规划中7个",
     cite: "引用本系列", request: "咨询获取方式", downloads: "下载",
-    availability: "本系列计划收录8个数据集，并将逐一发布。目前本站尚未开放数据文件下载。",
+    availability: "首个数据集现已开放下载。另有7个数据集正在规划中，将逐一发布。",
     overview: "关于本系列", overviewTitle: "八个数据集，共同记录两国交往。",
     overviewText: "本系列记录美国与中国的官方接触，涵盖合作、竞争与危机等不同时期。这些数据集旨在共同支持跨历史时期、政策领域及美国政府的比较研究。",
     documentation: "随每次发布提供", documentationTitle: "让数据背后的证据可供查验。",
     documentationText: "每个数据集都将说明各自的覆盖范围、资料来源、收录标准、编码规则及已知局限，并提供版本与发布信息，明确各文件的具体内容。",
     questions: "本系列可以支持的研究问题",
     contactTitle: "有资料来源或问题想分享？", contactText: "我们欢迎来源建议、资料更正及关于本系列或其中各数据集的咨询。", contactAction: "联系 China79",
-    members: "系列内容", membersTitle: "八个数据集，逐一发布。",
-    first: "第01个数据集，共08个", forthcoming: "首次发布筹备中", explore: "了解数据集", memberCitation: "引用此数据集",
+    members: "系列内容", membersTitle: "已发布1个，另有7个规划中。",
+    first: "第01个数据集，共08个", forthcoming: "现已发布", explore: "了解数据集", memberCitation: "引用此数据集",
     retained: "保留记录数", included: "默认纳入计数", periodLabel: "覆盖时期", periodValue: "2017—2021年",
     remaining: "另有7个数据集正在规划中。随着各数据集准备发布，我们将补充其名称、覆盖范围及版本信息。",
   },
@@ -102,7 +102,7 @@ export default function DatasetDetailClient() {
         <h2 id="dataset-questions-title">{t.questions}</h2>
         <ol>{data.questions.map((question) => <li key={question}>{question}</li>)}</ol>
       </section>
-      <div className="container"><DatasetDownloads slug={dataset.slug} kind={dataset.kind} /><DatasetCitation citation={dataset.citation} bibtex={dataset.bibtex} kind={dataset.kind} /></div>
+      <div className="container"><DatasetDownloads slug={dataset.slug} kind={dataset.kind} release={dataset.members[0].release} releaseTitle={dataset.members[0].title[language]} /><DatasetCitation citation={dataset.citation} bibtex={dataset.bibtex} kind={dataset.kind} /></div>
       <section className="container dataset-contact-banner">
         <div><h2>{t.contactTitle}</h2><p>{t.contactText}</p></div>
         <a className="text-link" href="mailto:contact@china79.org">{t.contactAction}<span aria-hidden="true">↗</span></a>

@@ -11,37 +11,37 @@ import seriesStyles from "./DatasetSeries.module.css";
 const copy = {
   en: {
     titleLead: "U.S.–China relations,", titleEnd: "in data.",
-    intro: "Historical evidence, organized for discovery. Our flagship series is planned to include eight datasets on official U.S.–China engagement, building a shared foundation for research and understanding.",
+    intro: "Historical evidence, organized for discovery. Our flagship series brings together one released dataset and seven planned datasets on official U.S.–China engagement.",
     navigation: "Explore our data", collection: "Flagship Series", principles: "Publishing principles", citation: "Cite the series",
     flagship: "Flagship Series", period: "Since 1979", datasets: "datasets",
     author: "Created by", publisher: "Published by",
     coverage: "Historical scope", coverageValue: "From 1979",
     size: "Series size",
-    access: "Planned access", accessValue: "Freely accessible",
+    access: "Series progress", accessValue: "1 released · 7 planned",
     view: "View series", cite: "Cite this series",
-    release: "Individual dataset scopes, files, source documentation, and release details will be published as the series develops.",
+    release: "The first dataset includes release files and documentation. Further datasets will be added as they are prepared for publication.",
     principlesTitle: "Built to be used. Documented to be checked.",
     contactTitle: "Help build a better record.",
     contactText: "For dataset requests, source suggestions, or questions about access, contact China79.",
     contactAction: "Get in touch",
-    first: "First in the series", forthcoming: "First release forthcoming",
+    first: "First in the series", forthcoming: "Available now",
   },
   zh: {
     titleLead: "用数据，", titleEnd: "理解美中关系。",
-    intro: "让历史证据更便于发现和使用。我们的旗舰系列计划收录8个记录美中官方接触的数据集，为研究和理解两国关系提供共同基础。",
+    intro: "让历史证据更便于发现和使用。我们的旗舰系列包含1个已发布的数据集及7个规划中的数据集，共同记录美中官方接触。",
     navigation: "探索数据", collection: "旗舰系列", principles: "发布原则", citation: "引用本系列",
     flagship: "旗舰系列", period: "1979年以来", datasets: "个数据集",
     author: "作者", publisher: "发布机构",
     coverage: "历史范围", coverageValue: "始于1979年",
     size: "系列规模",
-    access: "计划获取方式", accessValue: "免费获取",
+    access: "系列进度", accessValue: "已发布1个 · 规划中7个",
     view: "查看系列", cite: "引用本系列",
-    release: "随着本系列逐步开发，我们将发布各数据集的覆盖范围、数据文件、来源文档及版本信息。",
+    release: "首个数据集已提供发布文件与说明文档。后续数据集将在准备就绪后逐一发布。",
     principlesTitle: "便于使用，也经得起检验。",
     contactTitle: "共同完善历史记录。",
     contactText: "如需申请数据集、推荐来源或咨询获取方式，欢迎联系 China79。",
     contactAction: "联系我们",
-    first: "系列首个数据集", forthcoming: "首次发布筹备中",
+    first: "系列首个数据集", forthcoming: "现已发布",
   },
 };
 
@@ -93,7 +93,7 @@ export default function DataPageClient() {
               </div>
               <p className="dataset-release-note">{t.release}</p>
               <div className={seriesStyles.teaser}><span>{t.first} · {t.forthcoming}</span><Link href={dataset.members[0].path}>{dataset.members[0].title[language]}<span aria-hidden="true"> ↗</span></Link></div>
-              <DatasetDownloads slug={dataset.slug} compact kind={dataset.kind} />
+              <DatasetDownloads slug={dataset.slug} compact kind={dataset.kind} release={dataset.members[0].release} />
             </div>
           </article>
         ))}

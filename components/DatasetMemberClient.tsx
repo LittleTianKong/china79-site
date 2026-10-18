@@ -14,7 +14,7 @@ const copy = {
     series: "Dataset 01 of 08",
     coverSeries: "Dataset 01 · Flagship Series",
     coverPeriod: "Trump I · 2017–2021",
-    status: "First release forthcoming",
+    status: "Available now",
     author: "Created by",
     publisher: "Published by",
     coverage: "Coverage dates",
@@ -24,7 +24,11 @@ const copy = {
     included: "Included in counts",
     cite: "Cite this dataset",
     downloads: "Downloads",
-    availability: "The first public release is forthcoming. Data files and versioned release documentation are not yet available.",
+    downloadData: "Download data",
+    version: "Release version",
+    released: "Published",
+    license: "License",
+    availability: "Download the CSV, Excel workbook, or complete release package below. The dataset is available under CC BY 4.0.",
     countingTitle: "What the counts mean.",
     countingNote: "Rows can be excluded from counts because of grouping, date eligibility, or duplicate handling. Exclusion does not, by itself, mean that no contact took place.",
     scopeLabel: "Scope & coverage",
@@ -33,14 +37,14 @@ const copy = {
     evidenceLabel: "Reading the evidence",
     evidenceTitle: "Context matters.",
     evidenceText: "Dates can be uncertain or expressed as bounds. Read date fields alongside status, sources, and notes. Topic & Context Tags describe context; they do not, on their own, prove which subjects were discussed. Consult Topic Evidence and the codebook when assessing those claims.",
-    citationNote: "Suggested citation for the 2026 dataset, Version 1. The downloadable public release is forthcoming.",
+    citationNote: "Suggested citation for the 2026 dataset, Version 1. Cite the dataset and version used in your work.",
   },
   zh: {
     back: "返回旗舰系列",
     series: "第01个数据集 · 共08个",
     coverSeries: "数据集01 · 旗舰系列",
     coverPeriod: "特朗普第一届政府 · 2017—2021",
-    status: "首次发布筹备中",
+    status: "现已发布",
     author: "作者",
     publisher: "发布机构",
     coverage: "覆盖日期",
@@ -50,7 +54,11 @@ const copy = {
     included: "计入统计",
     cite: "引用此数据集",
     downloads: "下载",
-    availability: "首次公开发布正在筹备中，数据文件及附版本信息的发布文档尚未开放获取。",
+    downloadData: "下载数据",
+    version: "发布版本",
+    released: "发布日期",
+    license: "许可协议",
+    availability: "您可以在下方下载 CSV、Excel 工作簿或完整发布包。本数据集采用 CC BY 4.0 许可协议。",
     countingTitle: "如何理解这些数字。",
     countingNote: "因分组、日期是否符合范围或重复记录等原因，部分行未计入统计。未计入统计本身并不意味着相关接触没有发生。",
     scopeLabel: "范围与覆盖",
@@ -59,7 +67,7 @@ const copy = {
     evidenceLabel: "如何阅读证据",
     evidenceTitle: "结合背景理解记录。",
     evidenceText: "日期可能存在不确定性或以范围表示。请结合状态、来源及备注阅读日期字段。“Topic & Context Tags”提供背景，不能单独证明会谈讨论了相关主题；判断时应参照“Topic Evidence”和编码手册。",
-    citationNote: "以下为2026年数据集（第1版）的建议引文。首次公开下载版本尚未发布。",
+    citationNote: "以下为2026年数据集（第1版）的建议引文。使用时请引用实际使用的数据集及版本。",
   },
 };
 
@@ -97,9 +105,14 @@ export default function DatasetMemberClient() {
             <div><dt>{t.retained}</dt><dd><strong className={styles.number}>{number.format(dataset.retainedRecords)}</strong></dd></div>
             <div><dt>{t.included}</dt><dd><strong className={styles.number}>{number.format(dataset.includedRecords)}</strong></dd></div>
           </dl>
+          <dl className="dataset-facts">
+            <div><dt>{t.version}</dt><dd>{dataset.release.version}</dd></div>
+            <div><dt>{t.released}</dt><dd><time dateTime={dataset.release.date}>{dataset.release.date}</time></dd></div>
+            <div><dt>{t.license}</dt><dd><a href={dataset.release.license}>CC BY 4.0</a></dd></div>
+          </dl>
           <div className="dataset-feature-actions">
-            <a className="primary-link" href="#citation">{t.cite}<span aria-hidden="true">↓</span></a>
-            <a className="text-link" href="#downloads">{t.downloads}<span aria-hidden="true">↓</span></a>
+            <a className="primary-link" href="#downloads">{t.downloadData}<span aria-hidden="true">↓</span></a>
+            <a className="text-link" href="#citation">{t.cite}<span aria-hidden="true">↓</span></a>
           </div>
           <p className="dataset-release-note">{t.availability}</p>
         </div>
@@ -125,7 +138,7 @@ export default function DatasetMemberClient() {
         <article><div className="kicker">{t.evidenceLabel}</div><h2>{t.evidenceTitle}</h2><p>{t.evidenceText}</p></article>
       </section>
       <div className="container">
-        <DatasetDownloads slug={dataset.slug} />
+        <DatasetDownloads slug={dataset.slug} release={dataset.release} />
         <DatasetCitation citation={dataset.citation} bibtex={dataset.bibtex} description={t.citationNote} />
       </div>
     </div>
