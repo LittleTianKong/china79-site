@@ -82,13 +82,13 @@ export const dataCopy = {
     title: "A clearer record of U.S.–China relations.",
     description:
       "China79 is developing public datasets that make the historical record easier to explore, compare, and question. Data is the starting point for our research and dialogue.",
-    collectionLabel: "Dataset collection",
+    collectionLabel: "Flagship Series",
     collectionTitle: "U.S.–China historical engagement",
     collectionDescription:
-      "A collection in development examining diplomatic engagement and bilateral dialogue over time, including periods of cooperation, competition, and disruption.",
+      "A flagship series of eight datasets in development documenting official U.S.–China engagements since 1979, including diplomatic engagement and bilateral dialogue through periods of cooperation, competition, and disruption.",
     status: "In development",
     availability:
-      "Datasets are not yet available to download. Release details, coverage, sources, and methodology will be published here as the collection becomes ready.",
+      "The series is in development. Release details, coverage, sources, and methodology for its datasets will be published here when available.",
     questionsLabel: "Questions the data can help us ask",
     questions: [
       "How does diplomatic engagement change during periods of tension?",
@@ -125,13 +125,13 @@ export const dataCopy = {
     title: "让美中关系的历史记录更加清晰。",
     description:
       "China79 正在开发公开数据集，让历史记录更便于检索、比较和审视。数据是我们开展研究与对话的起点。",
-    collectionLabel: "数据集系列",
+    collectionLabel: "旗舰系列",
     collectionTitle: "美中历史接触与对话",
     collectionDescription:
-      "本系列正在开发中，旨在梳理不同时期的外交接触与双边对话，涵盖合作、竞争和交流中断。",
+      "本旗舰系列由8个数据集组成，目前正在开发中，旨在记录1979年以来的美中官方接触与双边对话，涵盖合作、竞争和交流中断。",
     status: "开发中",
     availability:
-      "数据集尚未开放下载。随着本系列逐步完成，我们将在此发布获取方式、覆盖范围、数据来源和研究方法。",
+      "本系列正在开发中。我们将在相关内容准备就绪后，发布各数据集的获取方式、覆盖范围、数据来源和研究方法。",
     questionsLabel: "数据可以帮助我们提出的问题",
     questions: [
       "紧张时期的外交接触如何变化？",
