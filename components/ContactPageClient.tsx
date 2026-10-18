@@ -1,7 +1,10 @@
 "use client";
 
 import CopyEmailButton from "@/components/CopyEmailButton";
+import ContactForm from "@/components/ContactForm";
 import { useLanguage } from "@/components/LanguageProvider";
+import { useState } from "react";
+import { ContactTopic } from "@/lib/contact";
 
 const copy = {
   en: {
@@ -11,7 +14,8 @@ const copy = {
     navigation: "Contact China79", general: "General inquiries", contribute: "Ways to contribute", other: "Other contacts",
     inboxTitle: "One place to start.",
     inboxText: "Our main inbox for datasets, research, interviews, source suggestions, and corrections.",
-    emailNote: "Email links open your mail app. You can also copy the address into your preferred email service.",
+    emailNote: "Use the contact form below, or email us directly using your preferred email service.",
+    write: "Write a message",
     guideTitle: "What would you like to discuss?",
     guideText: "A little context helps us understand your question or proposal. All four routes below reach our general inbox.",
     guides: [
@@ -32,7 +36,8 @@ const copy = {
     navigation: "联系 China79", general: "一般咨询", contribute: "参与方式", other: "其他联系方式",
     inboxTitle: "从这里与我们联系。",
     inboxText: "有关数据集、研究、访谈、来源建议及资料更正，请使用我们的主要联系邮箱。",
-    emailNote: "邮箱链接将打开您的邮件应用。您也可以复制地址，在常用的邮箱服务中撰写邮件。",
+    emailNote: "您可以使用联系表单，也可以通过常用的邮箱服务直接致信我们。",
+    write: "撰写消息",
     guideTitle: "您想与我们讨论什么？",
     guideText: "简要说明相关背景，有助于我们理解您的问题或建议。以下四种联系方式均发送至主要联系邮箱。",
     guides: [
@@ -47,8 +52,11 @@ const copy = {
   },
 };
 
-export default function ContactPageClient() {
+const guideTopics: ContactTopic[] = ["datasets", "research", "interviews", "corrections"];
+
+export default function ContactPageClient({ deliveryEnabled = false }: { deliveryEnabled?: boolean }) {
   const { language } = useLanguage();
+  const [formTopic, setFormTopic] = useState<ContactTopic | null>(null);
   const t = copy[language];
 
   return (
@@ -73,7 +81,7 @@ export default function ContactPageClient() {
           <p>{t.inboxText}</p>
           <p className="contact-inbox-note">{t.emailNote}</p>
         </div>
-        <div className="contact-inbox-copy"><CopyEmailButton email="contact@china79.org" language={language} theme="dark" /></div>
+        <div className="contact-inbox-copy"><button className="contact-write-button" type="button" onClick={() => setFormTopic("general")}>{t.write}<span aria-hidden="true">↗</span></button><CopyEmailButton email="contact@china79.org" language={language} theme="dark" /></div>
       </section>
 
       <section className="container contact-guides" id="ways-to-contribute" aria-labelledby="contact-guides-title">
@@ -82,7 +90,7 @@ export default function ContactPageClient() {
           <article key={guide.subject}>
             <span className="contact-guide-number" aria-hidden="true">0{index + 1}</span>
             <h3>{guide.title}</h3><p>{guide.text}</p>
-            <a className="text-link" href={`mailto:contact@china79.org?subject=${encodeURIComponent(guide.subject)}`}>{guide.action}<span aria-hidden="true">↗</span></a>
+            <button type="button" className="text-link contact-guide-action" onClick={() => setFormTopic(guideTopics[index])}>{guide.action}<span aria-hidden="true">↗</span></button>
           </article>
         ))}</div>
       </section>
@@ -94,6 +102,7 @@ export default function ContactPageClient() {
           <article><div className="contact-other-label">{t.direct}</div><h3>Michael C. Rhind-Tutt</h3><p>{t.directText}</p><a href="mailto:mrhindtutt@china79.org">mrhindtutt@china79.org<span aria-hidden="true">↗</span></a></article>
         </div>
       </section>
+      <ContactForm topic={formTopic} language={language} deliveryEnabled={deliveryEnabled} onClose={() => setFormTopic(null)} />
     </div>
   );
 }
