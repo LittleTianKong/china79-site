@@ -74,7 +74,7 @@ test("API rejects unknown datasets without provider access and returns unavailab
     "@/lib/datasets": catalog,
     "@/lib/dataset-downloads": { getDatasetDownloads: async () => { calls++; throw new Error("unavailable"); } },
   });
-  const request = new Request("https://china79-site.vercel.app/api/downloads/unknown");
+  const request = new Request("https://china79.org/api/downloads/unknown");
   assert.equal((await GET(request, { params: Promise.resolve({ slug: "unknown" }) })).status, 404);
   assert.equal(calls, 0);
   const response = await GET(request, { params: Promise.resolve({ slug: "us-china-engagement" }) });
@@ -100,7 +100,7 @@ test("API resolves registered member slugs to their own download source", async 
     "@/lib/datasets": { datasetCatalog: [{ slug: "us-china-engagement", downloads: source, members: [{ slug: "us-china-engagement-trump1", downloads: memberSource }] }] },
     "@/lib/dataset-downloads": { getDatasetDownloads: async (config) => { assert.equal(config, memberSource); return { status: "unreleased", total: null, files: [] }; } },
   });
-  const response = await GET(new Request("https://china79-site.vercel.app/api/downloads/us-china-engagement-trump1"), { params: Promise.resolve({ slug: "us-china-engagement-trump1" }) });
+  const response = await GET(new Request("https://china79.org/api/downloads/us-china-engagement-trump1"), { params: Promise.resolve({ slug: "us-china-engagement-trump1" }) });
   assert.equal(response.status, 200);
   assert.equal((await response.json()).total, null);
 });

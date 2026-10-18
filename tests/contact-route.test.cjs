@@ -24,8 +24,8 @@ function endpoint({ enabled = true, fetch = async () => Response.json({ id: "tes
 }
 const message = { topic: "research", name: "Test researcher", email: "researcher@example.com", organization: "Example institute", message: "A research submission with supporting sources.", website: "" };
 function request(body = message, overrides = {}) {
-  return new Request("https://china79-site.vercel.app/api/contact", {
-    method: "POST", headers: { Origin: "https://china79-site.vercel.app", "Content-Type": "application/json", ...overrides }, body: typeof body === "string" ? body : JSON.stringify(body),
+  return new Request("https://china79.org/api/contact", {
+    method: "POST", headers: { Origin: "https://china79.org", "Content-Type": "application/json", ...overrides }, body: typeof body === "string" ? body : JSON.stringify(body),
   });
 }
 
