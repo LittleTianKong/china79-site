@@ -7,7 +7,7 @@ import { initiative } from "@/lib/initiative";
 
 const footerCopy = {
   en: {
-    description: "Independent data and analysis on U.S.–China relations.",
+    description: initiative.en.description,
 
     general: "General",
     policy: "Policy",
@@ -23,7 +23,7 @@ const footerCopy = {
   },
 
   zh: {
-    description: "关于美中关系的独立数据与分析。",
+    description: initiative.zh.description,
 
     general: "一般联系",
     policy: "政策",

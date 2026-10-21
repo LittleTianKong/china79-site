@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { initiative } from "@/lib/initiative";
 
 export const alt = "China79 Initiative — Better Data. Better Dialogue.";
 export const size = { width: 1200, height: 630 };
@@ -12,7 +13,7 @@ export default function OpenGraphImage() {
         <span>Better Data.</span>
         <span style={{ color: "#ffb9bc" }}>Better Dialogue.</span>
       </div>
-      <div style={{ display: "flex", fontSize: 29, lineHeight: 1.35, maxWidth: 900 }}>Independent data and analysis on U.S.–China relations.</div>
+      <div style={{ display: "flex", fontSize: 29, lineHeight: 1.35, maxWidth: 900 }}>{initiative.en.description}</div>
     </div>,
     size,
   );

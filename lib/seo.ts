@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { articles } from "@/lib/content";
 import { historicalEngagementDataset, trumpFirstAdministrationDataset } from "@/lib/datasets";
+import { initiative } from "@/lib/initiative";
 
 // Keep canonicals, crawler files, and structured data on the same public origin.
 export const SITE_URL = "https://china79.org";
 export const SITE_NAME = "China79 Initiative";
-export const SITE_DESCRIPTION = "Independent data and analysis on U.S.–China relations, grounded in the historical record. Explore China79 Initiative’s official contacts datasets, research, and interviews.";
+export const SITE_DESCRIPTION = initiative.en.description;
 
 export function absoluteUrl(path: string) {
   if (!path.startsWith("/") || path.startsWith("//")) {
