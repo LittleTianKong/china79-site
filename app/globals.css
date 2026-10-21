@@ -982,51 +982,40 @@ section[id] { scroll-margin-top: 140px; }
   .nav-jump-link > span { transition: none; }
 }
 
-.initiative-hero { padding: 76px 0 62px; }
+.initiative-hero { padding: 64px 0 46px; }
 
 .initiative-hero-copy { max-width: 100%; }
 
 .initiative-hero h1 {
   display: flex;
   gap: .2em;
-  margin-top: 22px;
-  font-size: clamp(64px, 7.5vw, 96px);
+  margin-top: 20px;
+  font-size: clamp(54px, 6.7vw, 82px);
   line-height: 1.08;
   white-space: nowrap;
 }
 
 .initiative-hero h1 span { display: block; }
 .initiative-hero h1 span:last-child { color: var(--red); }
-.initiative-hero-intro { max-width: 800px; margin-top: 26px; }
+.initiative-hero-intro { max-width: 880px; margin-top: 24px; }
 
 .initiative-hero-intro .initiative-description {
   margin: 0;
   color: var(--ink);
-  font-size: 23px;
-  line-height: 1.45;
-}
-
-.initiative-description-lead {
-  display: block;
-  font-weight: 600;
+  max-width: 60ch;
+  font-size: clamp(21px, 2.2vw, 27px);
+  line-height: 1.5;
   text-wrap: pretty;
 }
 
-.initiative-description-scope {
-  display: block;
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 18px;
-  line-height: 1.6;
-  text-wrap: pretty;
-}
+.initiative-description .initiative-phrase { white-space: nowrap; }
 
 .initiative-actions {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 18px 24px;
-  margin-top: 28px;
+  margin-top: 24px;
   font-size: 14px;
 }
 
@@ -1216,7 +1205,7 @@ section[id] { scroll-margin-top: 140px; }
   .data-gateway,
   .evidence-layout,
   .research-questions { grid-template-columns: 1fr; gap: 32px; }
-  .initiative-hero h1 { flex-direction: column; gap: 0; font-size: 68px; white-space: normal; }
+  .initiative-hero h1 { flex-direction: column; gap: 0; font-size: clamp(48px, 8vw, 68px); white-space: normal; }
   .origin-section { gap: 28px; }
   .origin-year { font-size: clamp(112px, 22vw, 160px); }
   .collection-feature { row-gap: 0; }
@@ -1242,9 +1231,10 @@ section[id] { scroll-margin-top: 140px; }
   .language-toggle { width: 44px; flex-basis: 44px; }
   .header-actions { gap: 8px; }
   .menu-toggle { padding-inline: 9px; }
-  .initiative-hero { padding: 48px 0 40px; }
-  .initiative-hero h1 { font-size: clamp(38px, 10.5vw, 58px); }
-  .initiative-hero-intro .initiative-description { font-size: 21px; }
+  .initiative-hero { padding: 40px 0 32px; }
+  .initiative-hero h1 { font-size: clamp(36px, 10vw, 54px); }
+  .initiative-hero-intro { margin-top: 22px; }
+  .initiative-hero-intro .initiative-description { font-size: 20px; }
   .initiative-hero-intro .initiative-actions { gap: 16px 20px; }
   .initiative-hero-intro .primary-link { gap: 18px; padding-inline: 16px; }
   .collection-heading { flex-wrap: wrap; }

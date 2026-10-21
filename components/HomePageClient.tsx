@@ -156,8 +156,9 @@ export default function HomePageClient() {
           </div>
           <div className="initiative-hero-intro">
             <p className="initiative-description">
-              <span className="initiative-description-lead">{identity.descriptionLead}</span>{" "}
-              <span className="initiative-description-scope">{identity.descriptionScope}</span>
+              {identity.description.split(/(federal-level|U\.S\.–China)/).map((part, index) => (
+                <span key={index} className={part === "federal-level" || part === "U.S.–China" ? "initiative-phrase" : undefined}>{part}</span>
+              ))}
             </p>
             <div className="initiative-actions">
               <Link className="primary-link" href="/data">
