@@ -1004,7 +1004,21 @@ section[id] { scroll-margin-top: 140px; }
   color: var(--ink);
   font-size: 23px;
   line-height: 1.45;
-  text-wrap: balance;
+}
+
+.initiative-description-lead {
+  display: block;
+  font-weight: 600;
+  text-wrap: pretty;
+}
+
+.initiative-description-scope {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+  text-wrap: pretty;
 }
 
 .initiative-actions {

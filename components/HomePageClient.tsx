@@ -155,7 +155,10 @@ export default function HomePageClient() {
             </h1>
           </div>
           <div className="initiative-hero-intro">
-            <p className="initiative-description">{identity.description}</p>
+            <p className="initiative-description">
+              <span className="initiative-description-lead">{identity.descriptionLead}</span>{" "}
+              <span className="initiative-description-scope">{identity.descriptionScope}</span>
+            </p>
             <div className="initiative-actions">
               <Link className="primary-link" href="/data">
                 {t.browse}
