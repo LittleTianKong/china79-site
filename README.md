@@ -2,7 +2,7 @@
 
 A Next.js website for **China79 Initiative — Better Data. Better Dialogue.**
 
-Independent data and analysis on U.S.–China relations, with a commitment to pragmatic cooperation and findings grounded in historical evidence.
+Detailed, well-sourced data on U.S.–China engagement, freely accessible to support research, public understanding, and informed discussion.
 
 ## Pages included
 
@@ -10,7 +10,7 @@ Independent data and analysis on U.S.–China relations, with a commitment to pr
 - Data & Transparency
 - Analysis
 - Individual analysis articles
-- Cooperation & Dialogue (retains the `/policy-outreach` URL)
+- Perspectives & Dialogue (retains the `/policy-outreach` URL)
 - Interviews
 - About
 - Contact

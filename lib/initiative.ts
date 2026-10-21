@@ -3,20 +3,20 @@ export const initiative = {
     name: "China79 Initiative",
     tagline: "Better Data. Better Dialogue.",
     taglineLines: ["Better Data.", "Better Dialogue."],
-    description: "The internet’s most comprehensive free datasets documenting federal-level U.S.–China meetings since 1979.",
+    description: "Free, detailed, source-linked datasets documenting federal-level U.S.–China meetings since 1979.",
     introduction:
-      "We collect, verify, and publish historical evidence to improve public understanding of the relationship—and the possibilities for constructive cooperation.",
+      "We collect, document, and publish historical evidence to make U.S.–China relations easier to explore, compare, and understand.",
     missionLabel: "Our mission",
     mission:
-      "To promote constructive cooperation between the United States and China by collecting, verifying, and publishing accessible data that improves public understanding of their relationship.",
+      "To make detailed, well-sourced information about U.S.–China engagement freely accessible, supporting research, public understanding, and informed discussion.",
     visionLabel: "Our vision",
     vision:
-      "A future in which the United States and China recognize that strategic competition need not prevent meaningful cooperation on shared challenges.",
+      "A better-informed public conversation about U.S.–China relations, supported by detailed records, transparent methods, and diverse perspectives.",
     pillarsLabel: "Three pillars of China79",
     pillars: [
       {
         title: "Data & Transparency",
-        text: "Collect and publish independently verified historical records of U.S.–China relations, freely available to everyone.",
+        text: "Publish detailed historical records with traceable sources, clear definitions, and documentation, freely available to everyone.",
         contactPrompt: "For dataset requests or access questions, contact:",
       },
       {
@@ -25,36 +25,36 @@ export const initiative = {
         contactPrompt: "To submit research for consideration, contact:",
       },
       {
-        title: "Cooperation & Dialogue",
+        title: "Perspectives & Dialogue",
         text: "Publish interviews with scholars, practitioners, and people whose firsthand experiences offer insight into U.S.–China relations.",
         contactPrompt: "To suggest a guest or discuss an interview, contact:",
       },
     ],
     evidenceLabel: "Our approach",
-    evidenceTitle: "Committed to cooperation. Guided by evidence.",
+    evidenceTitle: "Accessible evidence. Informed dialogue.",
     evidence:
-      "Our purpose is to advance pragmatic U.S.–China cooperation. Our findings must follow the evidence. Conflict, diplomatic breakdowns, and failed negotiations deserve the same rigor as successful cooperation.",
+      "Our purpose is to make the historical record easier to find, examine, and use. We document cooperation, competition, and crisis with the same care, explain our sources and methods, and make gaps and uncertainty visible.",
     evidenceNote:
-      "A clear mission should guide the questions we ask, without determining the answers we find.",
+      "Readers should be able to trace the evidence, evaluate our work, and reach their own conclusions.",
   },
   zh: {
     name: "China79 倡议",
     tagline: "更好的数据，更好的对话。",
     taglineLines: ["更好的数据，", "更好的对话。"],
-    description: "互联网上最全面的免费数据集系列，记录1979年以来美中两国联邦／中央政府层级的会晤。",
+    description: "免费、详细、附有来源链接的数据集，记录1979年以来美中两国联邦／中央政府层级的会晤。",
     introduction:
-      "我们收集、核实并发布历史资料，增进公众对双边关系的理解，并探索建设性合作的可能。",
+      "我们收集、整理并发布历史资料，让美中关系更便于探索、比较和理解。",
     missionLabel: "我们的使命",
     mission:
-      "通过收集、核实并发布易于获取的数据，增进公众对美中关系的理解，推动美国与中国之间的建设性合作。",
+      "让关于美中接触的详细、来源可靠的信息可供免费获取，为研究、公众理解和有据可依的讨论提供支持。",
     visionLabel: "我们的愿景",
     vision:
-      "期待美国与中国认识到，战略竞争不必妨碍双方在共同挑战上开展有意义的合作。",
+      "以详细记录、透明方法和多元视角为基础，让关于美中关系的公共讨论更有依据。",
     pillarsLabel: "China79 的三大支柱",
     pillars: [
       {
         title: "数据与透明",
-        text: "收集并发布经过独立核实的美中关系历史记录，供所有人免费获取和使用。",
+        text: "发布详细的历史记录，并提供可追溯的来源、明确的定义与说明文档，供所有人免费获取。",
         contactPrompt: "如需申请数据集或咨询获取方式，请联系：",
       },
       {
@@ -63,16 +63,16 @@ export const initiative = {
         contactPrompt: "如需提交研究稿件，请联系：",
       },
       {
-        title: "合作与对话",
+        title: "观点与对话",
         text: "通过访谈学者、实践者和亲历者，为理解美中关系呈现不同的观点与经验。",
         contactPrompt: "如需推荐访谈嘉宾或参与访谈，请联系：",
       },
     ],
-    evidenceLabel: "我们的立场",
-    evidenceTitle: "致力于合作，以证据为准绳。",
+    evidenceLabel: "我们的方法",
+    evidenceTitle: "让证据易于获取，让对话更有依据。",
     evidence:
-      "我们的目标是推动务实的美中合作，而研究结论必须以证据为依据。冲突、外交中断和谈判失败，应当得到与成功合作同样严谨的记录和分析。",
-    evidenceNote: "明确的使命应指引我们提出问题，而不应预先决定问题的答案。",
+      "我们的目标是让历史记录更便于查找、审视和使用。我们以同样严谨的态度记录合作、竞争与危机，说明来源和方法，并明确呈现资料缺口与不确定性。",
+    evidenceNote: "读者应当能够追溯证据、评估我们的工作，并形成自己的结论。",
   },
 } as const;
 
@@ -81,7 +81,7 @@ export const dataCopy = {
     label: "Data & transparency",
     title: "A clearer record of U.S.–China relations.",
     description:
-      "China79 is developing public datasets that make the historical record easier to explore, compare, and question. Data is the starting point for our research and dialogue.",
+      "China79 is developing freely accessible, source-linked datasets that make official U.S.–China engagement easier to explore and compare. Detailed records and transparent methods support research and informed public discussion.",
     collectionLabel: "Flagship Series",
     collectionTitle: "U.S.–China historical engagement",
     collectionDescription:
@@ -124,7 +124,7 @@ export const dataCopy = {
     label: "数据与透明",
     title: "让美中关系的历史记录更加清晰。",
     description:
-      "China79 正在开发公开数据集，让历史记录更便于检索、比较和审视。数据是我们开展研究与对话的起点。",
+      "China79 正在开发可免费获取、附有来源链接的数据集，让美中官方接触更便于探索和比较。详细记录与透明方法为研究和有据可依的公共讨论提供支持。",
     collectionLabel: "旗舰系列",
     collectionTitle: "美中历史接触与对话",
     collectionDescription:

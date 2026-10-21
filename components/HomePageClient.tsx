@@ -10,7 +10,6 @@ import styles from "./HomeDatasetFeature.module.css";
 const copy = {
   en: {
     browse: "Explore our data",
-    analysisAction: "Read our analysis",
     latestRelease: "Latest dataset",
     available: "Now available",
     coverSeries: "Dataset 01 · Flagship Series",
@@ -21,15 +20,13 @@ const copy = {
     included: "Included in counts",
     datasetAction: "View & download dataset",
     datasetCitation: "Copy a citation",
-    dataTitleLead: "Documenting ",
-    dataTitleSubject: "U.S.–China",
-    dataTitleEnd: " engagement.",
+    dataTitle: "A clearer record. A more informed conversation.",
     dataIntro:
-      "We’re building a public record of diplomatic engagement between the United States and China, covering periods of cooperation, competition, and crisis.",
+      "China79 brings detailed, source-linked records of U.S.–China engagement into freely accessible datasets. We make the historical record easier to explore, compare, and understand, supporting research and a more informed public conversation about the relationship.",
     collectionLabel: "Flagship Series",
     collectionAction: "Explore the series",
     collectionSummary:
-      "Our flagship series is planned to include eight datasets and aims to provide the most comprehensive freely accessible record of publicly documented official U.S.–China engagements since 1979. It will support comparisons across historical periods and U.S. administrations.",
+      "Our flagship series is planned to include eight datasets documenting publicly recorded official U.S.–China engagements since 1979. Freely accessible files, source references, and consistent definitions will support comparisons across historical periods and U.S. administrations.",
     collectionQuestions: "Questions behind the series",
     collectionRelease:
       "The first dataset is available now. Data files, source notes, and methodology will accompany each additional release.",
@@ -51,7 +48,6 @@ const copy = {
   },
   zh: {
     browse: "探索数据",
-    analysisAction: "阅读分析",
     latestRelease: "最新数据集",
     available: "已发布",
     coverSeries: "数据集01 · 旗舰系列",
@@ -62,15 +58,13 @@ const copy = {
     included: "计入统计",
     datasetAction: "查看并下载数据集",
     datasetCitation: "复制引文",
-    dataTitleLead: "记录",
-    dataTitleSubject: "美中交往",
-    dataTitleEnd: "的历史。",
+    dataTitle: "更清晰的记录，更有依据的讨论。",
     dataIntro:
-      "我们正在构建一份公开的美中外交接触记录，涵盖合作、竞争与危机等不同时期。",
+      "China79 将详细、附有来源链接的美中接触记录整理为可免费获取的数据集。我们让历史记录更便于探索、比较和理解，为研究以及关于双边关系的公共讨论提供更扎实的依据。",
     collectionLabel: "旗舰系列",
     collectionAction: "探索本系列",
     collectionSummary:
-      "我们的旗舰系列计划包含8个数据集，目前正在开发中。该系列旨在为1979年以来有公开记录的美中官方接触建立最全面、可免费获取的资料库，支持跨历史时期、跨美国政府的比较研究。",
+      "我们的旗舰系列计划包含8个数据集，记录1979年以来有公开记录的美中官方接触。可免费获取的数据文件、来源说明和一致的定义，将支持跨历史时期、跨美国政府的比较研究。",
     collectionQuestions: "本系列关注的问题",
     collectionRelease:
       "首个数据集现已发布。后续各数据集发布时，我们将一并提供数据文件、来源说明和研究方法。",
@@ -165,9 +159,6 @@ export default function HomePageClient() {
                 {t.browse}
                 <span aria-hidden="true">→</span>
               </Link>
-              <Link className="text-link" href="/analysis">
-                {t.analysisAction} <span aria-hidden="true">→</span>
-              </Link>
             </div>
           </div>
         </div>
@@ -217,7 +208,7 @@ export default function HomePageClient() {
           <div>
             <div className="kicker">{data.label}</div>
             <h2 id="home-data-title">
-              {t.dataTitleLead}<span>{t.dataTitleSubject}</span>{t.dataTitleEnd}
+              {t.dataTitle}
             </h2>
           </div>
           <p>{t.dataIntro}</p>

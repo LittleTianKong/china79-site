@@ -3,9 +3,9 @@ import { pageMetadata } from "@/lib/seo";
 
 // Retained for older links; the active navigation uses /interviews.
 export const metadata = pageMetadata({
-  title: "Cooperation & Dialogue",
+  title: "Perspectives & Dialogue",
   description:
-    "Informed dialogue on pragmatic U.S.–China cooperation, grounded in historical evidence and recognition of legitimate disagreements and security concerns.",
+    "Informed public discussion of U.S.–China relations, supported by accessible evidence, historical context, and diverse perspectives.",
   path: "/policy-outreach",
   index: false,
 });

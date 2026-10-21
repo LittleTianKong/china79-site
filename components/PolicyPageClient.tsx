@@ -6,9 +6,9 @@ import { initiative } from "@/lib/initiative";
 
 const copy = {
   en: {
-    title: "Better dialogue starts with shared understanding.",
+    title: "Better dialogue starts with accessible evidence.",
     description:
-      "China79 supports informed discussion of opportunities for pragmatic U.S.–China cooperation, grounded in evidence and recognition of legitimate disagreements and security concerns.",
+      "China79 supports informed public discussion of U.S.–China relations by making detailed records, historical context, and diverse perspectives easier to access and evaluate.",
     evidenceTitle: "Bring the historical record into the conversation.",
     evidenceText:
       "Understanding when dialogue has continued, broken down, or produced results can help us ask more useful questions about the relationship today.",
@@ -23,9 +23,9 @@ const copy = {
     contactAction: "Contact China79",
   },
   zh: {
-    title: "更好的对话，始于共同理解。",
+    title: "更好的对话，始于易于获取的证据。",
     description:
-      "China79 支持以证据为基础、充分认识合理分歧与安全关切的知情讨论，探索务实的美中合作机会。",
+      "China79 让详细记录、历史背景和多元视角更便于获取和评估，为关于美中关系的公共讨论提供依据。",
     evidenceTitle: "将历史记录带入讨论。",
     evidenceText:
       "理解对话何时持续、何时中断以及何时取得成果，有助于我们对今天的双边关系提出更有价值的问题。",

@@ -16,7 +16,7 @@ const copy = {
     agenda: "Research agenda", agendaTitle: "Ideas we’re exploring.",
     agendaText: "Forthcoming work on the policies, people, and ideas that shape the relationship.",
     approachTitle: "The question is a starting point.",
-    approachText: "Our commitment to constructive cooperation guides the questions we ask. Evidence determines the answers.",
+    approachText: "Our questions begin with the historical record. Evidence determines the answers, and transparent sources let readers examine our conclusions.",
     principles: [
       { title: "Start with the record.", text: "Ground arguments in documented events and sources that readers can examine." },
       { title: "Make uncertainty visible.", text: "Explain what the evidence supports, where it is incomplete, and what remains open to debate." },
@@ -36,7 +36,7 @@ const copy = {
     agenda: "研究议题", agendaTitle: "我们正在探索的问题。",
     agendaText: "关注塑造两国关系的政策、人物与观念，相关研究将陆续推出。",
     approachTitle: "问题是研究的起点。",
-    approachText: "推动建设性合作的使命指引我们提出问题，研究结论则由证据决定。",
+    approachText: "我们从历史记录出发提出问题，让证据决定答案，并以透明的来源帮助读者检验我们的结论。",
     principles: [
       { title: "从历史记录出发。", text: "以有据可查的事件和资料为基础，让读者能够检验论据。" },
       { title: "明确呈现不确定性。", text: "说明证据能够支持哪些结论、资料存在哪些缺口，以及哪些问题仍有待讨论。" },

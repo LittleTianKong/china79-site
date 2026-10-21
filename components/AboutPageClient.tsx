@@ -8,7 +8,7 @@ import { initiative } from "@/lib/initiative";
 const copy = {
   en: {
     label: "About the initiative",
-    title: "Building understanding.", titleEnd: "Advancing cooperation.",
+    title: "Building understanding.", titleEnd: "Informing dialogue.",
     introduction: "China79 Initiative is an independent, data-driven foreign policy initiative focused on U.S.–China relations. We bring historical evidence into public understanding, research, and informed dialogue.",
     navigation: "About China79", purpose: "Our purpose", origin: "Why 1979?", work: "What we’re building", principles: "Our principles",
     originLabel: "The year behind our name", originTitle: "A starting point for understanding.",
@@ -30,7 +30,7 @@ const copy = {
   },
   zh: {
     label: "关于本倡议",
-    title: "增进理解，", titleEnd: "推动合作。",
+    title: "增进理解，", titleEnd: "让对话更有依据。",
     introduction: "China79 倡议是一个以数据为基础、关注美中关系的独立外交政策倡议。我们以历史证据促进公众理解、研究与知情对话。",
     navigation: "关于 China79", purpose: "我们的使命", origin: "为什么是1979年？", work: "我们正在建设的工作", principles: "我们的原则",
     originLabel: "名称背后的年份", originTitle: "理解两国关系的一个起点。",
