@@ -39,6 +39,26 @@ test("distinguishes unpublished data from a released file with zero downloads", 
   assert.equal(summarizeDownloads([release([asset(1, 0)])], source).status, "available");
 });
 
+test("configured release tags reset current totals without adding archived or unregistered releases", () => {
+  const { summarizeDownloads } = load("lib/dataset-downloads.ts");
+  const currentTag = "us-china-engagement-v1.1.0";
+  const releases = [
+    release([asset(1, 35)]),
+    release([asset(2, 0, "us-china-engagement-data-v1.1.0.csv")], { tag_name: currentTag }),
+    release([asset(3, 999)], { tag_name: `${currentTag}1` }),
+  ];
+  const result = summarizeDownloads(releases, { ...source, releaseTags: [currentTag] });
+  assert.equal(result.status, "available");
+  assert.equal(result.total, 0);
+  assert.deepEqual(Array.from(result.files, (file) => file.id), [2]);
+  assert.equal(summarizeDownloads(releases, source).total, 1034);
+  for (const releaseTags of [[], ["us-china-engagement-v9.9.9"]]) {
+    const missing = summarizeDownloads(releases, { ...source, releaseTags });
+    assert.equal(missing.status, "unreleased");
+    assert.equal(missing.total, null);
+  }
+});
+
 test("deduplicates assets and rejects malformed counts rather than displaying false totals", () => {
   const { summarizeDownloads } = load("lib/dataset-downloads.ts");
   assert.equal(summarizeDownloads([release([asset(1, 12), asset(1, 12)])], source).total, 12);
@@ -126,4 +146,29 @@ test("API resolves registered member slugs to their own download source", async 
   const response = await GET(new Request("https://china79.org/api/downloads/us-china-engagement-trump1"), { params: Promise.resolve({ slug: "us-china-engagement-trump1" }) });
   assert.equal(response.status, 200);
   assert.equal((await response.json()).total, null);
+});
+
+test("series API totals follow current member releases while member APIs retain archive counts", async () => {
+  const { summarizeDownloads } = load("lib/dataset-downloads.ts");
+  const currentTag = "us-china-engagement-trump1-v1.1.0";
+  const seriesSource = { ...source, tagPrefix: "us-china-engagement-" };
+  const memberSource = { ...source, tagPrefix: "us-china-engagement-trump1-v", assetPrefix: "us-china-engagement-data-trump1-" };
+  const releases = [
+    release([asset(1, 35, "us-china-engagement-data-trump1-v1.0.0.csv")], { tag_name: "us-china-engagement-trump1-v1.0.0" }),
+    release([asset(2, 0, "us-china-engagement-data-trump1-v1.1.0.csv")], { tag_name: currentTag }),
+    release([asset(3, 999, "us-china-engagement-data-other-v1.0.0.csv")], { tag_name: "us-china-engagement-other-v1.0.0" }),
+  ];
+  const member = { slug: "us-china-engagement-trump1", downloads: memberSource, release: { tag: currentTag } };
+  const { GET } = load("app/api/downloads/[slug]/route.ts", null, {
+    "@/lib/datasets": { datasetCatalog: [{ slug: "us-china-engagement", downloads: seriesSource, members: [member] }] },
+    "@/lib/dataset-downloads": { getDatasetDownloads: async (config) => summarizeDownloads(releases, config) },
+  });
+  const request = new Request("https://china79.org/api/downloads/us-china-engagement");
+  const series = await (await GET(request, { params: Promise.resolve({ slug: "us-china-engagement" }) })).json();
+  assert.equal(series.total, 0);
+  assert.equal(series.files.length, 1);
+  assert.equal(series.files[0].id, 2);
+  const history = await (await GET(request, { params: Promise.resolve({ slug: member.slug }) })).json();
+  assert.equal(history.total, 35);
+  assert.deepEqual(history.files.map((file) => file.version), ["1.0.0", "1.1.0"]);
 });

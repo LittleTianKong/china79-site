@@ -1,18 +1,18 @@
 # Dataset download tracking
 
-The Flagship Series page shows combined file-download counts across the series; individual dataset and permanent version pages show counts for their selected release's registered files. The catalog shows a compact series total. Counts come from GitHub's release-asset `download_count`; no new account, paid analytics plan, database, or API key is needed for this public repository. The planned number of datasets (eight) is separate from the number of release assets or downloads.
+The Flagship Series page shows combined file-download counts for the current published release of each registered member; individual dataset and permanent version pages show counts for their selected release's registered files. The catalog shows a compact current-release series total. New releases use new assets and fresh counters; archived versions retain their own historical counts. Counts come from GitHub's release-asset `download_count`; no new account, paid analytics plan, database, or API key is needed for this public repository. The planned number of datasets (eight) is separate from the number of release assets or downloads.
 
 ## Current dataset release
 
-The first member is **U.S.–China Official Contacts: Trump’s First Administration (2017–2021)** by **Michael C. Rhind-Tutt**, published by **China79 Initiative**. Release **1.0.0** is dated **2026-10-17** and licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+The first member is **U.S.–China Official Contacts: Trump’s First Administration (2017–2021)** by **Michael C. Rhind-Tutt**, published by **China79 Initiative**. Release **2.0.0** is dated **2026-10-23** and licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-[View the release on GitHub](https://github.com/LittleTianKong/china79-site/releases/tag/us-china-engagement-trump1-v1.0.0). The published data assets are:
+[View the release on GitHub](https://github.com/LittleTianKong/china79-site/releases/tag/us-china-engagement-trump1-v2.0.0). The published data assets are:
 
-- `us-china-engagement-data-trump1-v1.0.0.csv`
-- `us-china-engagement-data-trump1-v1.0.0.xlsx`
-- `us-china-engagement-data-trump1-v1.0.0.zip`
+- `us-china-engagement-data-trump1-v2.0.0.csv`
+- `us-china-engagement-data-trump1-v2.0.0.xlsx`
+- `us-china-engagement-data-trump1-v2.0.0.zip`
 
-The dataset retains 745 rows, including 719 rows marked `Include` in Counting Status and 26 excluded rows retained for transparency. Website citations identify version 1.0.0 and its permanent version page; the public release tag is `v1.0.0`. Seven further datasets remain planned.
+Version 2.0.0 retains 1,450 rows, all marked `Include` in Counting Status, with no excluded rows. Website citations identify version 2.0.0 and its permanent version page; the public release tag is `v2.0.0`. Version 1.0.0 retains its original 745/719/26 metadata and historical asset counters. Seven further datasets remain planned.
 
 The page exposes direct links from the confirmed release metadata even while GitHub statistics are loading, unavailable, or cached before the release. In those states, file availability stays visible and download counts are not fabricated. The [version archive](https://china79.org/data/us-china-engagement/trump-first-administration/versions) also lists every registered release with permanent version pages, citations, notes, counts, and direct file links, independently of the statistics API.
 
@@ -40,7 +40,7 @@ To add another member, add its metadata to the series' `members` array, give it 
 
 ## What is counted
 
-- Download counts for matching uploaded dataset assets across stable public releases.
+- Download counts for matching uploaded dataset assets in stable public releases; series/catalog endpoints select only current registered release tags, while member endpoints retain the history used by individual version pages.
 - Supported extensions: CSV, TSV, XLSX, JSON, Parquet, ZIP, DTA, SAV, RDS.
 - Downloads directly from GitHub are included too.
 - Page visits, email access inquiries, citation copies, documentation files without the data prefix, and GitHub's generated source archives are excluded.

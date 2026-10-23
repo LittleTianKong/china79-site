@@ -3,6 +3,7 @@ export type DownloadSource = {
   repository: string;
   tagPrefix: string;
   assetPrefix: string;
+  releaseTags?: readonly string[];
 };
 
 export type DatasetDownloadFile = {
@@ -32,10 +33,12 @@ export function summarizeDownloads(releases: unknown[], source: DownloadSource):
   const base = `https://github.com/${source.owner}/${source.repository}`;
   const files: DatasetDownloadFile[] = [];
   const seen = new Set<number>();
+  const releaseTags = source.releaseTags ? new Set(source.releaseTags) : null;
   for (const raw of releases) {
     if (!raw || typeof raw !== "object") throw new Error("Invalid release response");
     const release = raw as Record<string, unknown>;
     if (release.draft !== false || release.prerelease !== false || typeof release.tag_name !== "string" || !release.tag_name.startsWith(source.tagPrefix)) continue;
+    if (releaseTags && !releaseTags.has(release.tag_name)) continue;
     if (!Array.isArray(release.assets)) throw new Error("Invalid asset response");
     for (const rawAsset of release.assets) {
       if (!rawAsset || typeof rawAsset !== "object") throw new Error("Invalid asset");

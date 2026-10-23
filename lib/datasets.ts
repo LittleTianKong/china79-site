@@ -20,6 +20,36 @@ const trumpDatasetPath = "/data/us-china-engagement/trump-first-administration";
 // entries and their GitHub assets so version links and citations stay usable.
 export const trumpFirstAdministrationReleases: readonly DatasetRelease[] = [
   {
+    version: "2.0.0",
+    date: "2026-10-23",
+    tag: "us-china-engagement-trump1-v2.0.0",
+    url: "https://github.com/LittleTianKong/china79-site/releases/tag/us-china-engagement-trump1-v2.0.0",
+    path: `${trumpDatasetPath}/versions/2.0.0`,
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    retainedRecords: 1450,
+    includedRecords: 1450,
+    excludedRecords: 0,
+    notes: {
+      en: "Expanded public release with 1,450 distinct records, all included in the default count. Updated data, sources, and codebook supersede version 1.0.0, which remains available in the archive. Download counts start afresh for this release.",
+      zh: "扩充后的公开版本包含1,450条独立记录，全部计入默认统计。更新的数据、来源和编码手册取代1.0.0版，旧版仍可通过历史版本页面访问。此版本的下载次数重新开始统计。",
+    },
+    files: [
+      { name: "us-china-engagement-data-trump1-v2.0.0.csv", label: "CSV", format: "CSV", encodingFormat: "text/csv", url: "https://github.com/LittleTianKong/china79-site/releases/download/us-china-engagement-trump1-v2.0.0/us-china-engagement-data-trump1-v2.0.0.csv" },
+      { name: "us-china-engagement-data-trump1-v2.0.0.xlsx", label: "Excel workbook", format: "XLSX", encodingFormat: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", url: "https://github.com/LittleTianKong/china79-site/releases/download/us-china-engagement-trump1-v2.0.0/us-china-engagement-data-trump1-v2.0.0.xlsx" },
+      { name: "us-china-engagement-data-trump1-v2.0.0.zip", label: "Complete package", format: "ZIP", encodingFormat: "application/zip", url: "https://github.com/LittleTianKong/china79-site/releases/download/us-china-engagement-trump1-v2.0.0/us-china-engagement-data-trump1-v2.0.0.zip" },
+    ],
+    citation: `Rhind-Tutt, Michael C. (2026). U.S.–China Official Contacts: Trump’s First Administration (2017–2021) (Version 2.0.0) [Dataset]. China79 Initiative. https://china79.org${trumpDatasetPath}/versions/2.0.0`,
+    bibtex: `@misc{rhindtutt_china79_trump1_v2_0_0,
+  author = {Rhind-Tutt, Michael C.},
+  title = {{U.S.–China Official Contacts: Trump’s First Administration (2017–2021)}},
+  year = {2026},
+  version = {2.0.0},
+  howpublished = {China79 Initiative},
+  note = {Version 2.0.0; dataset; licensed under CC BY 4.0},
+  url = {https://china79.org${trumpDatasetPath}/versions/2.0.0}
+}`,
+  },
+  {
     version: "1.0.0",
     date: "2026-10-17",
     tag: "us-china-engagement-trump1-v1.0.0",

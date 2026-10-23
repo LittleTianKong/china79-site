@@ -5,8 +5,9 @@ The Trump dataset has a permanent landing page for its current release and an ar
 - Current dataset: `/data/us-china-engagement/trump-first-administration`
 - All versions: `/data/us-china-engagement/trump-first-administration/versions`
 - Version 1.0.0: `/data/us-china-engagement/trump-first-administration/versions/1.0.0`
+- Version 2.0.0: `/data/us-china-engagement/trump-first-administration/versions/2.0.0`
 
-The archive includes the current version. Version 1.0.0 remains current until a later public release is verified and registered. Uploading files to GitHub alone does not change the site's current version or add a version page automatically.
+The archive includes the current version, **2.0.0**, published October 23, 2026 with 1,450 retained records, all included in the default count. Version 1.0.0 remains accessible with its original 745 retained, 719 included, and 26 excluded records. Uploading files to GitHub alone does not change the site's current version or add a version page automatically.
 
 ## What a version preserves
 
@@ -29,6 +30,6 @@ Never reuse an old release tag, replace an older asset, delete a previous releas
 
 ## Download totals
 
-Dataset and permanent version pages show counts only for the selected release's registered files. Series totals continue to include matching data files across all stable public versions. The archive identifies each version separately; it is not a list inferred from the counters. A new version must be registered explicitly even if GitHub already reports its download counts.
+Dataset and permanent version pages show counts only for the selected release's registered files. Series and catalog totals include only the current published release of each registered member. A new release starts with new GitHub assets and fresh counters; old assets and their historical counters remain accessible on their version pages. No counter is forcibly zeroed or frozen, and an unavailable statistics response is not displayed as zero. The archive identifies each version separately; it is not a list inferred from the counters. A new version must be registered explicitly even if GitHub already reports its download counts.
 
 See [DOWNLOAD_TRACKING.md](./DOWNLOAD_TRACKING.md) for asset naming, supported formats, counter caching, and the distinction between file downloads and unique visitors.

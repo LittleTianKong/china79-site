@@ -17,7 +17,7 @@ Detailed, well-sourced data on U.S.–China engagement, freely accessible to sup
 
 ## Important launch note
 
-The historical engagement project is a **Flagship Series of eight datasets: one released and seven planned**. The first is **U.S.–China Official Contacts: Trump’s First Administration (2017–2021)** by **Michael C. Rhind-Tutt**, published by **China79 Initiative**. Release **1.0.0**, dated **2026-10-17**, provides CSV, Excel workbook, and ZIP package downloads under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Its source workbook contains 745 retained records, with 719 included in the default count and 26 excluded records retained for transparency. [Open the dataset and its citation](https://china79.org/data/us-china-engagement/trump-first-administration). Series citations and individual dataset citations are separate; the seven future datasets are not released.
+The historical engagement project is a **Flagship Series of eight datasets: one released and seven planned**. The first is **U.S.–China Official Contacts: Trump’s First Administration (2017–2021)** by **Michael C. Rhind-Tutt**, published by **China79 Initiative**. Current release **2.0.0**, dated **2026-10-23**, provides CSV, Excel workbook, and ZIP package downloads under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). It contains **1,450 retained records, all included in the default count**. [Open the dataset and its citation](https://china79.org/data/us-china-engagement/trump-first-administration). Version 1.0.0 remains available in the [version archive](https://china79.org/data/us-china-engagement/trump-first-administration/versions) with its original files, counts, and citation. Current dataset, series, and catalog download counters use current releases; historical counters remain on archived version pages. Series citations and individual dataset citations are separate; the seven future datasets are not released.
 
 Existing article bodies in `lib/content.ts` include **placeholder content for layout purposes**. Replace them with fully sourced final work before treating them as published research. The homepage directs visitors to the data collection instead of featuring those drafts.
 
@@ -46,7 +46,7 @@ Shared English and Chinese identity, mission, vision, pillars, collection descri
 
 Page-specific copy lives in `components/HomePageClient.tsx` and the corresponding client components in `components/`. The English/Chinese switch applies to all updated pages, and the language preference is retained between visits.
 
-For each new dataset or release, update its release information, source documentation, methodology, citation, and download links in both languages. Confirm the public files before deploying the corresponding availability copy. The CC BY 4.0 license applies to the released Trump dataset; do not infer a license for future datasets or the entire website.
+For each new dataset or release, update its release information, source documentation, methodology, citation, and download links in both languages. Confirm the public files before deploying the corresponding availability copy. Follow [DATASET_RELEASES.md](./DATASET_RELEASES.md) to register a new version while preserving earlier snapshots and assets. The CC BY 4.0 license applies to the released Trump dataset; do not infer a license for future datasets or the entire website.
 
 Existing research content lives in `lib/content.ts`.
 

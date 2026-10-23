@@ -159,15 +159,35 @@ test("release download counters exclude other versions while keeping registered 
   assert.doesNotMatch(renderWithStats(oldRelease, partial, true), /3 downloads|30,006/);
 });
 
-test("series downloads keep all member versions and the overall total when a fallback release is supplied", () => {
+test("a new current release starts at zero while archived version totals remain available", () => {
   const { oldRelease, futureRelease } = futureReleaseFixture();
   const files = [oldRelease, futureRelease].flatMap((release, releaseIndex) => release.files.map((file, index) => ({
     ...file,
     id: 1 + releaseIndex * 10 + index,
     version: release.version,
-    count: releaseIndex === 0 ? 1 : 10000,
+    count: releaseIndex === 0 ? [12, 8, 15][index] : 0,
     size: 100,
   })));
+  const stats = { status: "available", files, total: 35, releasesUrl: "https://github.com/LittleTianKong/china79-site/releases", checkedAt: null };
+  const currentHtml = renderWithStats(futureRelease, stats);
+  assert.match(currentHtml, /<strong>0<\/strong>/);
+  assert.doesNotMatch(currentHtml, /<strong>35<\/strong>/);
+  assert.match(renderWithStats(futureRelease, stats, true), /0 downloads/);
+  const archivedHtml = renderWithStats(oldRelease, stats);
+  assert.match(archivedHtml, /<strong>35<\/strong>/);
+  assert.doesNotMatch(archivedHtml, /<strong>0<\/strong>/);
+  assert.match(renderWithStats(oldRelease, stats, true), /35 downloads/);
+});
+
+test("series downloads show the API's current member releases and total when a fallback release is supplied", () => {
+  const { oldRelease, futureRelease } = futureReleaseFixture();
+  const files = futureRelease.files.map((file, index) => ({
+    ...file,
+    id: 1 + index,
+    version: futureRelease.version,
+    count: 10000,
+    size: 100,
+  }));
   files.push({
     id: 100,
     name: "us-china-engagement-data-clinton-v1.0.0.csv",
@@ -177,14 +197,15 @@ test("series downloads keep all member versions and the overall total when a fal
     format: "CSV",
     url: "https://github.com/LittleTianKong/china79-site/releases/download/us-china-engagement-clinton-v1.0.0/us-china-engagement-data-clinton-v1.0.0.csv",
   });
-  const stats = { status: "available", files, total: 30010, releasesUrl: "https://github.com/LittleTianKong/china79-site/releases", checkedAt: null };
-  const html = renderWithStats(oldRelease, stats, false, "series");
-  assert.match(html, /<strong>30,010<\/strong>/);
-  assert.match(html, /Across all published files in the series/);
+  const stats = { status: "available", files, total: 30007, releasesUrl: "https://github.com/LittleTianKong/china79-site/releases", checkedAt: null };
+  const html = renderWithStats(futureRelease, stats, false, "series");
+  assert.match(html, /<strong>30,007<\/strong>/);
+  assert.match(html, /Across the current published release of each dataset in the series/);
   for (const file of files) assert.ok(html.includes(`href="${file.url}"`));
+  for (const file of oldRelease.files) assert.equal(html.includes(file.url), false);
   assert.match(html, /9\.9\.9/);
   assert.match(html, /clinton-v1\.0\.0/);
-  assert.match(renderWithStats(oldRelease, stats, true, "series"), /30,010 downloads/);
+  assert.match(renderWithStats(futureRelease, stats, true, "series"), /30,007 downloads/);
 });
 
 test("the bilingual archive renders old and current release notes, counts, permalinks, and files without statistics", () => {
