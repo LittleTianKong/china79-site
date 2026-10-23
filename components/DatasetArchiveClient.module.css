@@ -1,0 +1,41 @@
+.intro { max-width: 1120px; }
+.intro h1 { max-width: 20ch; margin-top: 16px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(36px, 4vw, 54px); font-weight: 500; line-height: 1.1; letter-spacing: -.03em; }
+.datasetTitle { max-width: 64ch; margin: 24px 0 0; color: var(--navy); font-size: 20px; font-weight: 650; line-height: 1.5; }
+.description { max-width: 76ch; margin: 16px 0 0; color: var(--muted); font-size: 17px; line-height: 1.8; }
+.firstRelease { max-width: 76ch; margin: 18px 0 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.releases { margin-top: 42px; }
+.list { display: grid; gap: 24px; margin: 0; padding: 0; list-style: none; }
+.card { min-width: 0; padding: 32px; border: 1px solid var(--line); border-top: 3px solid var(--navy); background: var(--white); }
+.heading { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 20px; }
+.heading h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 32px; font-weight: 500; line-height: 1.25; }
+.heading h2 a:hover { color: var(--red); }
+.badge { padding: 5px 10px; border: 1px solid var(--line); font-size: 11px; font-weight: 700; line-height: 1.5; }
+.current { border-color: var(--navy); color: var(--white); background: var(--navy); }
+.archived { color: var(--muted); background: var(--navy-soft); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.meta a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+.notes { max-width: 84ch; margin: 20px 0 0; color: var(--muted); font-size: 16px; line-height: 1.8; }
+.counts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; max-width: 720px; margin: 24px 0 0; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.counts dt { color: var(--muted); font-size: 12px; line-height: 1.7; }
+.counts dd { margin: 7px 0 0; color: var(--navy); font-size: 25px; font-weight: 650; font-variant-numeric: tabular-nums; line-height: 1.25; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 32px; margin-top: 20px; }
+.actions a, .github { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 13px; font-weight: 700; line-height: 1.6; }
+.permalink { color: var(--red); }
+.files { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+.files a, .github { color: var(--navy); }
+.github { margin-top: 4px; }
+.actions a:hover, .github:hover, .meta a:hover { color: var(--red); }
+@media (max-width: 760px) {
+  .intro h1 { max-width: none; }
+  .datasetTitle { font-size: 18px; }
+  .description { font-size: 16px; }
+  .releases { margin-top: 32px; }
+  .card { padding: 24px; }
+  .heading h2 { font-size: 28px; }
+  .counts { gap: 18px; }
+}
+@media (max-width: 480px) {
+  .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .actions { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .files { gap: 4px 20px; }
+}

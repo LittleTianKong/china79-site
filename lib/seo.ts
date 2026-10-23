@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { articles } from "@/lib/content";
-import { historicalEngagementDataset, trumpFirstAdministrationDataset } from "@/lib/datasets";
+import { historicalEngagementDataset, trumpFirstAdministrationDataset, type DatasetRelease } from "@/lib/datasets";
 import { initiative } from "@/lib/initiative";
 
 // Keep canonicals, crawler files, and structured data on the same public origin.
@@ -58,6 +58,8 @@ export const indexedPaths = [
   "/data",
   historicalEngagementDataset.path,
   trumpFirstAdministrationDataset.path,
+  `${trumpFirstAdministrationDataset.path}/versions`,
+  ...trumpFirstAdministrationDataset.releases.map((release) => release.path),
   "/analysis",
   "/interviews",
   "/contact",
@@ -132,7 +134,7 @@ export const trumpDatasetStructuredData = {
   "@id": datasetId,
   name: trumpFirstAdministrationDataset.title.en,
   alternateName: trumpFirstAdministrationDataset.title.zh,
-  description: `${trumpFirstAdministrationDataset.summary.en} Version ${trumpRelease.version} retains 745 records, of which 719 are included in the default count and 26 are retained as excluded records for transparency. This is a curated catalog, not an exhaustive census of every contact. The dataset is published under CC BY 4.0.`,
+  description: `${trumpFirstAdministrationDataset.summary.en} Version ${trumpRelease.version} retains ${trumpRelease.retainedRecords} records, of which ${trumpRelease.includedRecords} are included in the default count and ${trumpRelease.excludedRecords} are retained as excluded records for transparency. This is a curated catalog, not an exhaustive census of every contact. The dataset is published under CC BY 4.0.`,
   url: absoluteUrl(trumpFirstAdministrationDataset.path),
   identifier: trumpFirstAdministrationDataset.slug,
   version: trumpRelease.version,
@@ -155,6 +157,28 @@ export const trumpDatasetStructuredData = {
   inLanguage: "en",
   creativeWorkStatus: "Published",
 };
+
+export function trumpReleaseStructuredData(release: DatasetRelease) {
+  return {
+    ...trumpDatasetStructuredData,
+    "@id": absoluteUrl(`${release.path}#dataset`),
+    url: absoluteUrl(release.path),
+    identifier: `${trumpFirstAdministrationDataset.slug}-v${release.version}`,
+    version: release.version,
+    datePublished: release.date,
+    license: release.license,
+    description: `${trumpFirstAdministrationDataset.summary.en} Version ${release.version} retains ${release.retainedRecords} records, of which ${release.includedRecords} are included in the default count and ${release.excludedRecords} are retained as excluded records for transparency. ${release.notes.en}`,
+    citation: release.citation,
+    distribution: release.files.map((file) => ({
+      "@type": "DataDownload",
+      name: file.label,
+      encodingFormat: file.encodingFormat,
+      contentUrl: file.url,
+      license: release.license,
+    })),
+    isPartOf: { "@id": datasetId },
+  };
+}
 
 export function serializeStructuredData(data: unknown) {
   // Prevent a content field from ending the inline script element.

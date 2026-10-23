@@ -5,7 +5,7 @@ import DatasetCover from "@/components/DatasetCover";
 import DatasetCitation from "@/components/DatasetCitation";
 import DatasetDownloads from "@/components/DatasetDownloads";
 import { useLanguage } from "@/components/LanguageProvider";
-import { trumpFirstAdministrationDataset as dataset } from "@/lib/datasets";
+import { trumpFirstAdministrationDataset as dataset, type DatasetRelease } from "@/lib/datasets";
 import styles from "./DatasetMemberClient.module.css";
 
 const copy = {
@@ -25,6 +25,11 @@ const copy = {
     cite: "Cite this dataset",
     downloads: "Downloads",
     downloadData: "Download data",
+    history: "Version archive",
+    archived: "Archived version",
+    versionPage: "Permanent version page",
+    latest: "View the latest dataset",
+    archiveNote: "This page preserves the files, record counts, and citation for this release.",
     version: "Release version",
     released: "Published",
     license: "License",
@@ -37,7 +42,7 @@ const copy = {
     evidenceLabel: "Reading the evidence",
     evidenceTitle: "Context matters.",
     evidenceText: "Dates can be uncertain or expressed as bounds. Read date fields alongside status, sources, and notes. Topic & Context Tags describe context; they do not, on their own, prove which subjects were discussed. Consult Topic Evidence and the codebook when assessing those claims.",
-    citationNote: "Suggested citation for the 2026 dataset, Version 1. Cite the dataset and version used in your work.",
+    citationNote: "Cite the exact version used in your work. This citation links to its permanent version page.",
   },
   zh: {
     back: "返回旗舰系列",
@@ -55,6 +60,11 @@ const copy = {
     cite: "引用此数据集",
     downloads: "下载",
     downloadData: "下载数据",
+    history: "历史版本",
+    archived: "历史版本",
+    versionPage: "版本永久页面",
+    latest: "查看最新数据集",
+    archiveNote: "本页面保留此版本的文件、记录数量及引用格式。",
     version: "发布版本",
     released: "发布日期",
     license: "许可协议",
@@ -67,25 +77,30 @@ const copy = {
     evidenceLabel: "如何阅读证据",
     evidenceTitle: "结合背景理解记录。",
     evidenceText: "日期可能存在不确定性或以范围表示。请结合状态、来源及备注阅读日期字段。“Topic & Context Tags”提供背景，不能单独证明会谈讨论了相关主题；判断时应参照“Topic Evidence”和编码手册。",
-    citationNote: "以下为2026年数据集（第1版）的建议引文。使用时请引用实际使用的数据集及版本。",
+    citationNote: "请引用研究中实际使用的版本。以下引文链接至该版本的永久页面。",
   },
 };
 
-export default function DatasetMemberClient() {
+export default function DatasetMemberClient({ release = dataset.release, versionPage = false }: { release?: DatasetRelease; versionPage?: boolean }) {
   const { language } = useLanguage();
   const t = copy[language];
   const number = new Intl.NumberFormat(language === "zh" ? "zh-CN" : "en-US");
+  const archived = release.version !== dataset.release.version;
 
   return (
     <div className={`dataset-detail-page ${styles.page}`}>
       <div className="container dataset-breadcrumb">
         <Link href="/data/us-china-engagement"><span aria-hidden="true">←</span>{t.back}</Link>
       </div>
+      {versionPage && <aside className={`container ${styles.versionNotice}`} aria-label={t.versionPage}>
+        <div><strong>{archived ? t.archived : t.versionPage} · {release.version}</strong><p>{t.archiveNote}</p><p>{release.notes[language]}</p></div>
+        <Link className="text-link" href={dataset.path}>{t.latest}<span aria-hidden="true"> →</span></Link>
+      </aside>}
       <section className="container dataset-detail-hero" aria-labelledby="dataset-title">
         <div className="dataset-detail-copy">
           <div className="dataset-feature-labels">
             <span className="kicker">{t.series}</span>
-            <span className="release-status">{t.status}</span>
+            <span className="release-status">{archived ? t.archived : t.status}</span>
           </div>
           <h1 className={styles.title} id="dataset-title">{dataset.title[language]}</h1>
           <p className="dataset-summary">{dataset.summary[language]}</p>
@@ -102,17 +117,18 @@ export default function DatasetMemberClient() {
                 <time dateTime="2021-01-20">{t.end}</time>
               </dd>
             </div>
-            <div><dt>{t.retained}</dt><dd><strong className={styles.number}>{number.format(dataset.retainedRecords)}</strong></dd></div>
-            <div><dt>{t.included}</dt><dd><strong className={styles.number}>{number.format(dataset.includedRecords)}</strong></dd></div>
+            <div><dt>{t.retained}</dt><dd><strong className={styles.number}>{number.format(release.retainedRecords)}</strong></dd></div>
+            <div><dt>{t.included}</dt><dd><strong className={styles.number}>{number.format(release.includedRecords)}</strong></dd></div>
           </dl>
           <dl className="dataset-facts">
-            <div><dt>{t.version}</dt><dd>{dataset.release.version}</dd></div>
-            <div><dt>{t.released}</dt><dd><time dateTime={dataset.release.date}>{dataset.release.date}</time></dd></div>
-            <div><dt>{t.license}</dt><dd><a href={dataset.release.license}>CC BY 4.0</a></dd></div>
+            <div><dt>{t.version}</dt><dd>{release.version}</dd></div>
+            <div><dt>{t.released}</dt><dd><time dateTime={release.date}>{release.date}</time></dd></div>
+            <div><dt>{t.license}</dt><dd><a href={release.license}>CC BY 4.0</a></dd></div>
           </dl>
           <div className="dataset-feature-actions">
             <a className="primary-link" href="#downloads">{t.downloadData}<span aria-hidden="true">↓</span></a>
             <a className="text-link" href="#citation">{t.cite}<span aria-hidden="true">↓</span></a>
+            <Link className="text-link" href={`${dataset.path}/versions`}>{t.history}<span aria-hidden="true">→</span></Link>
           </div>
           <p className="dataset-release-note">{t.availability}</p>
         </div>
@@ -125,9 +141,9 @@ export default function DatasetMemberClient() {
         <h2 id="counting-note-title">{t.countingTitle}</h2>
         <div>
           <p>{language === "zh" ? <>
-            本目录共保留 <strong>{number.format(dataset.retainedRecords)}</strong> 行记录。其中 <strong>{number.format(dataset.includedRecords)}</strong> 行的“Counting Status”为“Include”，计入统计；另有 <strong>{number.format(dataset.excludedRecords)}</strong> 行未计入统计，但仍保留供查验。
+            本目录共保留 <strong>{number.format(release.retainedRecords)}</strong> 行记录。其中 <strong>{number.format(release.includedRecords)}</strong> 行的“Counting Status”为“Include”，计入统计；另有 <strong>{number.format(release.excludedRecords)}</strong> 行未计入统计，但仍保留供查验。
           </> : <>
-            The catalogue retains <strong>{number.format(dataset.retainedRecords)}</strong> rows: <strong>{number.format(dataset.includedRecords)}</strong> marked “Include” in Counting Status, plus <strong>{number.format(dataset.excludedRecords)}</strong> excluded rows kept for transparency.
+            The catalogue retains <strong>{number.format(release.retainedRecords)}</strong> rows: <strong>{number.format(release.includedRecords)}</strong> marked “Include” in Counting Status, plus <strong>{number.format(release.excludedRecords)}</strong> excluded rows kept for transparency.
           </>}</p>
           <p>{t.countingNote}</p>
         </div>
@@ -138,8 +154,8 @@ export default function DatasetMemberClient() {
         <article><div className="kicker">{t.evidenceLabel}</div><h2>{t.evidenceTitle}</h2><p>{t.evidenceText}</p></article>
       </section>
       <div className="container">
-        <DatasetDownloads slug={dataset.slug} release={dataset.release} />
-        <DatasetCitation citation={dataset.citation} bibtex={dataset.bibtex} description={t.citationNote} />
+        <DatasetDownloads slug={dataset.slug} release={release} />
+        <DatasetCitation citation={release.citation} bibtex={release.bibtex} description={t.citationNote} />
       </div>
     </div>
   );

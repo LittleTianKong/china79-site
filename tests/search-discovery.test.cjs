@@ -46,11 +46,13 @@ test("the released dataset has a single canonical identity and verified public r
   assert.equal(data["@type"], "Dataset");
   assert.equal(data.name, trumpFirstAdministrationDataset.title.en);
   assert.equal(data.url, trumpFirstAdministrationDataset.url);
-  assert.equal(data.version, "1.0.0");
+  assert.equal(data.version, trumpFirstAdministrationDataset.release.version);
   assert.equal(data.creator.name, "Michael C. Rhind-Tutt");
   assert.equal(data.temporalCoverage, "2017-01-20/2021-01-20");
   assert.ok(data.description.length >= 50 && data.description.length <= 5000);
-  assert.match(data.description, /745 records.*719.*26.*published under CC BY 4.0/s);
+  assert.ok(data.description.includes(`${trumpFirstAdministrationDataset.retainedRecords} records`));
+  assert.ok(data.description.includes(`${trumpFirstAdministrationDataset.includedRecords} are included`));
+  assert.ok(data.description.includes(`${trumpFirstAdministrationDataset.excludedRecords} are retained`));
   assert.doesNotMatch(data.description, /forthcoming/i);
   assert.equal(data.datePublished, trumpFirstAdministrationDataset.release.date);
   assert.equal(data.license, "https://creativecommons.org/licenses/by/4.0/");
@@ -61,7 +63,7 @@ test("the released dataset has a single canonical identity and verified public r
   for (const file of data.distribution) {
     assert.equal(file["@type"], "DataDownload");
     assert.equal(file.license, data.license);
-    assert.match(file.contentUrl, /^https:\/\/github\.com\/LittleTianKong\/china79-site\/releases\/download\/us-china-engagement-trump1-v1\.0\.0\/us-china-engagement-data-trump1-v1\.0\.0\.(csv|xlsx|zip)$/);
+    assert.ok(file.contentUrl.startsWith(`https://github.com/LittleTianKong/china79-site/releases/download/${trumpFirstAdministrationDataset.release.tag}/`));
     assert.ok(file.encodingFormat);
   }
   assert.equal(series["@type"], "DataCatalog");
@@ -78,17 +80,19 @@ test("all sitemap pages exist, have matching canonicals, and are indexable", asy
   const { default: sitemap } = load("app/sitemap.ts");
   const { SITE_URL } = load("lib/seo.ts");
   const { articles } = load("lib/content.ts");
+  const { trumpFirstAdministrationDataset: dataset } = load("lib/datasets.ts");
   const entries = sitemap();
-  assert.equal(entries.length, 8 + articles.filter(item => item.status === "published").length);
+  assert.equal(entries.length, 9 + dataset.releases.length + articles.filter(item => item.status === "published").length);
   assert.equal(new Set(entries.map(item => item.url)).size, entries.length);
   for (const item of entries) {
     const pathname = new URL(item.url).pathname;
     const isArticle = pathname.startsWith("/analysis/");
-    const file = isArticle ? "app/analysis/[slug]/page.tsx" : `app${pathname === "/" ? "" : pathname}/page.tsx`;
+    const version = dataset.releases.find(release => release.path === pathname);
+    const file = version ? `app${dataset.path}/versions/[version]/page.tsx` : isArticle ? "app/analysis/[slug]/page.tsx" : `app${pathname === "/" ? "" : pathname}/page.tsx`;
     assert.ok(fs.existsSync(path.join(root, file)), file);
     assert.equal(new URL(item.url).origin, SITE_URL);
     const page = load(file);
-    const metadata = isArticle ? await page.generateMetadata({ params: Promise.resolve({ slug: pathname.split("/").pop() }) }) : page.metadata;
+    const metadata = version ? await page.generateMetadata({ params: Promise.resolve({ version: version.version }) }) : isArticle ? await page.generateMetadata({ params: Promise.resolve({ slug: pathname.split("/").pop() }) }) : page.metadata;
     assert.equal(metadata.alternates.canonical, item.url, file);
     assert.equal(metadata.robots.index, true, file);
     assert.equal(metadata.openGraph.url, item.url, file);

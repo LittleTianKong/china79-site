@@ -1,6 +1,6 @@
 # Dataset download tracking
 
-The Flagship Series page shows combined file-download counts across the series; individual dataset pages show counts for their own files. The catalog shows a compact series total. Counts come from GitHub's release-asset `download_count`; no new account, paid analytics plan, database, or API key is needed for this public repository. The planned number of datasets (eight) is separate from the number of release assets or downloads.
+The Flagship Series page shows combined file-download counts across the series; individual dataset and permanent version pages show counts for their selected release's registered files. The catalog shows a compact series total. Counts come from GitHub's release-asset `download_count`; no new account, paid analytics plan, database, or API key is needed for this public repository. The planned number of datasets (eight) is separate from the number of release assets or downloads.
 
 ## Current dataset release
 
@@ -12,9 +12,9 @@ The first member is **U.S.–China Official Contacts: Trump’s First Administra
 - `us-china-engagement-data-trump1-v1.0.0.xlsx`
 - `us-china-engagement-data-trump1-v1.0.0.zip`
 
-The dataset retains 745 rows, including 719 rows marked `Include` in Counting Status and 26 excluded rows retained for transparency. Human-readable citations refer to Version 1; the public release tag is `v1.0.0`. Seven further datasets remain planned.
+The dataset retains 745 rows, including 719 rows marked `Include` in Counting Status and 26 excluded rows retained for transparency. Website citations identify version 1.0.0 and its permanent version page; the public release tag is `v1.0.0`. Seven further datasets remain planned.
 
-The page exposes direct links from the confirmed release metadata even while GitHub statistics are loading, unavailable, or cached before the release. In those states, file availability stays visible and download counts are not fabricated.
+The page exposes direct links from the confirmed release metadata even while GitHub statistics are loading, unavailable, or cached before the release. In those states, file availability stays visible and download counts are not fabricated. The [version archive](https://china79.org/data/us-china-engagement/trump-first-administration/versions) also lists every registered release with permanent version pages, citations, notes, counts, and direct file links, independently of the statistics API.
 
 ## Publishing later datasets and versions
 
@@ -26,13 +26,13 @@ The flagship series and its first member are configured in `lib/datasets.ts`:
 - First dataset release tag prefix: `us-china-engagement-trump1-v`
 - First dataset data-file prefix: `us-china-engagement-data-trump1-`
 
-For a later release:
+For a later release, follow the full workflow in [DATASET_RELEASES.md](./DATASET_RELEASES.md):
 
-1. Update its availability copy, version details, and citation for the actual release.
-2. Create a [GitHub Release](https://github.com/LittleTianKong/china79-site/releases/new) with the member’s unique tag prefix and its new version; do not reuse or replace the existing `us-china-engagement-trump1-v1.0.0` release.
-3. Attach actual data files using the registered member’s data-file prefix. Include the codebook, license, and counting guidance with the release; methodology files without the data prefix are not counted as dataset downloads.
-4. Publish a stable public release. Drafts and prereleases are excluded.
-5. The files and counters will appear on the dataset page after the cache refresh. The site checks GitHub about every five minutes. GitHub can take additional time to report downloads, so a successful download does not necessarily change the displayed count immediately.
+1. Create a **new** [GitHub Release](https://github.com/LittleTianKong/china79-site/releases/new) with the member's unique tag prefix and its new version. Do not reuse or replace the existing `us-china-engagement-trump1-v1.0.0` release, its tag, or its assets.
+2. Attach actual data files using the registered member's data-file prefix and the new version number. Include the codebook, license, and counting guidance with the release; methodology files without the data prefix are not counted as dataset downloads.
+3. Publish a stable public release and verify its file URLs and contents. Drafts and prereleases are excluded from statistics.
+4. Prepend a complete published version snapshot to the member's `releases` list in `lib/datasets.ts`, including its permanent site path, actual publication date, counts, bilingual notes, and version-specific citation. The first snapshot automatically becomes the current `release`. Preserve all earlier snapshots and their immutable per-version pages.
+5. Check and deploy the updated site. The current page and archive use explicitly registered metadata; GitHub uploads are not imported into those pages automatically. Series statistics discover matching public files after the cache refresh; version pages filter those statistics to their registered files. The site checks GitHub about every five minutes. GitHub can take additional time to report downloads, so a successful download does not necessarily change the displayed count immediately.
 
 Register only actual confirmed public files in the release metadata. Do not create placeholder releases or fabricated datasets to populate counters.
 
