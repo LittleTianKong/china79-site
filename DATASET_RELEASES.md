@@ -13,7 +13,9 @@ At the owner's explicit request, 35 Record IDs were corrected within the existin
 
 ## What a version preserves
 
-`lib/datasets.ts` contains published release snapshots in `trumpFirstAdministrationDataset.releases`, newest first. Each snapshot records the version number, publication date, GitHub tag and release URL, permanent site path, license, exact file URLs, retained/included/excluded record counts, English and Chinese release notes, citation, and BibTeX. The dataset's `release` points to the current snapshot.
+`lib/datasets.ts` contains published release snapshots in `trumpFirstAdministrationDataset.releases`, newest first. Each snapshot records the version number, publication date, GitHub tag and release URL, permanent site path, license, exact file URLs, retained/included/excluded record counts, data-field count, English and Chinese release notes, citation, and BibTeX. The dataset's `release` points to the current snapshot. Count data fields from the released Master table's header; both existing releases contain 22 fields.
+
+The current release also records **30,193 populated data cells**: count non-empty cells across the 1,450 Master records and all 22 fields, excluding the header. Identifiers, notes, and repeated values are included; empty cells are excluded. This measures populated cells, not independent observations. Recalculate this metadata when data changes. Landing and current dataset pages show records alongside populated cells; field count is the fallback for a release without that metric. Releases with exclusions preserve separate retained/included figures.
 
 Per-version pages are immutable publication snapshots: preserve their metadata, counts, citations, and files when publishing a successor. Each has its own canonical URL and version-specific citation. The main dataset URL continues to present the current release. Cite the permanent page for the exact version used in an analysis so that readers can obtain the same data later.
 

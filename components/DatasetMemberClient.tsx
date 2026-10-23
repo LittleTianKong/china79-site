@@ -22,6 +22,10 @@ const copy = {
     end: "Jan 20, 2021",
     retained: "Records retained",
     included: "Included in counts",
+    records: "Records",
+    fields: "Data fields",
+    cells: "Populated data cells",
+    allIncluded: "All records are included in the default count.",
     cite: "Cite this dataset",
     downloads: "Downloads",
     downloadData: "Download data",
@@ -57,6 +61,10 @@ const copy = {
     end: "2021年1月20日",
     retained: "保留记录",
     included: "计入统计",
+    records: "记录",
+    fields: "数据字段",
+    cells: "已填数据单元格",
+    allIncluded: "所有记录均计入默认统计。",
     cite: "引用此数据集",
     downloads: "下载",
     downloadData: "下载数据",
@@ -86,6 +94,7 @@ export default function DatasetMemberClient({ release = dataset.release, version
   const t = copy[language];
   const number = new Intl.NumberFormat(language === "zh" ? "zh-CN" : "en-US");
   const archived = release.version !== dataset.release.version;
+  const allIncluded = release.retainedRecords === release.includedRecords && release.excludedRecords === 0;
 
   return (
     <div className={`dataset-detail-page ${styles.page}`}>
@@ -117,9 +126,10 @@ export default function DatasetMemberClient({ release = dataset.release, version
                 <time dateTime="2021-01-20">{t.end}</time>
               </dd>
             </div>
-            <div><dt>{t.retained}</dt><dd><strong className={styles.number}>{number.format(release.retainedRecords)}</strong></dd></div>
-            <div><dt>{t.included}</dt><dd><strong className={styles.number}>{number.format(release.includedRecords)}</strong></dd></div>
+            <div><dt>{allIncluded ? t.records : t.retained}</dt><dd><strong className={styles.number}>{number.format(release.retainedRecords)}</strong></dd></div>
+            <div><dt>{allIncluded ? release.populatedCells !== undefined ? t.cells : t.fields : t.included}</dt><dd><strong className={styles.number}>{number.format(allIncluded ? release.populatedCells ?? release.fieldCount : release.includedRecords)}</strong></dd></div>
           </dl>
+          {allIncluded && <p className={styles.inclusionNote}>{t.allIncluded}</p>}
           <dl className="dataset-facts">
             <div><dt>{t.version}</dt><dd>{release.version}</dd></div>
             <div><dt>{t.released}</dt><dd><time dateTime={release.date}>{release.date}</time></dd></div>
@@ -137,7 +147,7 @@ export default function DatasetMemberClient({ release = dataset.release, version
         </div>
       </section>
 
-      <section className={`container ${styles.countingNote}`} aria-labelledby="counting-note-title">
+      {!allIncluded && <section className={`container ${styles.countingNote}`} aria-labelledby="counting-note-title">
         <h2 id="counting-note-title">{t.countingTitle}</h2>
         <div>
           <p>{language === "zh" ? <>
@@ -147,7 +157,7 @@ export default function DatasetMemberClient({ release = dataset.release, version
           </>}</p>
           <p>{t.countingNote}</p>
         </div>
-      </section>
+      </section>}
 
       <section className="container dataset-detail-overview" aria-label={language === "zh" ? "数据集范围与阅读说明" : "Dataset scope and reading guidance"}>
         <article><div className="kicker">{t.scopeLabel}</div><h2>{t.scopeTitle}</h2><p>{t.scopeText}</p></article>

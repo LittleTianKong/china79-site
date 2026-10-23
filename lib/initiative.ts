@@ -3,7 +3,7 @@ export const initiative = {
     name: "China79 Initiative",
     tagline: "Better Data. Better Dialogue.",
     taglineLines: ["Better Data.", "Better Dialogue."],
-    description: "Free, detailed, source-linked datasets documenting federal-level U.S.–China meetings since 1979.",
+    description: "The most comprehensive freely available datasets on federal-level U.S.–China engagement, with sources linked to every record.",
     introduction:
       "We collect, document, and publish historical evidence to make U.S.–China relations easier to explore, compare, and understand.",
     missionLabel: "Our mission",
@@ -41,7 +41,7 @@ export const initiative = {
     name: "China79 倡议",
     tagline: "更好的数据，更好的对话。",
     taglineLines: ["更好的数据，", "更好的对话。"],
-    description: "免费、详细、附有来源链接的数据集，记录1979年以来美中两国联邦／中央政府层级的会晤。",
+    description: "最全面的免费美中联邦／中央政府层级接触数据集，每条记录均附有来源链接。",
     introduction:
       "我们收集、整理并发布历史资料，让美中关系更便于探索、比较和理解。",
     missionLabel: "我们的使命",

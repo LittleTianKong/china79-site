@@ -16,8 +16,9 @@ const copy = {
     coverPeriod: "Trump I · 2017–2021",
     featuredSummary:
       "Explore the documented official contacts of Trump’s first administration, with source links, counting decisions, and a codebook to guide your analysis.",
-    retained: "Records retained",
-    included: "Included in counts",
+    records: "Records",
+    fields: "Data fields",
+    cells: "Populated data cells",
     datasetAction: "View & download dataset",
     datasetCitation: "Copy a citation",
     dataTitle: "A clearer record. A more informed conversation.",
@@ -54,8 +55,9 @@ const copy = {
     coverPeriod: "特朗普第一届政府 · 2017—2021",
     featuredSummary:
       "探索特朗普第一届政府期间有公开记录的官方接触，并通过来源链接、统计处理说明和编码手册开展分析。",
-    retained: "保留记录",
-    included: "计入统计",
+    records: "记录",
+    fields: "数据字段",
+    cells: "已填数据单元格",
     datasetAction: "查看并下载数据集",
     datasetCitation: "复制引文",
     dataTitle: "更清晰的记录，更有依据的讨论。",
@@ -186,8 +188,8 @@ export default function HomePageClient() {
             </h2>
             <p className={styles.summary}>{t.featuredSummary}</p>
             <dl className={styles.facts}>
-              <div><dt>{t.retained}</dt><dd>{number.format(featuredDataset.retainedRecords)}</dd></div>
-              <div><dt>{t.included}</dt><dd>{number.format(featuredDataset.includedRecords)}</dd></div>
+              <div><dt>{t.records}</dt><dd>{number.format(featuredDataset.retainedRecords)}</dd></div>
+              <div><dt>{featuredDataset.populatedCells !== undefined ? t.cells : t.fields}</dt><dd>{number.format(featuredDataset.populatedCells ?? featuredDataset.fieldCount)}</dd></div>
             </dl>
             <div className={styles.actions}>
               <Link className="primary-link" href={featuredDataset.path}>

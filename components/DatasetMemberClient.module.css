@@ -25,6 +25,13 @@
   line-height: 1.2;
 }
 
+.inclusionNote {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 .versionNotice {
   display: flex;
   flex-wrap: wrap;

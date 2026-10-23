@@ -29,7 +29,7 @@ const copy = {
     contactAction: "Contact China79",
     members: "Inside the series", membersTitle: "One released. Seven planned.",
     first: "Dataset 01 of 08", forthcoming: "Available now", explore: "Explore dataset", memberCitation: "Cite this dataset",
-    retained: "Records retained", included: "Default included count", periodLabel: "Coverage period", periodValue: "2017–2021",
+    retained: "Records retained", included: "Default included count", records: "Records", fields: "Data fields", cells: "Populated data cells", periodLabel: "Coverage period", periodValue: "2017–2021",
     remaining: "Seven further datasets are planned. Their titles, scopes, and release details will be added as they are prepared for publication.",
   },
   zh: {
@@ -48,7 +48,7 @@ const copy = {
     contactTitle: "有资料来源或问题想分享？", contactText: "我们欢迎来源建议、资料更正及关于本系列或其中各数据集的咨询。", contactAction: "联系 China79",
     members: "系列内容", membersTitle: "已发布1个，另有7个规划中。",
     first: "第01个数据集，共08个", forthcoming: "现已发布", explore: "了解数据集", memberCitation: "引用此数据集",
-    retained: "保留记录数", included: "默认纳入计数", periodLabel: "覆盖时期", periodValue: "2017—2021年",
+    retained: "保留记录数", included: "默认纳入计数", records: "记录", fields: "数据字段", cells: "已填数据单元格", periodLabel: "覆盖时期", periodValue: "2017—2021年",
     remaining: "另有7个数据集正在规划中。随着各数据集准备发布，我们将补充其名称、覆盖范围及版本信息。",
   },
 };
@@ -89,13 +89,18 @@ export default function DatasetDetailClient() {
       </section>
       <section className={`container ${styles.members}`} aria-labelledby="series-members-title">
         <div className="kicker">{t.members}</div><h2 id="series-members-title">{t.membersTitle}</h2>
-        {dataset.members.map((member) => <article className={styles.card} key={member.slug}>
+        {dataset.members.map((member) => {
+          const allIncluded = member.retainedRecords === member.includedRecords && member.excludedRecords === 0;
+          const detailLabel = allIncluded ? member.populatedCells !== undefined ? t.cells : t.fields : t.included;
+          const detailCount = allIncluded ? member.populatedCells ?? member.fieldCount : member.includedRecords;
+          const number = new Intl.NumberFormat(language === "zh" ? "zh-CN" : "en-US");
+          return <article className={styles.card} key={member.slug}>
           <Link className={styles.cover} href={member.path} aria-label={`${t.explore}: ${member.title[language]}`}><DatasetCover title={member.shortTitle[language]} seriesLabel={t.first} periodLabel={language === "zh" ? "特朗普第一届政府 · 2017—2021年" : "Trump I · 2017–2021"} /></Link>
           <div><div className="dataset-feature-labels"><span className="kicker">{t.first}</span><span className="release-status">{t.forthcoming}</span></div><h3><Link href={member.path}>{member.title[language]}</Link></h3><p>{member.summary[language]}</p>
-            <dl className="dataset-facts"><div><dt>{t.periodLabel}</dt><dd>{t.periodValue}</dd></div><div><dt>{t.retained}</dt><dd>{member.retainedRecords}</dd></div><div><dt>{t.included}</dt><dd>{member.includedRecords}</dd></div></dl>
+            <dl className="dataset-facts"><div><dt>{t.periodLabel}</dt><dd>{t.periodValue}</dd></div><div><dt>{allIncluded ? t.records : t.retained}</dt><dd>{number.format(member.retainedRecords)}</dd></div><div><dt>{detailLabel}</dt><dd>{number.format(detailCount)}</dd></div></dl>
             <div className="dataset-feature-actions"><Link className="primary-link" href={member.path}>{t.explore}<span aria-hidden="true">→</span></Link><Link className="text-link" href={member.path + "#citation"}>{t.memberCitation}<span aria-hidden="true">↗</span></Link></div>
           </div>
-        </article>)}
+        </article>})}
         <p className={styles.remaining}>{t.remaining}</p>
       </section>
       <section className="container dataset-detail-questions" aria-labelledby="dataset-questions-title">
