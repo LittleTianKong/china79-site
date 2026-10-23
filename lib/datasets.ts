@@ -30,8 +30,8 @@ export const trumpFirstAdministrationReleases: readonly DatasetRelease[] = [
     includedRecords: 1450,
     excludedRecords: 0,
     notes: {
-      en: "Expanded public release with 1,450 distinct records, all included in the default count. Updated data, sources, and codebook supersede version 1.0.0, which remains available in the archive. Download counts start afresh for this release.",
-      zh: "扩充后的公开版本包含1,450条独立记录，全部计入默认统计。更新的数据、来源和编码手册取代1.0.0版，旧版仍可通过历史版本页面访问。此版本的下载次数重新开始统计。",
+      en: "Expanded public release with 1,450 distinct records, all included in the default count. On October 23, 2026, 35 Record IDs were corrected within this same 2.0.0 release; all other data fields and record counts are unchanged. Version 1.0.0 remains available in the archive.",
+      zh: "扩充后的公开版本包含1,450条独立记录，全部计入默认统计。2026年10月23日，在同一2.0.0版本内修正了35个记录编号；其他数据字段及记录数量均未改变。1.0.0版仍可通过历史版本页面访问。",
     },
     files: [
       { name: "us-china-engagement-data-trump1-v2.0.0.csv", label: "CSV", format: "CSV", encodingFormat: "text/csv", url: "https://github.com/LittleTianKong/china79-site/releases/download/us-china-engagement-trump1-v2.0.0/us-china-engagement-data-trump1-v2.0.0.csv" },

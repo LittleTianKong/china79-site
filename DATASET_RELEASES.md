@@ -9,6 +9,8 @@ The Trump dataset has a permanent landing page for its current release and an ar
 
 The archive includes the current version, **2.0.0**, published October 23, 2026 with 1,450 retained records, all included in the default count. Version 1.0.0 remains accessible with its original 745 retained, 719 included, and 26 excluded records. Uploading files to GitHub alone does not change the site's current version or add a version page automatically.
 
+At the owner's explicit request, 35 Record IDs were corrected within the existing 2.0.0 release on October 23, 2026. All other Master data fields and record counts are unchanged. The same release, tag, version number, and file URLs are retained; the files and checksums were refreshed without adding a version or archiving the earlier 2.0.0 files.
+
 ## What a version preserves
 
 `lib/datasets.ts` contains published release snapshots in `trumpFirstAdministrationDataset.releases`, newest first. Each snapshot records the version number, publication date, GitHub tag and release URL, permanent site path, license, exact file URLs, retained/included/excluded record counts, English and Chinese release notes, citation, and BibTeX. The dataset's `release` points to the current snapshot.
@@ -26,7 +28,7 @@ Archive pages render the registered file links directly. Access to earlier versi
 5. The first snapshot automatically becomes the current `release`; counts, citation, and search metadata follow it. Update any release-specific explanatory copy or documentation. Check that the current page, archive, new version page, and older version pages show the appropriate counts, notes, citations, and file URLs.
 6. Run the repository's relevant dataset and search-discovery tests, TypeScript checks, and production build before deploying the site. Verify the deployed archive links and both languages.
 
-Never reuse an old release tag, replace an older asset, delete a previous release, or redirect its version page to the current version. Corrections to published data require another version. GitHub permits owners to alter or delete assets; the site's archive relies on keeping those published releases intact. Deleting or replacing assets can also lose or reset download counts.
+For normal updates, create a new release and preserve previous tags, assets, and version pages. An in-place correction to the current release requires an explicit owner instruction, as with the 2.0.0 ID correction above. Keep archived releases intact. GitHub permits owners to alter or delete assets; the site's archive relies on keeping those published releases intact. Deleting or replacing assets can also lose or reset download counts.
 
 ## Download totals
 
