@@ -1,6 +1,7 @@
 export type DatasetRelease = {
   version: string;
   date: string;
+  updated?: string;
   tag: string;
   url: string;
   path: string;
@@ -24,18 +25,19 @@ export const trumpFirstAdministrationReleases: readonly DatasetRelease[] = [
   {
     version: "2.0.0",
     date: "2026-10-23",
+    updated: "2026-10-28",
     tag: "us-china-engagement-trump1-v2.0.0",
     url: "https://github.com/LittleTianKong/china79-site/releases/tag/us-china-engagement-trump1-v2.0.0",
     path: `${trumpDatasetPath}/versions/2.0.0`,
     license: "https://creativecommons.org/licenses/by/4.0/",
-    retainedRecords: 1450,
-    includedRecords: 1450,
+    retainedRecords: 1500,
+    includedRecords: 1500,
     excludedRecords: 0,
-    fieldCount: 22,
-    populatedCells: 30193,
+    fieldCount: 23,
+    populatedCells: 34476,
     notes: {
-      en: "Expanded public release with 1,450 distinct records, all included in the default count. On October 23, 2026, 35 Record IDs were corrected within this same 2.0.0 release; all other data fields and record counts are unchanged. Version 1.0.0 remains available in the archive.",
-      zh: "扩充后的公开版本包含1,450条独立记录，全部计入默认统计。2026年10月23日，在同一2.0.0版本内修正了35个记录编号；其他数据字段及记录数量均未改变。1.0.0版仍可通过历史版本页面访问。",
+      en: "Refreshed on October 28, 2026 within the existing 2.0.0 release: 1,500 documented contact records across 23 fields, all included in the total. The records include 19 unresolved contact groups and 7 aggregate records, each counted once; the total does not represent 1,500 separately identifiable meetings. Verification notes and ID history are retained in the workbook. The source Codebook’s working revision label was aligned to public version 2.0.0. No additional version or archive copy was created; version 1.0.0 remains unchanged.",
+      zh: "2026年10月28日，在原有2.0.0版本内更新：现含1,500条有公开资料支持的接触记录、23个字段，全部纳入总数。其中19条为分组尚未厘清的接触记录，7条为汇总记录，各计一次；总数并不代表1,500场可单独识别的会晤。工作簿保留核验备注及编号历史。来源编码手册中的工作修订编号已统一为公开版本2.0.0，未增加新版本或历史副本；1.0.0版保持不变。",
     },
     files: [
       { name: "us-china-engagement-data-trump1-v2.0.0.csv", label: "CSV", format: "CSV", encodingFormat: "text/csv", url: "https://github.com/LittleTianKong/china79-site/releases/download/us-china-engagement-trump1-v2.0.0/us-china-engagement-data-trump1-v2.0.0.csv" },

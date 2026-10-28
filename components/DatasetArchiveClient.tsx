@@ -16,6 +16,7 @@ const copy = {
     current: "Current",
     archived: "Archived",
     published: "Published",
+    updated: "Files updated",
     retained: "Records retained",
     included: "Included in counts",
     excluded: "Excluded records",
@@ -35,6 +36,7 @@ const copy = {
     current: "当前版本",
     archived: "历史版本",
     published: "发布日期",
+    updated: "文件更新日期",
     retained: "保留记录",
     included: "计入统计",
     excluded: "未计入统计",
@@ -76,6 +78,7 @@ export default function DatasetArchiveClient() {
                   </div>
                   <p className={styles.meta}>
                     <span>{t.published}: <time dateTime={release.date}>{release.date}</time></span>
+                    {release.updated && <span>{t.updated}: <time dateTime={release.updated}>{release.updated}</time></span>}
                     <span>{t.license}: <a href={release.license}>CC BY 4.0</a></span>
                   </p>
                   <p className={styles.notes}>{release.notes[language]}</p>

@@ -36,6 +36,7 @@ const copy = {
     archiveNote: "This page preserves the files, record counts, and citation for this release.",
     version: "Release version",
     released: "Published",
+    updated: "Files updated",
     license: "License",
     availability: "Download the CSV, Excel workbook, or complete release package below. The dataset is available under CC BY 4.0.",
     countingTitle: "What the counts mean.",
@@ -75,6 +76,7 @@ const copy = {
     archiveNote: "本页面保留此版本的文件、记录数量及引用格式。",
     version: "发布版本",
     released: "发布日期",
+    updated: "文件更新日期",
     license: "许可协议",
     availability: "您可以在下方下载 CSV、Excel 工作簿或完整发布包。本数据集采用 CC BY 4.0 许可协议。",
     countingTitle: "如何理解这些数字。",
@@ -133,6 +135,7 @@ export default function DatasetMemberClient({ release = dataset.release, version
           <dl className="dataset-facts">
             <div><dt>{t.version}</dt><dd>{release.version}</dd></div>
             <div><dt>{t.released}</dt><dd><time dateTime={release.date}>{release.date}</time></dd></div>
+            {release.updated && <div><dt>{t.updated}</dt><dd><time dateTime={release.updated}>{release.updated}</time></dd></div>}
             <div><dt>{t.license}</dt><dd><a href={release.license}>CC BY 4.0</a></dd></div>
           </dl>
           <div className="dataset-feature-actions">
